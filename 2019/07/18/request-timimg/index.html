@@ -24,14 +24,17 @@
     </noscript>
 </head>
 
-<body>
+  <body>
     <div class="site-nav-toggle" id="site-nav-toggle">
-        <button>
+        <button id="toggle" title="toggle">
             <span class="btn-bar"></span>
             <span class="btn-bar"></span>
             <span class="btn-bar"></span>
         </button>
     </div>
+    <header class="wrapper header">
+	<h1 class="title">冷石的博客</h1>
+</header>
 
     <main class="index-container">
         
@@ -151,34 +154,42 @@
     </main>
     <footer class="footer"></footer>
 
-</body>
 
-<script>
-    window.hexo_search_path = "search.json"
-    window.hexo_root = "/"
-    window.isPost = true
-</script>
-<script src="/scripts/index.js"></script>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-<script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
-
-    <script type="text/javascript">
-       (function() {
-           if (typeof LivereTower === 'function') { return; }
-
-           var j, d = document.getElementById('lv-container');
-
-           d.setAttribute('data-id','city');
-           d.setAttribute('data-uid' , 'MTAyMC80NTY4Mi8yMjE5Mw==');
-
-           j = document.createElement('script');
-           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-           j.async = true;
-
-           d.appendChild(j);
-       })();
+    <script>
+        window.hexo_search_path = "search.json"
+        window.hexo_root = "/"
+        window.isPost = true
     </script>
-    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-    </div>
+    <script src="/scripts/index.js"></script>
+    <script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
+    <script>
+      // google analytics
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+      gtag('config', 'UA-119658292-2')
+    </script>
+    
+        <script type="text/javascript">
+        (function() {
+            if (typeof LivereTower === 'function') { return; }
 
+            var j, d = document.getElementById('lv-container');
+
+            d.setAttribute('data-id','city');
+            d.setAttribute('data-uid' , 'MTAyMC80NTY4Mi8yMjE5Mw==');
+
+            j = document.createElement('script');
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            d.appendChild(j);
+        })();
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+        </div>
+    
+  </body>
 </html>
