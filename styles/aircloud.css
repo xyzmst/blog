@@ -421,6 +421,8 @@ h2 {
   color: #999999;
   font-size: 14px;
   text-decoration: none;
+  padding-right: 4px;
+  font-style: italic;
 }
 .post-preview-container {
   min-height: 420px;
