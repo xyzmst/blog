@@ -363,7 +363,7 @@ h2 {
     border-top: 1px solid #cccccc;
   }
   .nav .contents ul {
-    padding: 10px 30px;
+    padding: 10px;
   }
   .site-nav-toggle {
     height: 40px;
@@ -372,7 +372,6 @@ h2 {
     position: fixed;
     width: 100%;
     padding-top: 2px;
-    padding-left: 10px;
     z-index: 2;
     background-color: #ffffff;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
@@ -536,7 +535,6 @@ h2 {
     box-sizing: border-box;
     cursor: pointer;
     transition: color 0.4s, background-color 0.4s;
-    border: 1px solid #999999;
     line-height: 30px;
     width: 120px;
     height: 30px;
