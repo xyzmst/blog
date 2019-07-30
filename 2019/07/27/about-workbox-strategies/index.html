@@ -23,6 +23,7 @@
       <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
     </noscript>
 </head>
+
 <body>
     <div class="site-nav-toggle" id="site-nav-toggle">
         <button>
@@ -87,24 +88,25 @@
 
             </section>
         
-        <section class="index-middle"><div class="post-container">
+        <section class="index-middle flex"><div class="post-container">
     <div class="post-title">
         对于 Workbox Strategies几种策略的解释
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2019-07-27 04:36:13</span></span>
+      <span class="attr">发布于：<span>2019-07-27 04:36:13</span></span>
         
         <span class="attr">标签：/
         
-        <a class="tag" href="/tags/#PWA, Workbox" title="PWA, Workbox">PWA, Workbox</a>
+        <a class="tag" href="/tags/#Workbox" title="Workbox">Workbox</a>
         <span>/</span>
         
         
         </span>
         <span class="attr">访问：<span id="busuanzi_value_page_pv"></span></span>
-    </span>
+      </span>
     </div>
+
     <div class="post-content no-indent">
         <p>要将自己的网站支持 PWA，需要注册一个 serviceWorker 到浏览器中，通常使用 Google 的 <a href="https://developers.google.com/web/tools/workbox/" target="_blank" rel="noopener">Workbox</a> 工具，Workbox 可以在浏览器请求资源的时候提供了几种不同的策略对请求响应，本文对几种策略进行说明。</p>
 <h2 id="StaleWhileRevalidate"><a href="#StaleWhileRevalidate" class="headerlink" title="StaleWhileRevalidate"></a>StaleWhileRevalidate</h2><p>StaleWhileRevalidate 模式允许您使用缓存的响应尽快响应请求，如果未缓存，则返回到网络请求，然后，用网络请求更新缓存。</p>
@@ -133,12 +135,15 @@
         <div id="disqus_thread"></div>
         <div id="lv-container"></div>
     </div>
+
 </div>
+<div id="toc" class="toc-article">
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#StaleWhileRevalidate"><span class="toc-number">1.</span> <span class="toc-text">StaleWhileRevalidate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CacheFirst"><span class="toc-number">2.</span> <span class="toc-text">CacheFirst</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NetworkFirst"><span class="toc-number">3.</span> <span class="toc-text">NetworkFirst</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NetworkOnly"><span class="toc-number">4.</span> <span class="toc-text">NetworkOnly</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CacheOnly"><span class="toc-number">5.</span> <span class="toc-text">CacheOnly</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">6.</span> <span class="toc-text">参考</span></a></li></ol>
+</div>
+
 </section>
     </main>
-    <footer class="footer">
- 
-</footer>
+    <footer class="footer"></footer>
 
 </body>
 
@@ -150,7 +155,6 @@
 <script src="/scripts/index.js"></script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
-<script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
     <script type="text/javascript">
        (function() {

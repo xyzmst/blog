@@ -23,6 +23,7 @@
       <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
     </noscript>
 </head>
+
 <body>
     <div class="site-nav-toggle" id="site-nav-toggle">
         <button>
@@ -87,13 +88,13 @@
 
             </section>
         
-        <section class="index-middle"><div class="post-container">
+        <section class="index-middle flex"><div class="post-container">
     <div class="post-title">
         使用 Travis CI 部署 Hugo 博客到 Github Pages
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2019-07-26 20:58:25</span></span>
+      <span class="attr">发布于：<span>2019-07-26 20:58:25</span></span>
         
         <span class="attr">标签：/
         
@@ -103,8 +104,9 @@
         
         </span>
         <span class="attr">访问：<span id="busuanzi_value_page_pv"></span></span>
-    </span>
+      </span>
     </div>
+
     <div class="post-content no-indent">
         <p>原本使用的是 Netlify 去部署博客的，域名解析也是通过 Netlify 的 DNS 服务器，但是发现博客在别人的电脑上打不开…发现是域名解析的问题，所以就把博客放到 Github Pages 上了，但是这样就失去了 Netlify 提供的自动构建和部署的能力，需要自己去配置 Travis CI 实现自动部署了。</p>
 <h2 id="预先要求"><a href="#预先要求" class="headerlink" title="预先要求"></a>预先要求</h2><ul>
@@ -131,12 +133,15 @@
         <div id="disqus_thread"></div>
         <div id="lv-container"></div>
     </div>
+
 </div>
+<div id="toc" class="toc-article">
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#预先要求"><span class="toc-number">1.</span> <span class="toc-text">预先要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建博客"><span class="toc-number">2.</span> <span class="toc-text">创建博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新建一个-Github-Personal-access-token"><span class="toc-number">3.</span> <span class="toc-text">新建一个 Github Personal access token</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置-travis-yml"><span class="toc-number">4.</span> <span class="toc-text">配置 .travis.yml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提交触发构建"><span class="toc-number">5.</span> <span class="toc-text">提交触发构建</span></a></li></ol>
+</div>
+
 </section>
     </main>
-    <footer class="footer">
- 
-</footer>
+    <footer class="footer"></footer>
 
 </body>
 
@@ -148,7 +153,6 @@
 <script src="/scripts/index.js"></script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
-<script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
     <script type="text/javascript">
        (function() {

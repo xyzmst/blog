@@ -23,6 +23,7 @@
       <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
     </noscript>
 </head>
+
 <body>
     <div class="site-nav-toggle" id="site-nav-toggle">
         <button>
@@ -87,13 +88,13 @@
 
             </section>
         
-        <section class="index-middle"><div class="post-container">
+        <section class="index-middle flex"><div class="post-container">
     <div class="post-title">
         让 Hugo 博客支持 PWA
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2019-07-24 05:34:17</span></span>
+      <span class="attr">发布于：<span>2019-07-24 05:34:17</span></span>
         
         <span class="attr">标签：/
         
@@ -103,8 +104,9 @@
         
         </span>
         <span class="attr">访问：<span id="busuanzi_value_page_pv"></span></span>
-    </span>
+      </span>
     </div>
+
     <div class="post-content no-indent">
         <p>让用 Hugo 搭建的博客支持 PWA 很简单，只需 2 个步骤即可：</p>
 <h2 id="1-添加一个-manifest-json-文件"><a href="#1-添加一个-manifest-json-文件" class="headerlink" title="1. 添加一个 manifest.json 文件"></a>1. 添加一个 manifest.json 文件</h2><p>使用 <a href="https://app-manifest.firebaseapp.com" target="_blank" rel="noopener">https://app-manifest.firebaseapp.com</a> 来生成博客的 manifest.json 文件，然后将生成出来的文件和图片放到博客的 static 目录，然后在 layout/index.html 的 <head><meta name="generator" content="Hexo 3.9.0"> 标签内引用这个文件</head></p>
@@ -120,12 +122,15 @@
         <div id="disqus_thread"></div>
         <div id="lv-container"></div>
     </div>
+
 </div>
+<div id="toc" class="toc-article">
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-添加一个-manifest-json-文件"><span class="toc-number">1.</span> <span class="toc-text">1. 添加一个 manifest.json 文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-使用-Workbox-工具注册-ServiceWorker"><span class="toc-number">2.</span> <span class="toc-text">2. 使用 Workbox 工具注册 ServiceWorker</span></a></li></ol>
+</div>
+
 </section>
     </main>
-    <footer class="footer">
- 
-</footer>
+    <footer class="footer"></footer>
 
 </body>
 
@@ -137,7 +142,6 @@
 <script src="/scripts/index.js"></script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
-<script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
     <script type="text/javascript">
        (function() {
