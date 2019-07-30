@@ -1,0 +1,23 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="referrer" content="no-referrer">
+    <meta name="theme-color" content="#333333">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="google" content="notranslate">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="<%= config.description %>">
+    <meta name="keyword"  content="<%= config.keywords %>">
+    <title><%_ if (page.title) { %><%= page.title + ' - ' + config.SEOTitle %><% } else {%><%= config.SEOTitle %><% } _%></title>
+    <base href="/">
+    <link rel="manifest" href="<%= config.root %>manifest.json">
+    <link rel="shortcut icon" href="<%= config.root %>images/favicon.ico">
+    <link rel="preconnect" href="https://cdn.bootcss.com">
+    <%- css('styles/aircloud.css') %>
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <noscript>
+      <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
+    </noscript
+</head>
