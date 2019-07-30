@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,112 +11,83 @@
     <meta name="google" content="notranslate">
     <meta name="format-detection" content="telephone=no">
     <meta name="description" content="随便写点啥。">
-    <meta name="keyword" content="Web, Flutter, Js, CSS, Node.js">
+    <meta name="keyword" content="Web, Flutter, Js, CSS, Node.js, Frontend">
     <title>冷石的博客</title>
     <base href="/">
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="/images/favicon.ico">
-    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="preconnect" href="https://cdn.bootcss.com">
+    <link rel="stylesheet" href="/styles/aircloud.css">
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-119658292-2');
-    </script>
-     <noscript>
+    <noscript>
       <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
     </noscript>
 </head>
 <body>
+    <div class="site-nav-toggle" id="site-nav-toggle">
+        <button>
+            <span class="btn-bar"></span>
+            <span class="btn-bar"></span>
+            <span class="btn-bar"></span>
+        </button>
+    </div>
 
-<div class="site-nav-toggle" id="site-nav-toggle">
-    <button>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-    </button>
-</div>
-
-<div class="index-about">
-    <i> 真正的意志是不会被击败的! </i>
-</div>
-
-<div class="index-container">
-    
-    <div class="index-left">
+    <main class="index-container">
         
-<div class="nav" id="nav">
-    <div class="avatar-name">
-        <div class="avatar radius">
-            <img src="/avatar.png" />
-        </div>
-        <div class="name">
-            <i>冷石</i>
-        </div>
-    </div>
-    <div class="contents" id="nav-content">
-        <ul>
-            <li >
-                <a href="/">
-                    <i class="iconfont icon-shouye1"></i>
-                    <span>HOME</span>
-                </a>
-            </li>
-            <li  class=active >
-                <a href="/tags">
-                    <i class="iconfont icon-biaoqian1"></i>
-                    <span>TAGS</span>
-                </a>
-            </li>
-            <li >
-                <a href="/archives">
-                    <i class="iconfont icon-guidang2"></i>
-                    <span>ARCHIVES</span>
-                </a>
-            </li>
-            <li >
-                <a href="/about/">
-                    <i class="iconfont icon-guanyu2"></i>
-                    <span>ABOUT</span>
-                </a>
-            </li>
-            
-            <li>
-                <a id="search">
-                    <i class="iconfont icon-sousuo1"></i>
-                    <span>SEARCH</span>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-    
+            <section class="index-left">
+                <div class="nav" id="nav">
+  <nav class="contents" id="nav-content">
+      <ul>
+          <li >
+              <a href="/">
+                  <i class="iconfont icon-shouye1"></i>
+                  <span>主页</span>
+              </a>
+          </li>
+          <li  class=active >
+              <a href="/tags">
+                  <i class="iconfont icon-biaoqian1"></i>
+                  <span>标签</span>
+              </a>
+          </li>
+          <li >
+              <a href="/archives">
+                  <i class="iconfont icon-guidang2"></i>
+                  <span>存档</span>
+              </a>
+          </li>
+          <li >
+              <a href="/about/">
+                  <i class="iconfont icon-guanyu2"></i>
+                  <span>关于</span>
+              </a>
+          </li>
+          
+          <li>
+              <a id="search">
+                  <i class="iconfont icon-sousuo1"></i>
+                  <span>搜索</span>
+              </a>
+          </li>
+          
+      </ul>
+  </nav>
 </div>
-
 
 <div class="search-field" id="search-field">
     <div class="search-container">
         <div class="search-input">
             <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
             <input id="search-input"/>
-            <span id="begin-search">search</span>
+            <span id="begin-search">搜索</span>
         </div>
-        <div class="search-result-container" id="search-result-container">
-
-        </div>
+        <div class="search-result-container" id="search-result-container"></div>
     </div>
 </div>
 
-        <div class="index-about-mobile">
-            <i> 真正的意志是不会被击败的! </i>
-        </div>
-    </div>
-    
-    <div class="index-middle">
-        <!-- Main Content -->
+            </section>
         
+        <section class="index-middle">
 
 
 <!-- 归档列表 -->
@@ -269,53 +240,22 @@
 </div>
 
 </div>
-
-    </div>
-</div>
-
-<footer class="footer">
-    <ul class="list-inline text-center">
-        
-        
-        <li>
-            <a target="_blank"  href="https://github.com/xrr2016">
-                <span class="fa-stack fa-lg">
-                    <i class="iconfont icon-github"></i>
-                </span>
-            </a>
-        </li>
-        
-    </ul>
-    
-    <p>
-        <span id="busuanzi_container_site_pv">
-            <span id="busuanzi_value_site_pv"></span>PV
-        </span>
-        <span id="busuanzi_container_site_uv">
-            <span id="busuanzi_value_site_uv"></span>UV
-        </span>
-       </p>
+</section>
+    </main>
+    <footer class="footer">
+ 
 </footer>
-<script>
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js');
-    });
-}
-</script>
-
-
 
 </body>
 
 <script>
-    // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
     window.isPost = false
 </script>
+<script src="/scripts/index.js"></script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
+<script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 </html>
