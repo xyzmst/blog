@@ -12,7 +12,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="description" content="随便写点啥。">
     <meta name="keyword" content="Web, Flutter, Js, CSS, Node.js, Frontend">
-    <title>了解 &lt;link&gt; 标签上 rel=prexxx 的作用 - 冷石的博客</title>
+    <title>在 Centos 中安装 java8 - 冷石的博客</title>
     <base href="/">
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="/images/favicon.ico">
@@ -78,15 +78,15 @@
         
         <section class="index-middle flex"><div class="post-container">
     <div class="post-title">
-        了解 &lt;link&gt; 标签上 rel=prexxx 的作用
+        在 Centos 中安装 java8
     </div>
 
     <div class="post-meta">
-      <span class="attr">发布于：<span>2019-07-22 17:39:27</span></span>
+      <span class="attr">发布于：<span>2019-08-01 18:56:29</span></span>
         
         <span class="attr">标签：/
         
-        <a class="tag" href="/tags/#HTML" title="HTML">HTML</a>
+        <a class="tag" href="/tags/#centos java" title="centos java">centos java</a>
         <span>/</span>
         
         
@@ -96,14 +96,28 @@
     </div>
 
     <div class="post-content no-indent">
-        <p>在 HTML 中 <link> 标签指定了当前文档与外部资源之间的关系<br>本文说明 <link> 标签的 rel 属性分别设置 dns-prefetch，preconnect，prefetch，preload，prerender 的时候有说明作用</p>
-<p>dns-prefetch：向浏览器提示需要资源，允许浏览器在用户单击链接之前进行 DNS 查找和协议握手</p>
-<p>preconnect：向浏览器提供提示，建议它提前打开与链接网站的连接，而不泄露任何私人信息或下载任何内容，以便在遵循链接时可以更快地获取链接的内容</p>
-<p>prefetch：建议浏览器提前获取链接资源，因为它可能是用户请求的。 从 Firefox 44 开始，将考虑 crossorigin 属性的值，从而可以进行匿名预取</p>
-<p>preload：告诉浏览器下载资源，因为稍后在当前导航期间将需要此资源</p>
-<p>prerender：建议浏览器提前获取链接资源，并且它还在屏幕外渲染预取内容，以便在需要时可以快速呈现给用户</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://devdocs.io/html/link_types" target="_blank" rel="noopener">link_types</a></p>
-<p><a href="https://stackoverflow.com/questions/47273743/preconnect-vs-dns-prefetch-resource-hints" target="_blank" rel="noopener">preconnect-vs-dns-prefetch-resource-hints</a></p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于要在服务器上安装 <a href="https://jenkins.io/zh/" target="_blank" rel="noopener">Jenkins</a> 所以首先要安装 java。</p>
+<h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p>安装之前最好更新下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y update</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装-Java8"><a href="#安装-Java8" class="headerlink" title="安装 Java8"></a>安装 Java8</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install java-1.8.0-openjdk</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置环境变量-JAVA-HOME"><a href="#设置环境变量-JAVA-HOME" class="headerlink" title="设置环境变量 JAVA_HOME"></a>设置环境变量 JAVA_HOME</h2><p>首先找到安装 java 的位置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update-alternatives --config java</span><br></pre></td></tr></table></figure>
+
+<p>编辑 .bash_profile 文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim .bash_profile</span><br></pre></td></tr></table></figure>
+
+<p>添加这一行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre/bin/java</span><br></pre></td></tr></table></figure>
+
+<p>重新执行刚修改的 .bash_profile</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> .bash_profile</span><br></pre></td></tr></table></figure>
+
+<h2 id="验证一下"><a href="#验证一下" class="headerlink" title="验证一下"></a>验证一下</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$JAVA_HOME</span></span><br></pre></td></tr></table></figure>
+
 
         <div id="comment-container"></div>
         <div id="disqus_thread"></div>
@@ -112,7 +126,7 @@
 
 </div>
 <div id="toc" class="toc-article">
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">1.</span> <span class="toc-text">参考</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新"><span class="toc-number">2.</span> <span class="toc-text">更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-Java8"><span class="toc-number">3.</span> <span class="toc-text">安装 Java8</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看版本"><span class="toc-number">4.</span> <span class="toc-text">查看版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置环境变量-JAVA-HOME"><span class="toc-number">5.</span> <span class="toc-text">设置环境变量 JAVA_HOME</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证一下"><span class="toc-number">6.</span> <span class="toc-text">验证一下</span></a></li></ol>
 </div>
 
 </section>

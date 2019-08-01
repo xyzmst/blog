@@ -63,6 +63,11 @@ h2 {
   font-size: 1rem;
 }
 
+a {
+  text-decoration: none;
+  color: var(--primary-text-color);
+}
+
 .red {
   color: red;
 }
@@ -254,7 +259,6 @@ h2 {
 }
 .search-field .search-container {
   width: 40vw;
-  height: 70vh;
   min-width: 500px;
   margin-top: 15vh;
   background-color: white;
@@ -292,7 +296,6 @@ h2 {
   padding: 10px;
 }
 .search-field .search-result-container {
-  height: calc(70vh - 50px);
   overflow-y: scroll;
   overflow-x: hidden;
 }
