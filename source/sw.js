@@ -5,7 +5,7 @@ if (workbox) {
 
   workbox.routing.registerRoute(
     '/',
-    new workbox.strategies.NetworkFirst({
+    new workbox.strategies.StaleWhileRevalidate({
       cacheName: 'offline'
     })
   )

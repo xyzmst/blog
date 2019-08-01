@@ -1,6 +1,6 @@
 ---
 title: 对于 Workbox Strategies几种策略的解释
-tags: PWA, Workbox
+tags: Workbox
 categories: Web
 date: 2019-07-27T12:36:13+08:00
 ---

@@ -1,53 +1,60 @@
 <!DOCTYPE html>
 <html lang="<%- config.language %>">
 <%- partial('_partial/head') %>
-<body>
+  <body>
     <div class="site-nav-toggle" id="site-nav-toggle">
-        <button>
+        <button id="toggle" title="toggle">
             <span class="btn-bar"></span>
             <span class="btn-bar"></span>
             <span class="btn-bar"></span>
         </button>
     </div>
-
+    <%- partial('_partial/header', null, {cache: false}) %>
     <main class="index-container">
         <% if(!is_current('/404')){%>
             <section class="index-left">
                 <%- partial('_partial/nav', null, {cache: false}) %>
             </section>
         <% } %>
-        <section class="index-middle"><%- body %></section>
+        <section class="index-middle<%if (is_post()) { %> flex<% } %>"><%- body %></section>
     </main>
     <%- partial('_partial/footer', null, {cache: false}) %>
-</body>
 
-<script>
-    window.hexo_search_path = "<%- config.search ? config.search.path : ""%>"
-    window.hexo_root = "<%- config.root %>"
-    window.isPost = <%- is_post() %>
-</script>
-<%- js('scripts/index.js') %>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-<script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
-<script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<%if( (is_post() || is_current('about')) && config.comment && config.comment.type === 'livere'){%>
-    <script type="text/javascript">
-       (function() {
-           if (typeof LivereTower === 'function') { return; }
-
-           var j, d = document.getElementById('lv-container');
-
-           d.setAttribute('data-id','<%- config.comment.livere_id %>');
-           d.setAttribute('data-uid' , '<%- config.comment.livere_uid %>');
-
-           j = document.createElement('script');
-           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-           j.async = true;
-
-           d.appendChild(j);
-       })();
+    <script>
+        window.hexo_search_path = "<%- config.search ? config.search.path : ""%>"
+        window.hexo_root = "<%- config.root %>"
+        window.isPost = <%- is_post() %>
     </script>
-    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-    </div>
-<% } %>
+    <%- js('scripts/index.js') %>
+    <script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
+    <script>
+      // google analytics
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+      gtag('config', 'UA-119658292-2')
+    </script>
+    <%if( (is_post() || is_current('about')) && config.comment && config.comment.type === 'livere'){%>
+        <script type="text/javascript">
+        (function() {
+            if (typeof LivereTower === 'function') { return; }
+
+            var j, d = document.getElementById('lv-container');
+
+            d.setAttribute('data-id','<%- config.comment.livere_id %>');
+            d.setAttribute('data-uid' , '<%- config.comment.livere_uid %>');
+
+            j = document.createElement('script');
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            d.appendChild(j);
+        })();
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+        </div>
+    <% } %>
+  </body>
 </html>

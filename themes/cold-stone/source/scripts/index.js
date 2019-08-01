@@ -17,6 +17,7 @@ window.onresize = () => {
 // Nav switch function on mobile
 /*****************************************************************************/
 const navToggle = document.getElementById('site-nav-toggle')
+
 navToggle.addEventListener('click', () => {
   let aboutContent = document.getElementById('nav-content')
   if (!aboutContent.classList.contains('show-block')) {
@@ -41,15 +42,14 @@ const beginSearch = document.getElementById('begin-search')
 searchField.addEventListener(
   'mousewheel',
   e => {
-    // e.preventDefault()
     e.stopPropagation()
     return false
   },
   false
 )
 
-var searchJson
-var caseSensitive = false
+let searchJson
+let caseSensitive = false
 
 searchButton.addEventListener('click', () => {
   search()
@@ -212,24 +212,24 @@ function search() {
       isXml = false
     }
     let path = window.hexo_root + search_path
-    $.ajax({
-      url: path,
-      dataType: isXml ? 'xml' : 'json',
-      async: true,
-      success: function(res) {
-        searchJson = isXml
-          ? $('entry', res)
-              .map(function() {
-                return {
-                  title: $('title', this).text(),
-                  content: $('content', this).text(),
-                  url: $('url', this).text()
-                }
-              })
-              .get()
-          : res
-      }
-    })
+    // $.ajax({
+    //   url: path,
+    //   dataType: isXml ? 'xml' : 'json',
+    //   async: true,
+    //   success: function(res) {
+    //     searchJson = isXml
+    //       ? $('entry', res)
+    //           .map(function() {
+    //             return {
+    //               title: $('title', this).text(),
+    //               content: $('content', this).text(),
+    //               url: $('url', this).text()
+    //             }
+    //           })
+    //           .get()
+    //       : res
+    //   }
+    // })
   }
 }
 
@@ -249,9 +249,9 @@ function getDistanceOfLeft(obj) {
   }
 }
 
-var toc = document.getElementById('toc')
+let toc = document.getElementById('toc')
 
-var tocToTop = getDistanceOfLeft(toc).top
+let tocToTop = getDistanceOfLeft(toc).top
 
 function reHeightToc() {
   if (toc) {
@@ -264,9 +264,9 @@ function reHeightToc() {
 reHeightToc()
 
 if (window.isPost) {
-  var result = []
+  let result = []
 
-  var nameSet = new Set()
+  let nameSet = new Set()
 
   if (!toc || !toc.children || !toc.children[0]) {
     // do nothing
@@ -315,7 +315,7 @@ if (window.isPost) {
       result = getArrayFromOl(ol)
     }
 
-    var nameArray = Array.from(nameSet)
+    let nameArray = Array.from(nameSet)
 
     function reLayout() {
       let scrollToTop = document.documentElement.scrollTop || window.pageYOffset // Safari is special
@@ -371,33 +371,9 @@ if (window.isPost) {
   }
 }
 
-// donate
-/*****************************************************************************/
-const donateButton = document.getElementById('donate-button')
-const donateImgContainer = document.getElementById('donate-img-container')
-const donateImg = document.getElementById('donate-img')
-
-if (donateButton) {
-  donateButton.addEventListener('click', () => {
-    if (donateImgContainer.classList.contains('hide')) {
-      donateImgContainer.classList.remove('hide')
-    } else {
-      donateImgContainer.classList.add('hide')
-    }
-  })
-
-  donateImg.src = donateImg.dataset.src
-}
-
+// service worker
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    // navigator.serviceWorker.register('/sw.js')
+    navigator.serviceWorker.register('/sw.js')
   })
 }
-
-window.dataLayer = window.dataLayer || []
-function gtag() {
-  dataLayer.push(arguments)
-}
-gtag('js', new Date())
-gtag('config', 'UA-119658292-2')

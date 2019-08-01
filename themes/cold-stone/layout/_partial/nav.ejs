@@ -1,12 +1,6 @@
 <div class="nav" id="nav">
   <nav class="contents" id="nav-content">
       <ul>
-          <li <% if(is_home()){ %> <%- "class=active" %> <% } %>>
-              <a href="<%= url_for(config.home_dir || '/') %>">
-                  <i class="iconfont icon-shouye1"></i>
-                  <span><%= __('nav.home') %></span>
-              </a>
-          </li>
           <li <% if(is_current('tags')){ %> <%- "class=active" %> <% } %>>
               <a href="<%= url_for(config.tag_dir) %>">
                   <i class="iconfont icon-biaoqian1"></i>
@@ -25,14 +19,6 @@
                   <span><%= __('nav.about') %></span>
               </a>
           </li>
-          <%if(config.search && config.search.path){%>
-          <li>
-              <a id="search">
-                  <i class="iconfont icon-sousuo1"></i>
-                  <span><%= __('nav.search') %></span>
-              </a>
-          </li>
-          <% } %>
       </ul>
   </nav>
 </div>

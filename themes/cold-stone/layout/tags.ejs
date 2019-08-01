@@ -8,9 +8,9 @@
 
 <% site.tags.map(function(tag){  %>
 <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="<%= tag.name %>">
-                    <span class="tag-text"><%= tag.name %></span>
-                </span>
+    <span class="fa fa-tag listing-seperator" id="<%= tag.name %>">
+        <span class="tag-text"><%= tag.name %></span>
+    </span>
     <% tag.posts.map(function(post){  %>
     <!-- <li class="listing-item">
     <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
