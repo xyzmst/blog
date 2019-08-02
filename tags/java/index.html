@@ -18,19 +18,22 @@
     <link rel="shortcut icon" href="/images/favicon.ico">
     <link rel="preconnect" href="https://cdn.bootcss.com">
     <link rel="stylesheet" href="/styles/aircloud.css">
-    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <noscript>
       <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
     </noscript>
 </head>
-<body>
+
+  <body>
     <div class="site-nav-toggle" id="site-nav-toggle">
-        <button>
+        <button id="toggle" title="toggle">
             <span class="btn-bar"></span>
             <span class="btn-bar"></span>
             <span class="btn-bar"></span>
         </button>
     </div>
+    <header class="wrapper header">
+	<h1 class="title"><a href="/">冷石的博客</a></h1>
+</header>
 
     <main class="index-container">
         
@@ -38,12 +41,6 @@
                 <div class="nav" id="nav">
   <nav class="contents" id="nav-content">
       <ul>
-          <li >
-              <a href="/">
-                  <i class="iconfont icon-shouye1"></i>
-                  <span>主页</span>
-              </a>
-          </li>
           <li  class=active >
               <a href="/tags">
                   <i class="iconfont icon-biaoqian1"></i>
@@ -62,14 +59,6 @@
                   <span>关于</span>
               </a>
           </li>
-          
-          <li>
-              <a id="search">
-                  <i class="iconfont icon-sousuo1"></i>
-                  <span>搜索</span>
-              </a>
-          </li>
-          
       </ul>
   </nav>
 </div>
@@ -99,6 +88,21 @@
                     <span class="tag-text">2019</span>
                 </span>
     <ul>
+        
+        <!-- <li class="listing-item">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </li> -->
+        <li >
+            <span>08-01</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/2019/08/01/centos-install-java8/">
+                        <span>
+                            在 Centos 中安装 java8
+                        </span>
+            </a>
+            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </li>
         
         <!-- <li class="listing-item">
         <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
@@ -242,20 +246,25 @@
 </div>
 </section>
     </main>
-    <footer class="footer">
- 
-</footer>
+    <footer class="footer"></footer>
 
-</body>
 
-<script>
-    window.hexo_search_path = "search.json"
-    window.hexo_root = "/"
-    window.isPost = false
-</script>
-<script src="/scripts/index.js"></script>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-<script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
-<script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
+    <script>
+        window.hexo_search_path = "search.json"
+        window.hexo_root = "/"
+        window.isPost = false
+    </script>
+    <script src="/scripts/index.js"></script>
+    <script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
+    <script>
+      // google analytics
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+      gtag('config', 'UA-119658292-2')
+    </script>
+    
+  </body>
 </html>

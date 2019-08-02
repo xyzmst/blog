@@ -17,6 +17,7 @@ window.onresize = () => {
 // Nav switch function on mobile
 /*****************************************************************************/
 const navToggle = document.getElementById('site-nav-toggle')
+
 navToggle.addEventListener('click', () => {
   let aboutContent = document.getElementById('nav-content')
   if (!aboutContent.classList.contains('show-block')) {
@@ -41,7 +42,6 @@ const beginSearch = document.getElementById('begin-search')
 searchField.addEventListener(
   'mousewheel',
   e => {
-    // e.preventDefault()
     e.stopPropagation()
     return false
   },
