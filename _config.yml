@@ -104,4 +104,6 @@ post_style:
 avatar_style:
   radius: true
 
-all_minifier: true
+clean_css:
+  exclude:
+    -*.min.css
