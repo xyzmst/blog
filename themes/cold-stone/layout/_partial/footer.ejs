@@ -1,1 +1,12 @@
-<footer class="footer"></footer>
+<footer class="text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+			<% if (config.github_username) { %>
+			  <a class="text-muted" target="_blank" href="https://github.com/<%= config.github_username %>">Github</a>
+			<% } %>
+        	<p class="copyright text-muted">Copyright © coldstone.fun 2019</p>
+        </div>
+      </div>
+	</div>
+</footer>

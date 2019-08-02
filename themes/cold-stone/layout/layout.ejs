@@ -1,34 +1,25 @@
 <!DOCTYPE html>
 <html lang="<%- config.language %>">
-<%- partial('_partial/head') %>
+  <%- partial('_partial/head') %>
   <body>
-    <div class="site-nav-toggle" id="site-nav-toggle">
-        <button id="toggle" title="toggle">
-            <span class="btn-bar"></span>
-            <span class="btn-bar"></span>
-            <span class="btn-bar"></span>
-        </button>
-    </div>
-    <%- partial('_partial/header', null, {cache: false}) %>
-    <main class="index-container">
-        <% if(!is_current('/404')){%>
-            <section class="index-left">
-                <%- partial('_partial/nav', null, {cache: false}) %>
-            </section>
-        <% } %>
-        <section class="index-middle<%if (is_post()) { %> flex<% } %>"><%- body %></section>
+    <%- partial('_partial/nav', null, {cache: true}) %>
+
+    <main class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto"><%- body %></div>
+      </div>
     </main>
-    <%- partial('_partial/footer', null, {cache: false}) %>
+
+    <%- partial('_partial/footer', null, {cache: true}) %>
 
     <script>
-        window.hexo_search_path = "<%- config.search ? config.search.path : ""%>"
-        window.hexo_root = "<%- config.root %>"
-        window.isPost = <%- is_post() %>
+      window.hexo_search_path = "<%- config.search ? config.search.path : ""%>"
+      window.hexo_root = "<%- config.root %>"
+      window.isPost = <%- is_post() %>
     </script>
-    <%- js('scripts/index.js') %>
+
     <script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
     <script>
-      // google analytics
       window.dataLayer = window.dataLayer || []
       function gtag() {
         dataLayer.push(arguments)
@@ -37,7 +28,7 @@
       gtag('config', 'UA-119658292-2')
     </script>
     <%if( (is_post() || is_current('about')) && config.comment && config.comment.type === 'livere'){%>
-        <script type="text/javascript">
+      <script type="text/javascript">
         (function() {
             if (typeof LivereTower === 'function') { return; }
 
@@ -52,9 +43,8 @@
 
             d.appendChild(j);
         })();
-        </script>
-        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-        </div>
+      </script>
+      <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
     <% } %>
   </body>
 </html>

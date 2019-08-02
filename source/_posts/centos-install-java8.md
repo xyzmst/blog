@@ -2,8 +2,8 @@
 title: 在 Centos 中安装 java8
 date: 2019-08-01 18:56:29
 tags:
-  - centos
-  - java
+  - Centos
+  - Java
 categories: Linux
 ---
 
