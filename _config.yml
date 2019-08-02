@@ -96,10 +96,12 @@ comment:
 
 # SNS settings
 # 一些社交平台地址，支持以下几种：
-github_username:    xrr2016
+github_username: xrr2016
 
 post_style:
     indent: 0
 
 avatar_style:
   radius: true
+
+all_minifier: true

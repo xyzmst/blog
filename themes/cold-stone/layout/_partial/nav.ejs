@@ -2,13 +2,13 @@
   <div class="container">
     <h1 class="title"><a class="navbar-brand" href="/"><%- config.title %></a></h1>
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item <% if(is_current('tags')){ %><%- "active" _%> <%}%>">
+      <li class="nav-item">
         <a class="nav-link" href="<%= url_for(config.tag_dir) %>"><%= __('nav.tags') %></a>
       </li>
-      <li class="nav-item <% if(is_current('archive')){ %><%- "active" _%> <%}%>">
+      <li class="nav-item">
         <a class="nav-link" href="<%= url_for(config.archive_dir) %>"><%= __('nav.archives') %></a>
       </li>
-      <li class="nav-item <% if(is_current('about')){ %><%- "active" _%> <%}%>">
+      <li class="nav-item">
         <a class="nav-link" href="<%= config.root %><%- 'about/' %>"><%= __('nav.about') %></a>
       </li>
     </ul>
