@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="referrer" content="no-referrer">
+    <meta name="theme-color" content="#333333">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="google" content="notranslate">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="随便写点啥。">
+    <meta name="keyword" content="Web, Flutter, Js, CSS, Node.js, Frontend">
+    <title>使用 Travis CI 部署 Hugo 博客到 Github Pages - 冷石的博客</title>
+    <base href="/">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/clean-blog.css">
+    <noscript>
+      <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
+    </noscript>
+</head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <h1 class="title"><a class="navbar-brand" href="/">冷石的博客</a></h1>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/tags">标签</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/archives">存档</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about/">关于</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+    <main class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto"><article >
+  <section class="post-heading">
+    <h1>
+      使用 Travis CI 部署 Hugo 博客到 Github Pages
+    </h1>
+    <span class="meta">
+      发布于：<span>2019-07-26 20:58:25
+      &nbsp;&nbsp;
+      
+        <span class="attr">标签：
+        
+          <a class="tag" href="/tags/#Hugo" title="Hugo">Hugo</a>
+        
+      
+    </span>
+  </section>
+  <section class="mt-5">
+    <p>原本使用的是 Netlify 去部署博客的，域名解析也是通过 Netlify 的 DNS 服务器，但是发现博客在别人的电脑上打不开…发现是域名解析的问题，所以就把博客放到 Github Pages 上了，但是这样就失去了 Netlify 提供的自动构建和部署的能力，需要自己去配置 Travis CI 实现自动部署了。</p>
+<h2 id="预先要求"><a href="#预先要求" class="headerlink" title="预先要求"></a>预先要求</h2><ul>
+<li>本地安装了 <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></li>
+<li>一个 <a href="https://github.com/" target="_blank" rel="noopener">Github</a> 账号</li>
+<li>使用 Github 账号登录 <a href="https://travis-ci.org" target="_blank" rel="noopener">Travis</a></li>
+</ul>
+<h2 id="创建博客"><a href="#创建博客" class="headerlink" title="创建博客"></a>创建博客</h2><p>使用 Hugo 命令行工具新建自己的博客，将代码推送到自己的 Github 仓库</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hugo new site my-blog</span><br><span class="line">...</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<h2 id="新建一个-Github-Personal-access-token"><a href="#新建一个-Github-Personal-access-token" class="headerlink" title="新建一个 Github Personal access token"></a>新建一个 Github Personal access token</h2><p>在 <a href="https://github.com/settings/tokens" target="_blank" rel="noopener">https://github.com/settings/tokens</a> 新建一个 Personal access token 用来发布博客到 Github Pages 时进行验证，复制生成的 token，不要刷新或离开当前页面，否则 token 就看不见了，只能重新生成</p>
+<p><img src="/images/github-token.jpg" alt="token"></p>
+<p>登录到 <a href="https://travis-ci.org" target="_blank" rel="noopener">Travis CI</a> 对项目进行关联 <a href="https://travis-ci.org/account/repositories" target="_blank" rel="noopener">https://travis-ci.org/account/repositories</a></p>
+<p>完成后进入设置界面 <code>https://travis-ci.org/your-gihub-user-name/your-gihub-repo/settings</code></p>
+<p>在 Environment Variables 填写 GITHUB_TOKEN 变量，点击 Add 按钮，这样你的环境变量就添加完成了</p>
+<h2 id="配置-travis-yml"><a href="#配置-travis-yml" class="headerlink" title="配置 .travis.yml"></a>配置 .travis.yml</h2><p>因为 Hugo 是用 GO 语言写的，所以要配置 GO 编译环境，在 before_script 里删除了 public 文件夹，如果有自定义域名，将自定义域名输出到构建出来的 CNAME 文件里面去，记得添加 DNS 解析记录到 Gihub 去 <a href="https://help.github.com/cn/articles/using-a-custom-domain-with-github-pages" target="_blank" rel="noopener">参考</a></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">language: go</span><br><span class="line"></span><br><span class="line">dist: trusty</span><br><span class="line"></span><br><span class="line">sudo: false</span><br><span class="line"></span><br><span class="line">env:</span><br><span class="line">  - HUGO_VERSION=0.56.0</span><br><span class="line"></span><br><span class="line">install: true</span><br><span class="line"></span><br><span class="line">before_script:</span><br><span class="line">  - wget https://github.com/gohugoio/hugo/releases/download/v$&#123;HUGO_VERSION&#125;/hugo_$&#123;HUGO_VERSION&#125;_Linux-64bit.deb</span><br><span class="line">  - sudo dpkg -i hugo_$&#123;HUGO_VERSION&#125;_Linux-64bit.deb</span><br><span class="line">  - rm -rf public || exit 0</span><br><span class="line"></span><br><span class="line">script:</span><br><span class="line">  - hugo -v --gc --minify</span><br><span class="line">  - echo 'your-custom-domain.com' &gt; public/CNAME</span><br><span class="line"></span><br><span class="line">deploy:</span><br><span class="line">  provider: pages</span><br><span class="line">  local-dir: public</span><br><span class="line">  skip-cleanup: true</span><br><span class="line">  github-token: $GITHUB_TOKEN</span><br><span class="line">  keep-history: true</span><br><span class="line">  on:</span><br><span class="line">    branch: master</span><br><span class="line"></span><br><span class="line">branches:</span><br><span class="line">  only:</span><br><span class="line">  - master</span><br></pre></td></tr></table></figure>
+
+<h2 id="提交触发构建"><a href="#提交触发构建" class="headerlink" title="提交触发构建"></a>提交触发构建</h2><p>最后新建一篇文章，push 到 Github 仓库，触发 Travis 构建就可以了，以后博客进行更新后就可以自动构建发布了。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hugo new posts/my-first-post.md</span><br></pre></td></tr></table></figure>
+
+
+  </section>
+  <section id="lv-container"></section>
+</article>
+</div>
+      </div>
+    </main>
+
+    <footer class="text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+			
+			  <a class="text-muted" target="_blank" href="https://github.com/xrr2016">Github</a>
+			
+        	<p class="copyright text-muted">Copyright © coldstone.fun 2019</p>
+        </div>
+      </div>
+	</div>
+</footer>
+
+
+    <script>
+      window.hexo_search_path = "search.json"
+      window.hexo_root = "/"
+      window.isPost = true
+    </script>
+
+    <script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+      gtag('config', 'UA-119658292-2')
+    </script>
+    
+      <script type="text/javascript">
+        (function() {
+            if (typeof LivereTower === 'function') { return; }
+
+            var j, d = document.getElementById('lv-container');
+
+            d.setAttribute('data-id','city');
+            d.setAttribute('data-uid' , 'MTAyMC80NTY4Mi8yMjE5Mw==');
+
+            j = document.createElement('script');
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            d.appendChild(j);
+        })();
+      </script>
+      <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    
+  </body>
+</html>
