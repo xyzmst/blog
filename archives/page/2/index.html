@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
-<head><meta name="generator" content="Hexo 3.9.0">
+  <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -16,67 +16,35 @@
     <base href="/">
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="/images/favicon.ico">
-    <link rel="preconnect" href="https://cdn.bootcss.com">
-    <link rel="stylesheet" href="/styles/aircloud.css">
+    <link rel="stylesheet" href="/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/clean-blog.css">
     <noscript>
       <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
     </noscript>
 </head>
 
   <body>
-    <div class="site-nav-toggle" id="site-nav-toggle">
-        <button id="toggle" title="toggle">
-            <span class="btn-bar"></span>
-            <span class="btn-bar"></span>
-            <span class="btn-bar"></span>
-        </button>
-    </div>
-    <header class="wrapper header">
-	<h1 class="title"><a href="/">冷石的博客</a></h1>
-</header>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <h1 class="title"><a class="navbar-brand" href="/">冷石的博客</a></h1>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/tags">标签</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="/archives">存档</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="/about/">关于</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-    <main class="index-container">
-        
-            <section class="index-left">
-                <div class="nav" id="nav">
-  <nav class="contents" id="nav-content">
-      <ul>
-          <li >
-              <a href="/tags">
-                  <i class="iconfont icon-biaoqian1"></i>
-                  <span>标签</span>
-              </a>
-          </li>
-          <li  class=active >
-              <a href="/archives">
-                  <i class="iconfont icon-guidang2"></i>
-                  <span>存档</span>
-              </a>
-          </li>
-          <li >
-              <a href="/about/">
-                  <i class="iconfont icon-guanyu2"></i>
-                  <span>关于</span>
-              </a>
-          </li>
-      </ul>
-  </nav>
-</div>
 
-<div class="search-field" id="search-field">
-    <div class="search-container">
-        <div class="search-input">
-            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
-            <input id="search-input"/>
-            <span id="begin-search">搜索</span>
-        </div>
-        <div class="search-result-container" id="search-result-container"></div>
-    </div>
-</div>
-
-            </section>
-        
-        <section class="index-middle">
+    <main class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
 
 
 <!-- 归档列表 -->
@@ -84,180 +52,131 @@
 <div class="archives-container">
 
 <div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2019">
-                    <span class="tag-text">2019</span>
-                </span>
+    <span class="fa fa-calendar-times-o listing-seperator" id="2019">
+        <span class="tag-text">2019</span>
+    </span>
     <ul>
         
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
+        <li class="mb-1">
             <span>08-01</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
             <a href="/2019/08/01/centos-install-java8/">
-                        <span>
-                            在 Centos 中安装 java8
-                        </span>
+                <span>
+                    在 Centos 中安装 java8
+                </span>
             </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
         </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
+      
+        <li class="mb-1">
             <span>07-28</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
             <a href="/2019/07/28/understand-flutter-lifecycle/">
-                        <span>
-                            理解 Flutter 应用和部件的生命周期
-                        </span>
+                <span>
+                    理解 Flutter 应用和部件的生命周期
+                </span>
             </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
         </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
+      
+        <li class="mb-1">
             <span>07-27</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
             <a href="/2019/07/27/about-workbox-strategies/">
-                        <span>
-                            对于 Workbox Strategies几种策略的解释
-                        </span>
+                <span>
+                    对于 Workbox Strategies几种策略的解释
+                </span>
             </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
         </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
+      
+        <li class="mb-1">
             <span>07-26</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
             <a href="/2019/07/26/hugo-travis-github-page/">
-                        <span>
-                            使用 Travis CI 部署 Hugo 博客到 Github Pages
-                        </span>
+                <span>
+                    使用 Travis CI 部署 Hugo 博客到 Github Pages
+                </span>
             </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
         </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
+      
+        <li class="mb-1">
             <span>07-25</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
             <a href="/2019/07/25/about-manifest/">
-                        <span>
-                            对于 manifest.json 设置的解释
-                        </span>
+                <span>
+                    对于 manifest.json 设置的解释
+                </span>
             </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
         </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
+      
+        <li class="mb-1">
             <span>07-24</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
             <a href="/2019/07/24/add-pwa-support-to-hugo/">
-                        <span>
-                            让 Hugo 博客支持 PWA
-                        </span>
+                <span>
+                    让 Hugo 博客支持 PWA
+                </span>
             </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
         </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
+      
+        <li class="mb-1">
             <span>07-22</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
             <a href="/2019/07/22/understand-link-prexxx/">
-                        <span>
-                            了解 &lt;link&gt; 标签上 rel=prexxx 的作用
-                        </span>
+                <span>
+                    了解 &lt;link&gt; 标签上 rel=prexxx 的作用
+                </span>
             </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
         </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
+      
+        <li class="mb-1">
             <span>07-18</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
             <a href="/2019/07/18/request-timimg/">
-                        <span>
-                            浏览器请求耗时阶段解释
-                        </span>
+                <span>
+                    浏览器请求耗时阶段解释
+                </span>
             </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
         </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
+      
+        <li class="mb-1">
             <span>07-16</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
             <a href="/2019/07/16/dart-final-vs-const/">
-                        <span>
-                            Dart 语言中的 final 与 const 的区别
-                        </span>
+                <span>
+                    Dart 语言中的 final 与 const 的区别
+                </span>
             </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
         </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
+      
+        <li class="mb-1">
             <span>07-15</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
             <a href="/2019/07/15/code-signing/">
-                        <span>
-                            关于 Apple 的 Code Signing
-                        </span>
+                <span>
+                    关于 Apple 的 Code Signing
+                </span>
             </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
         </li>
-        
-
+      
     </ul>
 </div>
 
 </div>
-</section>
+</div>
+      </div>
     </main>
-    <footer class="footer"></footer>
+
+    <footer class="text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+			
+			  <a class="text-muted" target="_blank" href="https://github.com/xrr2016">Github</a>
+			
+        	<p class="copyright text-muted">Copyright © coldstone.fun 2019</p>
+        </div>
+      </div>
+	</div>
+</footer>
 
 
     <script>
-        window.hexo_search_path = "search.json"
-        window.hexo_root = "/"
-        window.isPost = false
+      window.hexo_search_path = "search.json"
+      window.hexo_root = "/"
+      window.isPost = false
     </script>
-    <script src="/scripts/index.js"></script>
+
     <script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
     <script>
-      // google analytics
       window.dataLayer = window.dataLayer || []
       function gtag() {
         dataLayer.push(arguments)

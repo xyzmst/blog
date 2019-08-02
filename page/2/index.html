@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
-<head><meta name="generator" content="Hexo 3.9.0">
+  <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -16,128 +16,105 @@
     <base href="/">
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="/images/favicon.ico">
-    <link rel="preconnect" href="https://cdn.bootcss.com">
-    <link rel="stylesheet" href="/styles/aircloud.css">
+    <link rel="stylesheet" href="/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/clean-blog.css">
     <noscript>
       <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
     </noscript>
 </head>
 
   <body>
-    <div class="site-nav-toggle" id="site-nav-toggle">
-        <button id="toggle" title="toggle">
-            <span class="btn-bar"></span>
-            <span class="btn-bar"></span>
-            <span class="btn-bar"></span>
-        </button>
-    </div>
-    <header class="wrapper header">
-	<h1 class="title"><a href="/">冷石的博客</a></h1>
-</header>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <h1 class="title"><a class="navbar-brand" href="/">冷石的博客</a></h1>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/tags">标签</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="/archives">存档</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="/about/">关于</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-    <main class="index-container">
-        
-            <section class="index-left">
-                <div class="nav" id="nav">
-  <nav class="contents" id="nav-content">
-      <ul>
-          <li >
-              <a href="/tags">
-                  <i class="iconfont icon-biaoqian1"></i>
-                  <span>标签</span>
-              </a>
-          </li>
-          <li >
-              <a href="/archives">
-                  <i class="iconfont icon-guidang2"></i>
-                  <span>存档</span>
-              </a>
-          </li>
-          <li >
-              <a href="/about/">
-                  <i class="iconfont icon-guanyu2"></i>
-                  <span>关于</span>
-              </a>
-          </li>
-      </ul>
-  </nav>
-</div>
 
-<div class="search-field" id="search-field">
-    <div class="search-container">
-        <div class="search-input">
-            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
-            <input id="search-input"/>
-            <span id="begin-search">搜索</span>
-        </div>
-        <div class="search-result-container" id="search-result-container"></div>
-    </div>
-</div>
-
-            </section>
-        
-        <section class="index-middle">
-<div class="post-preview-container" style="min-height: 576px">
+    <main class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+<ul class="list-unstyled">
     
-    <div class="post-preview">
-        <div class="post-time">2019-07-16</div>
-        <div class="post-info">
-            <a href="/2019/07/16/dart-final-vs-const/">
-                <h3>
-                    Dart 语言中的 final 与 const 的区别
-                </h3>
-            </a>
-            <p>
+    <li class="post-preview">
+        <a href="/2019/07/16/dart-final-vs-const/">
+            <h2 class="post-title">
+                Dart 语言中的 final 与 const 的区别
+            </h2>
+        </a>
+        <p class="post-meta">
+            
                 
-                    
-                        <a class="tag" href="/tags/#Dart" title="Dart">Dart</a>
-                    
+                    <a class="tag" href="/tags/#Dart" title="Dart">Dart</a>
                 
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2019-07-15</div>
-        <div class="post-info">
-            <a href="/2019/07/15/code-signing/">
-                <h3>
-                    关于 Apple 的 Code Signing
-                </h3>
-            </a>
-            <p>
-                
-                    
-                        <a class="tag" href="/tags/#iOS" title="iOS">iOS</a>
-                    
-                
-            </p>
-        </div>
-    </div>
-    
-</div>
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/">&larr; 上一页</a>
+            
+            2019-07-16
+        </p>
     </li>
+    
+    <li class="post-preview">
+        <a href="/2019/07/15/code-signing/">
+            <h2 class="post-title">
+                关于 Apple 的 Code Signing
+            </h2>
+        </a>
+        <p class="post-meta">
+            
+                
+                    <a class="tag" href="/tags/#iOS" title="iOS">iOS</a>
+                
+            
+            2019-07-15
+        </p>
+    </li>
+    
+</ul>
+
+<ul class="list-unstyled clearfix">
+    
+        <li>
+            <a class="float-left" href="/">&larr; 上一页</a>
+        </li>
     
     
 </ul>
-</section>
+</div>
+      </div>
     </main>
-    <footer class="footer"></footer>
+
+    <footer class="text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+			
+			  <a class="text-muted" target="_blank" href="https://github.com/xrr2016">Github</a>
+			
+        	<p class="copyright text-muted">Copyright © coldstone.fun 2019</p>
+        </div>
+      </div>
+	</div>
+</footer>
 
 
     <script>
-        window.hexo_search_path = "search.json"
-        window.hexo_root = "/"
-        window.isPost = false
+      window.hexo_search_path = "search.json"
+      window.hexo_root = "/"
+      window.isPost = false
     </script>
-    <script src="/scripts/index.js"></script>
+
     <script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
     <script>
-      // google analytics
       window.dataLayer = window.dataLayer || []
       function gtag() {
         dataLayer.push(arguments)
