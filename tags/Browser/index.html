@@ -19,16 +19,21 @@
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
     <link rel="stylesheet" href="/styles/bootstrap.min.css">
     <link rel="stylesheet" href="/styles/clean-blog.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.2/howler.min.js" async></script>
     <noscript>
       <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
     </noscript>
 </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
   <div class="container">
     <h1 class="title"><a class="navbar-brand" href="/">冷石的博客</a></h1>
     <ul class="navbar-nav ml-auto">
+     <li class="nav-item">
+        <a class="nav-link" href="/music">歌单</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="/tags">标签</a>
       </li>
@@ -42,6 +47,7 @@
   </div>
 </nav>
 
+    
 
     <main class="container">
       <div class="row">
@@ -98,7 +104,7 @@
             <span>07-25</span>
             <a href="/2019/07/25/about-manifest/">
                 <span>
-                    对于 manifest.json 设置的解释
+                    对于 PWA 应用的 manifest.json 文件的解释
                 </span>
             </a>
         </li>
@@ -161,9 +167,12 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
 			
-			  <a class="text-muted" target="_blank" rel="noopener" href="https://github.com/xrr2016">Github</a>
+			  <a class="text-muted badge badge-light" target="_blank" rel="noopener" href="https://github.com/xrr2016">Github</a>
 			
-        	<p class="copyright text-muted">Copyright © coldstone.fun 2019</p>
+			
+			  <a class="text-muted badge badge-light" target="_blank" rel="noopener" href="https://juejin.im/user/576666b7207703006b1e0f09">掘金</a>
+			
+        	<p class="copyright text-muted">Copyright © <a href="/">coldstone.fun</a> 2019</p>
         </div>
       </div>
 	</div>
@@ -184,7 +193,7 @@
         })
       }
     </script>
-
+    
     <script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
     <script>
       window.dataLayer = window.dataLayer || []
@@ -194,6 +203,5 @@
       gtag('js', new Date())
       gtag('config', 'UA-119658292-2')
     </script>
-    
   </body>
 </html>
