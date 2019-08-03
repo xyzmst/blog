@@ -5,7 +5,7 @@ const sound = new Howl({
 })
 
 sound.once('load', function() {
-  sound.play()
+  console.log('load')
 })
 
 sound.on('end', function() {
