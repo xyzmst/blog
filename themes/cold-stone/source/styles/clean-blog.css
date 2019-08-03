@@ -1,5 +1,5 @@
 body {
-  padding-top: 62px;
+  padding-top: 50px;
   margin-left: calc(100vw - 100%);
   overflow-x: hidden;
   -webkit-text-size-adjust: none;
@@ -135,6 +135,19 @@ img::-moz-selection {
 #mainNav .navbar-brand {
   font-weight: 800;
   color: #343a40;
+}
+
+#mainNav .navbar-nav {
+  flex-direction: row;
+}
+
+#mainNav .title {
+  margin: 0;
+  font-size: unset;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #343434;
 }
 
 #mainNav .navbar-nav > li.nav-item > a {
@@ -444,14 +457,6 @@ pre code {
 ol,
 ul {
   margin: 0;
-}
-
-.navbar {
-  padding: 0;
-}
-
-.navbar-light .navbar-nav .nav-link {
-  color: #343434;
 }
 
 .post-heading .meta {
