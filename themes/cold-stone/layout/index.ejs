@@ -1,7 +1,6 @@
 ---
 layout: layout
 ---
-
 <ul class="list-unstyled">
     <% page.posts.each(function(post){ %>
     <li class="post-preview">
@@ -14,11 +13,13 @@ layout: layout
         </a>
         <p class="post-meta">
             <% if (post.tags.length){ %>
+                <%= __('post.tags') %>：
                 <% post.tags.forEach(function(tag){ %>
                     <a class="tag" href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>"><%= tag.name %></a>
                 <% }) %>
             <% } %>
-            <%= post.date.format(config.date_format) %>
+            &nbsp;
+            <%= __('post.postTime') %>：<%= post.date.format(config.date_format) %>
         </p>
     </li>
     <% }); %>

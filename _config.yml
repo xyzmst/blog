@@ -25,6 +25,7 @@ public_dir: public
 tag_dir: tags
 archive_dir: archives
 category_dir: categories
+music_dir: music
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
@@ -97,6 +98,7 @@ comment:
 # SNS settings
 # 一些社交平台地址，支持以下几种：
 github_username: xrr2016
+juejin_userid: 576666b7207703006b1e0f09
 
 post_style:
     indent: 0

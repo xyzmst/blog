@@ -1,5 +1,5 @@
 ---
-title: '对于 manifest.json 设置的解释'
+title: '对于 PWA 应用的 manifest.json 文件的解释'
 tags: 'PWA'
 date: 2019-07-25T13:31:51+08:00
 categories: 'WEB'

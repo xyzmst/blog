@@ -8,10 +8,11 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="google" content="notranslate">
     <meta name="format-detection" content="telephone=no">
-    <meta name="description" content="<%= config.description %>">
     <meta name="keyword"  content="<%= config.keywords %>">
+    <meta name="description" content="<%= config.description %>">
     <title><%_ if (page.title) { %><%= page.title + ' - ' + config.SEOTitle %><% } else {%><%= config.SEOTitle %><% } _%></title>
     <base href="/">
+    <link ref="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="manifest" href="<%= config.root %>manifest.json">
     <link rel="shortcut icon" href="<%= config.root %>images/favicon.ico">
     <link rel="apple-touch-icon" href="<%= config.root %>icons/icon-192x192.png">
