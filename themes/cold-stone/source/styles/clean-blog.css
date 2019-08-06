@@ -1,5 +1,5 @@
 body {
-  padding-top: 43px;
+  padding-top: 60px;
   margin-left: calc(100vw - 100%);
   overflow-x: hidden;
   -webkit-text-size-adjust: none;
@@ -125,6 +125,7 @@ img::-moz-selection {
 .navbar {
   padding: 0;
   background-color: white;
+  padding-left: calc(100vw - 100%);
   box-shadow: 1px 0 4px 2px rgba(0, 0, 0, 0.1);
 }
 
