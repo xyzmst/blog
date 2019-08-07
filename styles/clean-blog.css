@@ -152,7 +152,15 @@ img::-moz-selection {
   text-transform: uppercase;
 }
 
+.post-preview {
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  background-color: #ffffff;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.08);
+}
+
 .post-preview > a {
+  display: block;
   color: #343434;
 }
 
@@ -178,17 +186,18 @@ img::-moz-selection {
   font-style: italic;
   margin-top: 0;
   color: #868e96;
+  margin-bottom: 0.5rem;
 }
 
 .post-preview > .post-meta > a {
-  text-decoration: none;
   color: #343434;
+  text-decoration: none;
 }
 
 .post-preview > .post-meta > a:focus,
 .post-preview > .post-meta > a:hover {
-  text-decoration: underline;
   color: #007bff;
+  text-decoration: underline;
 }
 
 @media only screen and (min-width: 768px) {
