@@ -12,6 +12,7 @@ install:
   - yarn
 
 script:
+  - hexo clean
   - yarn build
   - echo 'coldstone.fun' > public/CNAME
 
