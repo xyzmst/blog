@@ -1,24 +1,21 @@
 <nav class="navbar">
   <div class="wrapper">
     <h1 class="title">
-      <a class="navbar-brand" href="/"><%- config.title %></a>
+      <a class="navbar-brand" href="/"><%- __('title') %></a>
       <input type="checkbox" id="toggle" class="offscreen" /><label for="toggle" class="switch"></label>
     </h1>
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="<%= url_for(config.series_dir) %>"><%= __('nav.series') %></a>
+        <a class="nav-link <% if(is_current(config.project_dir)) { %>active<% } _%>" href="<%= url_for(config.project_dir) %>"><%= __('nav.projects') %></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<%= url_for(config.project_dir) %>"><%= __('nav.projects') %></a>
+        <a class="nav-link <% if(is_current(config.tag_dir)) { %>active<% } _%>" href="<%= url_for(config.tag_dir) %>"><%= __('nav.tags') %></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<%= url_for(config.tag_dir) %>"><%= __('nav.tags') %></a>
+        <a class="nav-link <% if(is_current(config.archive_dir)) { %>active<% } _%>" href="<%= url_for(config.archive_dir) %>"><%= __('nav.archives') %></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<%= url_for(config.archive_dir) %>"><%= __('nav.archives') %></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<%= config.root %><%- 'about/' %>"><%= __('nav.about') %></a>
+        <a class="nav-link <% if(is_current('about')) { %>active<% } _%>" href="<%= config.root %><%- 'about/' %>"><%= __('nav.about') %></a>
       </li>
     </ul>
   </div>

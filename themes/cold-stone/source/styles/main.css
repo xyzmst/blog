@@ -164,6 +164,7 @@ p {
 .nav-link {
   display: block;
   padding: 1rem 0;
+  text-align: center;
   border-bottom: 1px solid transparent;
 }
 
@@ -416,8 +417,8 @@ img::selection {
 /* about */
 
 .about {
+  margin-top: 4rem;
   text-align: center;
-  margin-top: 1rem;
 }
 
 .avatar-img {

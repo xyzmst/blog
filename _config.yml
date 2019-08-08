@@ -7,8 +7,8 @@ title: 冷石的博客
 SEOTitle: 冷石的博客
 subtitle: 真正的意志是不会被击败的!
 description: 随便写点啥。
-keywords: "Web, Flutter, Js, CSS, Node.js, Frontend"
-author: 冷石
+keywords: "Web, Js, CSS, Node.js, Frontend, Flutter,Docker"
+author: Cold Stone
 language: zh-CN
 timezone: Asia/Shanghai
 
@@ -22,7 +22,6 @@ permalink_defaults:
 # Directory
 source_dir: source
 public_dir: public
-series_dir: series
 project_dir: projects
 tag_dir: tags
 archive_dir: archives
