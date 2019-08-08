@@ -138,7 +138,7 @@ a:hover {
 }
 
 .navbar input[type='checkbox']:checked + .switch {
-  background-color: #7983ff;
+  background-color: #869194;
 }
 
 .offscreen {
@@ -362,4 +362,46 @@ img::selection {
   .article-meta {
     font-size: 0.8rem;
   }
+}
+
+/* tags */
+
+.tags,
+.tag-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.tag-post-title {
+  display: block;
+}
+
+/* archives */
+.archives {
+  padding: 0;
+}
+
+/* Hover underline animation */
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+}
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #007bff;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
