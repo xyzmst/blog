@@ -2,37 +2,34 @@
 layout: layout
 ---
 <ul class="list-unstyled">
-    <% page.posts.each(function(post){ %>
+    <% page.posts.each(function(post) { %>
         <li class="post-preview">
-            <a class="post-link" href="<%- config.root %><%- post.path %>">
+            <a class="post-anchor" href="<%- config.root %><%- post.path %>">
                 <h2 class="post-title">
-                    <%- (post.title || "Untitled").replace(/[<>&"]/g,function(c){
+                    <%-_ (post.title || "Untitled").replace(/[<>&"]/g,function(c){
                         return {'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c];
-                    }) %>
+                    }) _%>
                 </h2>
-                <p class="post-meta">
-                    <% if (post.tags.length){ %>
-                        <%= __('post.tags') %>：
-                        <% post.tags.forEach(function(tag){ %>
-                            <a class="tag" href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>"><%= tag.name %></a>
-                        <% }) %>
-                    <% } %>
-                    &nbsp;<%= __('post.postTime') %>：<%= post.date.format(config.date_format) %>
-                </p>
             </a>
+
+            <p class="post-meta">
+                <%_ if (post.tags.length){ %>
+                    <%= __('post.tags') _%>：
+                    <% post.tags.forEach(function(tag){ %>
+                        <a class="tag" href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>"><%= tag.name %></a>
+                    <% }) %>
+                <% } %>
+                &nbsp;<%= __('post.postTime') %>：<%= post.date.format(config.date_format) %>
+            </p>
         </li>
-    <% }); %>
+    <% }); _%>
 </ul>
 
-<ul class="list-unstyled clearfix">
-    <% if (page.prev){ %>
-        <li>
-            <a class="float-left" href="<%- config.root %><%- page.prev_link %>">&larr; 上一页</a>
-        </li>
-    <% } %>
-    <% if (page.next){ %>
-        <li>
-            <a class="float-right" href="<%- config.root %><%- page.next_link %>">下一页 &rarr;</a>
-        </li>
-    <% } %>
+<ul class="list-unstyled pager">
+    <li class="left">
+        <a href="<%- config.root %><%- page.prev_link %>"><% if (page.prev){ %>&larr; 上一页<% } %></a>
+    </li>
+    <li class="right">
+        <a href="<%- config.root %><%- page.next_link %>"><% if (page.next){ %>下一页 &rarr;<% } %></a>
+    </li>
 </ul>

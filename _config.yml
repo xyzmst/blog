@@ -9,7 +9,7 @@ subtitle: 真正的意志是不会被击败的!
 description: 随便写点啥。
 keywords: "Web, Flutter, Js, CSS, Node.js, Frontend"
 author: 冷石
-language: zh
+language: zh-CN
 timezone: Asia/Shanghai
 
 # URL
@@ -22,6 +22,8 @@ permalink_defaults:
 # Directory
 source_dir: source
 public_dir: public
+series_dir: series
+project_dir: projects
 tag_dir: tags
 archive_dir: archives
 category_dir: categories

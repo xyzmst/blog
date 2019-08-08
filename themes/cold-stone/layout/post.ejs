@@ -1,26 +1,28 @@
-<article>
-  <section class="post-heading">
-    <h1>
+<article class="article">
+  <section>
+    <h1 class="article-title">
       <%- page.title.replace(/[<>&"]/g, function(c){
         return {'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c];
       }) _%>
     </h1>
-    <p class="meta text-muted clearfix">
-      <%= __('post.updateTime') %>：<%- page.updated.format(config.date_format) +" "+ page.updated.format(config.time_format)%>
-      &nbsp;&nbsp;
-      <% if (page.tags.length){ %>
-        <span class="attr">
-          <%= __('post.tags') %>：
-          <% page.tags.forEach(function(tag){ %>
-            <a class="tag" href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>"><%= tag.name %></a>
-          <% }) %>
-        </span>
-      <% } %>
+    <p class="article-meta">
+      <span>
+        <%= __('post.updateTime') %>：<%- page.updated.format(config.date_format) +" "+ page.updated.format(config.time_format)%>
+        &nbsp;&nbsp;
+        <% if (page.tags.length){ %>
+          <span class="attr">
+            <%= __('post.tags') %>：
+            <% page.tags.forEach(function(tag){ %>
+              <a class="tag" href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>"><%= tag.name %></a>
+            <% }) %>
+          </span>
+        <% } %>
+      </span>
       <a href="/" class="float-right">返回</a>
     </p>
   </section>
-  <section class="mt-5">
-    <%- page.content %>
-  </section>
-  <section id="lv-container"></section>
+  <section><%- page.content %></section>
 </article>
+
+<section class="article" id="lv-container"></section>
+

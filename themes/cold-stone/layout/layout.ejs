@@ -16,14 +16,8 @@
       window.isPost = <%- is_post() %>
     </script>
 
-    <script>
-      // service worker
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-        })
-      }
-    </script>
+    <%- js('scripts/index.js') %>
+
     <%if( (is_post() || is_current('about')) && config.comment && config.comment.type === 'livere'){%>
       <script type="text/javascript">
         (function() {
@@ -41,9 +35,11 @@
             d.appendChild(j);
         })();
       </script>
+
       <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
     <% } %>
     <script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
+
     <script>
       window.dataLayer = window.dataLayer || []
       function gtag() {

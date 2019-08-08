@@ -1,5 +1,7 @@
 nav:
   home: HOME
+  series: SERIES
+  projects: PROJECTS
   tags: TAGS
   archives: ARCHIVES
   about: ABOUT

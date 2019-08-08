@@ -12,12 +12,10 @@
     <meta name="description" content="<%= config.description %>">
     <title><%_ if (page.title) { %><%= page.title + ' - ' + config.SEOTitle %><% } else {%><%= config.SEOTitle %><% } _%></title>
     <base href="/">
-    <link ref="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="manifest" href="<%= config.root %>manifest.json">
     <link rel="shortcut icon" href="<%= config.root %>images/favicon.ico">
     <link rel="apple-touch-icon" href="<%= config.root %>icons/icon-192x192.png">
-    <%- css('styles/bootstrap.min.css') %>
-    <%- css('styles/clean-blog.css') %>
+    <%- css(['styles/sanitize.css', 'styles/main.css']) %>
     <noscript>
       <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
     </noscript>
