@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
   <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,12 +14,11 @@
     <meta name="description" content="随便写点啥。">
     <title>冷石的博客</title>
     <base href="/">
-    <link ref="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="/images/favicon.ico">
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
-    <link rel="stylesheet" href="/styles/bootstrap.min.css">
-    <link rel="stylesheet" href="/styles/clean-blog.css">
+    <link rel="stylesheet" href="/styles/sanitize.css">
+<link rel="stylesheet" href="/styles/main.css">
     <noscript>
       <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
     </noscript>
@@ -27,18 +26,27 @@
 
   <body>
     
-      <nav class="navbar fixed-top">
+      <nav class="navbar">
   <div class="wrapper">
-    <h1 class="title"><a class="navbar-brand" href="/">冷石的博客</a></h1>
+    <h1 class="title">
+      <a class="navbar-brand" href="/">冷石的博客</a>
+      <input type="checkbox" id="toggle" class="offscreen" /><label for="toggle" class="switch"></label>
+    </h1>
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="/tags">标签</a>
+        <a class="nav-link" href="/series">SERIES</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/archives">存档</a>
+        <a class="nav-link" href="/projects">PROJECTS</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/about/">关于</a>
+        <a class="nav-link" href="/tags">TAGS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/archives">ARCHIVES</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about/">ABOUT</a>
       </li>
     </ul>
   </div>
@@ -49,82 +57,69 @@
     <main class="wrapper"><ul class="list-unstyled">
     
         <li class="post-preview">
-            <a class="post-link" href="/2019/07/18/request-timimg/">
+            <a class="post-anchor" href="/2019/07/18/request-timimg/">
                 <h2 class="post-title">
-                    浏览器请求耗时阶段解释
-                </h2>
-                <p class="post-meta">
-                    
-                        标签：
-                        
-                            <a class="tag" href="/tags/#Browser" title="Browser">Browser</a>
-                        
-                    
-                    &nbsp;发布于：2019-07-18
-                </p>
+                    浏览器请求耗时阶段解释                </h2>
             </a>
-        </li>
-    
-        <li class="post-preview">
-            <a class="post-link" href="/2019/07/16/dart-final-vs-const/">
-                <h2 class="post-title">
-                    Dart 语言中的 final 与 const 的区别
-                </h2>
-                <p class="post-meta">
-                    
-                        标签：
-                        
-                            <a class="tag" href="/tags/#Dart" title="Dart">Dart</a>
-                        
-                    
-                    &nbsp;发布于：2019-07-16
-                </p>
-            </a>
-        </li>
-    
-        <li class="post-preview">
-            <a class="post-link" href="/2019/07/15/code-signing/">
-                <h2 class="post-title">
-                    关于 Apple 的 Code Signing
-                </h2>
-                <p class="post-meta">
-                    
-                        标签：
-                        
-                            <a class="tag" href="/tags/#iOS" title="iOS">iOS</a>
-                        
-                    
-                    &nbsp;发布于：2019-07-15
-                </p>
-            </a>
-        </li>
-    
-</ul>
 
-<ul class="list-unstyled clearfix">
-    
-        <li>
-            <a class="float-left" href="/">&larr; 上一页</a>
+            <p class="post-meta">
+
+                    Tags：
+                    
+                        <a class="tag" href="/tags/#Browser" title="Browser">Browser</a>
+                    
+                
+                &nbsp;Post：2019-07-18
+            </p>
         </li>
     
+        <li class="post-preview">
+            <a class="post-anchor" href="/2019/07/16/dart-final-vs-const/">
+                <h2 class="post-title">
+                    Dart 语言中的 final 与 const 的区别                </h2>
+            </a>
+
+            <p class="post-meta">
+
+                    Tags：
+                    
+                        <a class="tag" href="/tags/#Dart" title="Dart">Dart</a>
+                    
+                
+                &nbsp;Post：2019-07-16
+            </p>
+        </li>
     
+        <li class="post-preview">
+            <a class="post-anchor" href="/2019/07/15/code-signing/">
+                <h2 class="post-title">
+                    关于 Apple 的 Code Signing                </h2>
+            </a>
+
+            <p class="post-meta">
+
+                    Tags：
+                    
+                        <a class="tag" href="/tags/#iOS" title="iOS">iOS</a>
+                    
+                
+                &nbsp;Post：2019-07-15
+            </p>
+        </li>
+    </ul>
+
+<ul class="list-unstyled pager">
+    <li class="left">
+        <a href="/">&larr; 上一页</a>
+    </li>
+    <li class="right">
+        <a href="/"></a>
+    </li>
 </ul>
 </main>
 
-    <footer class="text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-			
-			  <a class="text-muted badge badge-light" target="_blank" rel="noopener" href="https://github.com/xrr2016">Github</a>
-			
-			
-			  <a class="text-muted badge badge-light" target="_blank" rel="noopener" href="https://juejin.im/user/576666b7207703006b1e0f09">掘金</a>
-			
-        	<p class="copyright text-muted">Copyright © <a href="/">coldstone.fun</a> 2019</p>
-        </div>
-      </div>
-	</div>
+    <footer class="footer">
+  <p>Copyright © <a href="/">coldstone.fun</a> 2019</p>
 </footer>
 
 
@@ -134,16 +129,11 @@
       window.isPost = false
     </script>
 
-    <script>
-      // service worker
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-        })
-      }
-    </script>
+    <script src="/scripts/index.js"></script>
+
     
     <script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
+
     <script>
       window.dataLayer = window.dataLayer || []
       function gtag() {

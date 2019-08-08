@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
   <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,12 +14,11 @@
     <meta name="description" content="随便写点啥。">
     <title>在 Centos 中安装 java8 - 冷石的博客</title>
     <base href="/">
-    <link ref="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="/images/favicon.ico">
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
-    <link rel="stylesheet" href="/styles/bootstrap.min.css">
-    <link rel="stylesheet" href="/styles/clean-blog.css">
+    <link rel="stylesheet" href="/styles/sanitize.css">
+<link rel="stylesheet" href="/styles/main.css">
     <noscript>
       <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
     </noscript>
@@ -28,28 +27,29 @@
   <body>
     
 
-    <main class="wrapper"><article>
-  <section class="post-heading">
-    <h1>
+    <main class="wrapper"><article class="article">
+  <section>
+    <h1 class="article-title">
       在 Centos 中安装 java8    </h1>
-    <p class="meta text-muted clearfix">
-      最后更新：2019-08-05 10:44:33
-      &nbsp;&nbsp;
-      
-        <span class="attr">
-          标签：
-          
-            <a class="tag" href="/tags/#Centos" title="Centos">Centos</a>
-          
-            <a class="tag" href="/tags/#Java" title="Java">Java</a>
-          
-        </span>
-      
+    <p class="article-meta">
+      <span>
+        LastUpdate：2019-08-08 07:26:49
+        &nbsp;&nbsp;
+        
+          <span class="attr">
+            Tags：
+            
+              <a class="tag" href="/tags/#Centos" title="Centos">Centos</a>
+            
+              <a class="tag" href="/tags/#Java" title="Java">Java</a>
+            
+          </span>
+        
+      </span>
       <a href="/" class="float-right">返回</a>
     </p>
   </section>
-  <section class="mt-5">
-    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于要在服务器上安装 <a href="https://jenkins.io/zh/" target="_blank" rel="noopener">Jenkins</a> 所以首先要安装 java。</p>
+  <section><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于要在服务器上安装 <a href="https://jenkins.io/zh/" target="_blank" rel="noopener">Jenkins</a> 所以首先要安装 java。</p>
 <h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p>安装之前最好更新下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y update</span><br></pre></td></tr></table></figure>
 
@@ -71,26 +71,15 @@
 
 <h2 id="验证一下"><a href="#验证一下" class="headerlink" title="验证一下"></a>验证一下</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$JAVA_HOME</span></span><br></pre></td></tr></table></figure>
 
-
-  </section>
-  <section id="lv-container"></section>
+</section>
 </article>
+
+<section class="article" id="lv-container"></section>
+
 </main>
 
-    <footer class="text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-			
-			  <a class="text-muted badge badge-light" target="_blank" rel="noopener" href="https://github.com/xrr2016">Github</a>
-			
-			
-			  <a class="text-muted badge badge-light" target="_blank" rel="noopener" href="https://juejin.im/user/576666b7207703006b1e0f09">掘金</a>
-			
-        	<p class="copyright text-muted">Copyright © <a href="/">coldstone.fun</a> 2019</p>
-        </div>
-      </div>
-	</div>
+    <footer class="footer">
+  <p>Copyright © <a href="/">coldstone.fun</a> 2019</p>
 </footer>
 
 
@@ -100,14 +89,8 @@
       window.isPost = true
     </script>
 
-    <script>
-      // service worker
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-        })
-      }
-    </script>
+    <script src="/scripts/index.js"></script>
+
     
       <script type="text/javascript">
         (function() {
@@ -125,9 +108,11 @@
             d.appendChild(j);
         })();
       </script>
+
       <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
     
     <script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
+
     <script>
       window.dataLayer = window.dataLayer || []
       function gtag() {

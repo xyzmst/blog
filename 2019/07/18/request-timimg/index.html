@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
   <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,12 +14,11 @@
     <meta name="description" content="随便写点啥。">
     <title>浏览器请求耗时阶段解释 - 冷石的博客</title>
     <base href="/">
-    <link ref="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="/images/favicon.ico">
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
-    <link rel="stylesheet" href="/styles/bootstrap.min.css">
-    <link rel="stylesheet" href="/styles/clean-blog.css">
+    <link rel="stylesheet" href="/styles/sanitize.css">
+<link rel="stylesheet" href="/styles/main.css">
     <noscript>
       <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
     </noscript>
@@ -28,26 +27,27 @@
   <body>
     
 
-    <main class="wrapper"><article>
-  <section class="post-heading">
-    <h1>
+    <main class="wrapper"><article class="article">
+  <section>
+    <h1 class="article-title">
       浏览器请求耗时阶段解释    </h1>
-    <p class="meta text-muted clearfix">
-      最后更新：2019-08-05 10:44:33
-      &nbsp;&nbsp;
-      
-        <span class="attr">
-          标签：
-          
-            <a class="tag" href="/tags/#Browser" title="Browser">Browser</a>
-          
-        </span>
-      
+    <p class="article-meta">
+      <span>
+        LastUpdate：2019-08-08 07:26:49
+        &nbsp;&nbsp;
+        
+          <span class="attr">
+            Tags：
+            
+              <a class="tag" href="/tags/#Browser" title="Browser">Browser</a>
+            
+          </span>
+        
+      </span>
       <a href="/" class="float-right">返回</a>
     </p>
   </section>
-  <section class="mt-5">
-    <h2 id="一个请求耗时阶段解释"><a href="#一个请求耗时阶段解释" class="headerlink" title="一个请求耗时阶段解释"></a>一个请求耗时阶段解释</h2><p><strong>Queueing</strong> 浏览器会在以下情况时将请求加入队列，有优先级更高的请求；当请求协议是 HTTP/1.0 和 HTTP/1.1 时，同一域名下已经有 6 个 TCP 链接；浏览器在分配磁盘缓存</p>
+  <section><h2 id="一个请求耗时阶段解释"><a href="#一个请求耗时阶段解释" class="headerlink" title="一个请求耗时阶段解释"></a>一个请求耗时阶段解释</h2><p><strong>Queueing</strong> 浏览器会在以下情况时将请求加入队列，有优先级更高的请求；当请求协议是 HTTP/1.0 和 HTTP/1.1 时，同一域名下已经有 6 个 TCP 链接；浏览器在分配磁盘缓存</p>
 <p><strong>Stalled</strong> 由于排队中描述的任何原因，请求可能会停止</p>
 <p><strong>DNS Lookup</strong> 浏览器正在解析请求的 IP 地址</p>
 <p><strong>Proxy negotiation</strong> 浏览器与代理服务器协商请求</p>
@@ -75,26 +75,15 @@
 <p><strong>Content Download</strong>. The browser is receiving the response.</p>
 <p><strong>Receiving Push</strong>. The browser is receiving data for this response via HTTP/2 Server Push.</p>
 <p><strong>Reading Push</strong>. The browser is reading the local data previously received.</p>
-
-  </section>
-  <section id="lv-container"></section>
+</section>
 </article>
+
+<section class="article" id="lv-container"></section>
+
 </main>
 
-    <footer class="text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-			
-			  <a class="text-muted badge badge-light" target="_blank" rel="noopener" href="https://github.com/xrr2016">Github</a>
-			
-			
-			  <a class="text-muted badge badge-light" target="_blank" rel="noopener" href="https://juejin.im/user/576666b7207703006b1e0f09">掘金</a>
-			
-        	<p class="copyright text-muted">Copyright © <a href="/">coldstone.fun</a> 2019</p>
-        </div>
-      </div>
-	</div>
+    <footer class="footer">
+  <p>Copyright © <a href="/">coldstone.fun</a> 2019</p>
 </footer>
 
 
@@ -104,14 +93,8 @@
       window.isPost = true
     </script>
 
-    <script>
-      // service worker
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-        })
-      }
-    </script>
+    <script src="/scripts/index.js"></script>
+
     
       <script type="text/javascript">
         (function() {
@@ -129,9 +112,11 @@
             d.appendChild(j);
         })();
       </script>
+
       <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
     
     <script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
+
     <script>
       window.dataLayer = window.dataLayer || []
       function gtag() {

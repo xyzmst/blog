@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
   <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,12 +14,11 @@
     <meta name="description" content="随便写点啥。">
     <title>了解 &lt;link&gt; 标签上 rel=prexxx 的作用 - 冷石的博客</title>
     <base href="/">
-    <link ref="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="/images/favicon.ico">
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
-    <link rel="stylesheet" href="/styles/bootstrap.min.css">
-    <link rel="stylesheet" href="/styles/clean-blog.css">
+    <link rel="stylesheet" href="/styles/sanitize.css">
+<link rel="stylesheet" href="/styles/main.css">
     <noscript>
       <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
     </noscript>
@@ -28,26 +27,27 @@
   <body>
     
 
-    <main class="wrapper"><article>
-  <section class="post-heading">
-    <h1>
+    <main class="wrapper"><article class="article">
+  <section>
+    <h1 class="article-title">
       了解 &lt;link&gt; 标签上 rel=prexxx 的作用    </h1>
-    <p class="meta text-muted clearfix">
-      最后更新：2019-08-05 10:44:33
-      &nbsp;&nbsp;
-      
-        <span class="attr">
-          标签：
-          
-            <a class="tag" href="/tags/#HTML" title="HTML">HTML</a>
-          
-        </span>
-      
+    <p class="article-meta">
+      <span>
+        LastUpdate：2019-08-08 07:26:49
+        &nbsp;&nbsp;
+        
+          <span class="attr">
+            Tags：
+            
+              <a class="tag" href="/tags/#HTML" title="HTML">HTML</a>
+            
+          </span>
+        
+      </span>
       <a href="/" class="float-right">返回</a>
     </p>
   </section>
-  <section class="mt-5">
-    <p>在 HTML 中 <link> 标签指定了当前文档与外部资源之间的关系<br>本文说明 <link> 标签的 rel 属性分别设置 dns-prefetch，preconnect，prefetch，preload，prerender 的时候有说明作用</p>
+  <section><p>在 HTML 中 <link> 标签指定了当前文档与外部资源之间的关系<br>本文说明 <link> 标签的 rel 属性分别设置 dns-prefetch，preconnect，prefetch，preload，prerender 的时候有说明作用</p>
 <p>dns-prefetch：向浏览器提示需要资源，允许浏览器在用户单击链接之前进行 DNS 查找和协议握手</p>
 <p>preconnect：向浏览器提供提示，建议它提前打开与链接网站的连接，而不泄露任何私人信息或下载任何内容，以便在遵循链接时可以更快地获取链接的内容</p>
 <p>prefetch：建议浏览器提前获取链接资源，因为它可能是用户请求的。 从 Firefox 44 开始，将考虑 crossorigin 属性的值，从而可以进行匿名预取</p>
@@ -55,26 +55,15 @@
 <p>prerender：建议浏览器提前获取链接资源，并且它还在屏幕外渲染预取内容，以便在需要时可以快速呈现给用户</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://devdocs.io/html/link_types" target="_blank" rel="noopener">link_types</a></p>
 <p><a href="https://stackoverflow.com/questions/47273743/preconnect-vs-dns-prefetch-resource-hints" target="_blank" rel="noopener">preconnect-vs-dns-prefetch-resource-hints</a></p>
-
-  </section>
-  <section id="lv-container"></section>
+</section>
 </article>
+
+<section class="article" id="lv-container"></section>
+
 </main>
 
-    <footer class="text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-			
-			  <a class="text-muted badge badge-light" target="_blank" rel="noopener" href="https://github.com/xrr2016">Github</a>
-			
-			
-			  <a class="text-muted badge badge-light" target="_blank" rel="noopener" href="https://juejin.im/user/576666b7207703006b1e0f09">掘金</a>
-			
-        	<p class="copyright text-muted">Copyright © <a href="/">coldstone.fun</a> 2019</p>
-        </div>
-      </div>
-	</div>
+    <footer class="footer">
+  <p>Copyright © <a href="/">coldstone.fun</a> 2019</p>
 </footer>
 
 
@@ -84,14 +73,8 @@
       window.isPost = true
     </script>
 
-    <script>
-      // service worker
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-        })
-      }
-    </script>
+    <script src="/scripts/index.js"></script>
+
     
       <script type="text/javascript">
         (function() {
@@ -109,9 +92,11 @@
             d.appendChild(j);
         })();
       </script>
+
       <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
     
     <script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
+
     <script>
       window.dataLayer = window.dataLayer || []
       function gtag() {

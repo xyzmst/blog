@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
   <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,12 +14,11 @@
     <meta name="description" content="随便写点啥。">
     <title>Dart 语言中的 final 与 const 的区别 - 冷石的博客</title>
     <base href="/">
-    <link ref="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="/images/favicon.ico">
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
-    <link rel="stylesheet" href="/styles/bootstrap.min.css">
-    <link rel="stylesheet" href="/styles/clean-blog.css">
+    <link rel="stylesheet" href="/styles/sanitize.css">
+<link rel="stylesheet" href="/styles/main.css">
     <noscript>
       <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
     </noscript>
@@ -28,48 +27,38 @@
   <body>
     
 
-    <main class="wrapper"><article>
-  <section class="post-heading">
-    <h1>
+    <main class="wrapper"><article class="article">
+  <section>
+    <h1 class="article-title">
       Dart 语言中的 final 与 const 的区别    </h1>
-    <p class="meta text-muted clearfix">
-      最后更新：2019-08-05 10:44:33
-      &nbsp;&nbsp;
-      
-        <span class="attr">
-          标签：
-          
-            <a class="tag" href="/tags/#Dart" title="Dart">Dart</a>
-          
-        </span>
-      
+    <p class="article-meta">
+      <span>
+        LastUpdate：2019-08-08 07:26:49
+        &nbsp;&nbsp;
+        
+          <span class="attr">
+            Tags：
+            
+              <a class="tag" href="/tags/#Dart" title="Dart">Dart</a>
+            
+          </span>
+        
+      </span>
       <a href="/" class="float-right">返回</a>
     </p>
   </section>
-  <section class="mt-5">
-    <p>在 Dart 中有 <code>final</code> 和 <code>const</code> 两个关键字，貌似都是表示常量的，但是它们还是有区别的</p>
+  <section><p>在 Dart 中有 <code>final</code> 和 <code>const</code> 两个关键字，貌似都是表示常量的，但是它们还是有区别的</p>
 <p>final 变量的值只能被设置一次； const 变量在编译时就已经固定 (const 变量是隐式 final 的类型.) 最高级 final 变量或类变量在第一次使用时被初始化。</p>
 <p><a href="https://dart.dev/guides/language/language-tour#final-and-const" target="_blank" rel="noopener">官方文档</a></p>
-
-  </section>
-  <section id="lv-container"></section>
+</section>
 </article>
+
+<section class="article" id="lv-container"></section>
+
 </main>
 
-    <footer class="text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-			
-			  <a class="text-muted badge badge-light" target="_blank" rel="noopener" href="https://github.com/xrr2016">Github</a>
-			
-			
-			  <a class="text-muted badge badge-light" target="_blank" rel="noopener" href="https://juejin.im/user/576666b7207703006b1e0f09">掘金</a>
-			
-        	<p class="copyright text-muted">Copyright © <a href="/">coldstone.fun</a> 2019</p>
-        </div>
-      </div>
-	</div>
+    <footer class="footer">
+  <p>Copyright © <a href="/">coldstone.fun</a> 2019</p>
 </footer>
 
 
@@ -79,14 +68,8 @@
       window.isPost = true
     </script>
 
-    <script>
-      // service worker
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-        })
-      }
-    </script>
+    <script src="/scripts/index.js"></script>
+
     
       <script type="text/javascript">
         (function() {
@@ -104,9 +87,11 @@
             d.appendChild(j);
         })();
       </script>
+
       <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
     
     <script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
+
     <script>
       window.dataLayer = window.dataLayer || []
       function gtag() {

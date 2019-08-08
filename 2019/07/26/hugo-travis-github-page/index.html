@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
   <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,12 +14,11 @@
     <meta name="description" content="随便写点啥。">
     <title>使用 Travis CI 部署 Hugo 博客到 Github Pages - 冷石的博客</title>
     <base href="/">
-    <link ref="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="/images/favicon.ico">
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
-    <link rel="stylesheet" href="/styles/bootstrap.min.css">
-    <link rel="stylesheet" href="/styles/clean-blog.css">
+    <link rel="stylesheet" href="/styles/sanitize.css">
+<link rel="stylesheet" href="/styles/main.css">
     <noscript>
       <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
     </noscript>
@@ -28,26 +27,27 @@
   <body>
     
 
-    <main class="wrapper"><article>
-  <section class="post-heading">
-    <h1>
+    <main class="wrapper"><article class="article">
+  <section>
+    <h1 class="article-title">
       使用 Travis CI 部署 Hugo 博客到 Github Pages    </h1>
-    <p class="meta text-muted clearfix">
-      最后更新：2019-08-05 10:44:33
-      &nbsp;&nbsp;
-      
-        <span class="attr">
-          标签：
-          
-            <a class="tag" href="/tags/#Hugo" title="Hugo">Hugo</a>
-          
-        </span>
-      
+    <p class="article-meta">
+      <span>
+        LastUpdate：2019-08-08 07:26:49
+        &nbsp;&nbsp;
+        
+          <span class="attr">
+            Tags：
+            
+              <a class="tag" href="/tags/#Hugo" title="Hugo">Hugo</a>
+            
+          </span>
+        
+      </span>
       <a href="/" class="float-right">返回</a>
     </p>
   </section>
-  <section class="mt-5">
-    <p>原本使用的是 Netlify 去部署博客的，域名解析也是通过 Netlify 的 DNS 服务器，但是发现博客在别人的电脑上打不开…发现是域名解析的问题，所以就把博客放到 Github Pages 上了，但是这样就失去了 Netlify 提供的自动构建和部署的能力，需要自己去配置 Travis CI 实现自动部署了。</p>
+  <section><p>原本使用的是 Netlify 去部署博客的，域名解析也是通过 Netlify 的 DNS 服务器，但是发现博客在别人的电脑上打不开…发现是域名解析的问题，所以就把博客放到 Github Pages 上了，但是这样就失去了 Netlify 提供的自动构建和部署的能力，需要自己去配置 Travis CI 实现自动部署了。</p>
 <h2 id="预先要求"><a href="#预先要求" class="headerlink" title="预先要求"></a>预先要求</h2><ul>
 <li>本地安装了 <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></li>
 <li>一个 <a href="https://github.com/" target="_blank" rel="noopener">Github</a> 账号</li>
@@ -67,26 +67,15 @@
 <h2 id="提交触发构建"><a href="#提交触发构建" class="headerlink" title="提交触发构建"></a>提交触发构建</h2><p>最后新建一篇文章，push 到 Github 仓库，触发 Travis 构建就可以了，以后博客进行更新后就可以自动构建发布了。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hugo new posts/my-first-post.md</span><br></pre></td></tr></table></figure>
 
-
-  </section>
-  <section id="lv-container"></section>
+</section>
 </article>
+
+<section class="article" id="lv-container"></section>
+
 </main>
 
-    <footer class="text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-			
-			  <a class="text-muted badge badge-light" target="_blank" rel="noopener" href="https://github.com/xrr2016">Github</a>
-			
-			
-			  <a class="text-muted badge badge-light" target="_blank" rel="noopener" href="https://juejin.im/user/576666b7207703006b1e0f09">掘金</a>
-			
-        	<p class="copyright text-muted">Copyright © <a href="/">coldstone.fun</a> 2019</p>
-        </div>
-      </div>
-	</div>
+    <footer class="footer">
+  <p>Copyright © <a href="/">coldstone.fun</a> 2019</p>
 </footer>
 
 
@@ -96,14 +85,8 @@
       window.isPost = true
     </script>
 
-    <script>
-      // service worker
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-        })
-      }
-    </script>
+    <script src="/scripts/index.js"></script>
+
     
       <script type="text/javascript">
         (function() {
@@ -121,9 +104,11 @@
             d.appendChild(j);
         })();
       </script>
+
       <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
     
     <script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
+
     <script>
       window.dataLayer = window.dataLayer || []
       function gtag() {

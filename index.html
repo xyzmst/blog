@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
   <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,12 +14,11 @@
     <meta name="description" content="随便写点啥。">
     <title>冷石的博客</title>
     <base href="/">
-    <link ref="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="/images/favicon.ico">
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
-    <link rel="stylesheet" href="/styles/bootstrap.min.css">
-    <link rel="stylesheet" href="/styles/clean-blog.css">
+    <link rel="stylesheet" href="/styles/sanitize.css">
+<link rel="stylesheet" href="/styles/main.css">
     <noscript>
       <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
     </noscript>
@@ -27,18 +26,27 @@
 
   <body>
     
-      <nav class="navbar fixed-top">
+      <nav class="navbar">
   <div class="wrapper">
-    <h1 class="title"><a class="navbar-brand" href="/">冷石的博客</a></h1>
+    <h1 class="title">
+      <a class="navbar-brand" href="/">冷石的博客</a>
+      <input type="checkbox" id="toggle" class="offscreen" /><label for="toggle" class="switch"></label>
+    </h1>
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="/tags">标签</a>
+        <a class="nav-link" href="/series">SERIES</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/archives">存档</a>
+        <a class="nav-link" href="/projects">PROJECTS</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/about/">关于</a>
+        <a class="nav-link" href="/tags">TAGS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/archives">ARCHIVES</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about/">ABOUT</a>
       </li>
     </ul>
   </div>
@@ -49,169 +57,156 @@
     <main class="wrapper"><ul class="list-unstyled">
     
         <li class="post-preview">
-            <a class="post-link" href="/2019/08/03/flutter-world-release/">
+            <a class="post-anchor" href="/2019/08/03/flutter-world-release/">
                 <h2 class="post-title">
-                    Flutter World 上线啦
-                </h2>
-                <p class="post-meta">
-                    
-                        标签：
-                        
-                            <a class="tag" href="/tags/#Flutter" title="Flutter">Flutter</a>
-                        
-                    
-                    &nbsp;发布于：2019-08-03
-                </p>
+                    Flutter World 上线啦                </h2>
             </a>
-        </li>
-    
-        <li class="post-preview">
-            <a class="post-link" href="/2019/08/01/centos-install-java8/">
-                <h2 class="post-title">
-                    在 Centos 中安装 java8
-                </h2>
-                <p class="post-meta">
-                    
-                        标签：
-                        
-                            <a class="tag" href="/tags/#Centos" title="Centos">Centos</a>
-                        
-                            <a class="tag" href="/tags/#Java" title="Java">Java</a>
-                        
-                    
-                    &nbsp;发布于：2019-08-01
-                </p>
-            </a>
-        </li>
-    
-        <li class="post-preview">
-            <a class="post-link" href="/2019/07/28/understand-flutter-lifecycle/">
-                <h2 class="post-title">
-                    理解 Flutter 应用和部件的生命周期
-                </h2>
-                <p class="post-meta">
-                    
-                        标签：
-                        
-                            <a class="tag" href="/tags/#Flutter" title="Flutter">Flutter</a>
-                        
-                    
-                    &nbsp;发布于：2019-07-28
-                </p>
-            </a>
-        </li>
-    
-        <li class="post-preview">
-            <a class="post-link" href="/2019/07/27/about-workbox-strategies/">
-                <h2 class="post-title">
-                    对于 Workbox Strategies几种策略的解释
-                </h2>
-                <p class="post-meta">
-                    
-                        标签：
-                        
-                            <a class="tag" href="/tags/#Workbox" title="Workbox">Workbox</a>
-                        
-                    
-                    &nbsp;发布于：2019-07-27
-                </p>
-            </a>
-        </li>
-    
-        <li class="post-preview">
-            <a class="post-link" href="/2019/07/26/hugo-travis-github-page/">
-                <h2 class="post-title">
-                    使用 Travis CI 部署 Hugo 博客到 Github Pages
-                </h2>
-                <p class="post-meta">
-                    
-                        标签：
-                        
-                            <a class="tag" href="/tags/#Hugo" title="Hugo">Hugo</a>
-                        
-                    
-                    &nbsp;发布于：2019-07-26
-                </p>
-            </a>
-        </li>
-    
-        <li class="post-preview">
-            <a class="post-link" href="/2019/07/25/about-manifest/">
-                <h2 class="post-title">
-                    对于 PWA 应用的 manifest.json 文件的解释
-                </h2>
-                <p class="post-meta">
-                    
-                        标签：
-                        
-                            <a class="tag" href="/tags/#PWA" title="PWA">PWA</a>
-                        
-                    
-                    &nbsp;发布于：2019-07-25
-                </p>
-            </a>
-        </li>
-    
-        <li class="post-preview">
-            <a class="post-link" href="/2019/07/24/add-pwa-support-to-hugo/">
-                <h2 class="post-title">
-                    让 Hugo 博客支持 PWA
-                </h2>
-                <p class="post-meta">
-                    
-                        标签：
-                        
-                            <a class="tag" href="/tags/#PWA" title="PWA">PWA</a>
-                        
-                    
-                    &nbsp;发布于：2019-07-24
-                </p>
-            </a>
-        </li>
-    
-        <li class="post-preview">
-            <a class="post-link" href="/2019/07/22/understand-link-prexxx/">
-                <h2 class="post-title">
-                    了解 &lt;link&gt; 标签上 rel=prexxx 的作用
-                </h2>
-                <p class="post-meta">
-                    
-                        标签：
-                        
-                            <a class="tag" href="/tags/#HTML" title="HTML">HTML</a>
-                        
-                    
-                    &nbsp;发布于：2019-07-22
-                </p>
-            </a>
-        </li>
-    
-</ul>
 
-<ul class="list-unstyled clearfix">
-    
-    
-        <li>
-            <a class="float-right" href="/page/2/">下一页 &rarr;</a>
+            <p class="post-meta">
+
+                    Tags：
+                    
+                        <a class="tag" href="/tags/#Flutter" title="Flutter">Flutter</a>
+                    
+                
+                &nbsp;Post：2019-08-03
+            </p>
         </li>
     
+        <li class="post-preview">
+            <a class="post-anchor" href="/2019/08/01/centos-install-java8/">
+                <h2 class="post-title">
+                    在 Centos 中安装 java8                </h2>
+            </a>
+
+            <p class="post-meta">
+
+                    Tags：
+                    
+                        <a class="tag" href="/tags/#Centos" title="Centos">Centos</a>
+                    
+                        <a class="tag" href="/tags/#Java" title="Java">Java</a>
+                    
+                
+                &nbsp;Post：2019-08-01
+            </p>
+        </li>
+    
+        <li class="post-preview">
+            <a class="post-anchor" href="/2019/07/28/understand-flutter-lifecycle/">
+                <h2 class="post-title">
+                    理解 Flutter 应用和部件的生命周期                </h2>
+            </a>
+
+            <p class="post-meta">
+
+                    Tags：
+                    
+                        <a class="tag" href="/tags/#Flutter" title="Flutter">Flutter</a>
+                    
+                
+                &nbsp;Post：2019-07-28
+            </p>
+        </li>
+    
+        <li class="post-preview">
+            <a class="post-anchor" href="/2019/07/26/about-workbox-strategies/">
+                <h2 class="post-title">
+                    对于 Workbox Strategies几种策略的解释                </h2>
+            </a>
+
+            <p class="post-meta">
+
+                    Tags：
+                    
+                        <a class="tag" href="/tags/#Workbox" title="Workbox">Workbox</a>
+                    
+                
+                &nbsp;Post：2019-07-26
+            </p>
+        </li>
+    
+        <li class="post-preview">
+            <a class="post-anchor" href="/2019/07/26/hugo-travis-github-page/">
+                <h2 class="post-title">
+                    使用 Travis CI 部署 Hugo 博客到 Github Pages                </h2>
+            </a>
+
+            <p class="post-meta">
+
+                    Tags：
+                    
+                        <a class="tag" href="/tags/#Hugo" title="Hugo">Hugo</a>
+                    
+                
+                &nbsp;Post：2019-07-26
+            </p>
+        </li>
+    
+        <li class="post-preview">
+            <a class="post-anchor" href="/2019/07/24/about-manifest/">
+                <h2 class="post-title">
+                    对于 PWA 应用的 manifest.json 文件的解释                </h2>
+            </a>
+
+            <p class="post-meta">
+
+                    Tags：
+                    
+                        <a class="tag" href="/tags/#PWA" title="PWA">PWA</a>
+                    
+                
+                &nbsp;Post：2019-07-24
+            </p>
+        </li>
+    
+        <li class="post-preview">
+            <a class="post-anchor" href="/2019/07/23/add-pwa-support-to-hugo/">
+                <h2 class="post-title">
+                    让 Hugo 博客支持 PWA                </h2>
+            </a>
+
+            <p class="post-meta">
+
+                    Tags：
+                    
+                        <a class="tag" href="/tags/#PWA" title="PWA">PWA</a>
+                    
+                
+                &nbsp;Post：2019-07-23
+            </p>
+        </li>
+    
+        <li class="post-preview">
+            <a class="post-anchor" href="/2019/07/22/understand-link-prexxx/">
+                <h2 class="post-title">
+                    了解 &lt;link&gt; 标签上 rel=prexxx 的作用                </h2>
+            </a>
+
+            <p class="post-meta">
+
+                    Tags：
+                    
+                        <a class="tag" href="/tags/#HTML" title="HTML">HTML</a>
+                    
+                
+                &nbsp;Post：2019-07-22
+            </p>
+        </li>
+    </ul>
+
+<ul class="list-unstyled pager">
+    <li class="left">
+        <a href="/"></a>
+    </li>
+    <li class="right">
+        <a href="/page/2/">下一页 &rarr;</a>
+    </li>
 </ul>
 </main>
 
-    <footer class="text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-			
-			  <a class="text-muted badge badge-light" target="_blank" rel="noopener" href="https://github.com/xrr2016">Github</a>
-			
-			
-			  <a class="text-muted badge badge-light" target="_blank" rel="noopener" href="https://juejin.im/user/576666b7207703006b1e0f09">掘金</a>
-			
-        	<p class="copyright text-muted">Copyright © <a href="/">coldstone.fun</a> 2019</p>
-        </div>
-      </div>
-	</div>
+    <footer class="footer">
+  <p>Copyright © <a href="/">coldstone.fun</a> 2019</p>
 </footer>
 
 
@@ -221,16 +216,11 @@
       window.isPost = false
     </script>
 
-    <script>
-      // service worker
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-        })
-      }
-    </script>
+    <script src="/scripts/index.js"></script>
+
     
     <script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
+
     <script>
       window.dataLayer = window.dataLayer || []
       function gtag() {

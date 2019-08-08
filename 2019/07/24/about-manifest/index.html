@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
   <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,12 +14,11 @@
     <meta name="description" content="随便写点啥。">
     <title>对于 PWA 应用的 manifest.json 文件的解释 - 冷石的博客</title>
     <base href="/">
-    <link ref="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="/images/favicon.ico">
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
-    <link rel="stylesheet" href="/styles/bootstrap.min.css">
-    <link rel="stylesheet" href="/styles/clean-blog.css">
+    <link rel="stylesheet" href="/styles/sanitize.css">
+<link rel="stylesheet" href="/styles/main.css">
     <noscript>
       <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
     </noscript>
@@ -28,26 +27,27 @@
   <body>
     
 
-    <main class="wrapper"><article>
-  <section class="post-heading">
-    <h1>
+    <main class="wrapper"><article class="article">
+  <section>
+    <h1 class="article-title">
       对于 PWA 应用的 manifest.json 文件的解释    </h1>
-    <p class="meta text-muted clearfix">
-      最后更新：2019-08-05 10:44:33
-      &nbsp;&nbsp;
-      
-        <span class="attr">
-          标签：
-          
-            <a class="tag" href="/tags/#PWA" title="PWA">PWA</a>
-          
-        </span>
-      
+    <p class="article-meta">
+      <span>
+        LastUpdate：2019-08-08 07:26:49
+        &nbsp;&nbsp;
+        
+          <span class="attr">
+            Tags：
+            
+              <a class="tag" href="/tags/#PWA" title="PWA">PWA</a>
+            
+          </span>
+        
+      </span>
       <a href="/" class="float-right">返回</a>
     </p>
   </section>
-  <section class="mt-5">
-    <p>网站要支持 PWA，需要一个 <code>manifest.json</code> 文件，W3C Web App Manifest 的草案上定义了以下的字段，解释一下每个字段是什么意思。</p>
+  <section><p>网站要支持 PWA，需要一个 <code>manifest.json</code> 文件，W3C Web App Manifest 的草案上定义了以下的字段，解释一下每个字段是什么意思。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">dictionary WebAppManifest &#123;</span><br><span class="line">   TextDirectionType dir = <span class="string">"auto"</span>;</span><br><span class="line">   DOMString lang;</span><br><span class="line">   USVString name;</span><br><span class="line">   USVString short_name;</span><br><span class="line">   USVString description;</span><br><span class="line">   sequence&lt;ImageResource&gt; icons;</span><br><span class="line">   sequence&lt;ImageResource&gt; screenshots;</span><br><span class="line">   sequence&lt;USVString&gt; categories;</span><br><span class="line">   DOMString iarc_rating_id;</span><br><span class="line">   USVString start_url;</span><br><span class="line">   DisplayModeType display = <span class="string">"browser"</span>;</span><br><span class="line">   OrientationLockType orientation;</span><br><span class="line">   USVString theme_color;</span><br><span class="line">   USVString background_color;</span><br><span class="line">   USVString scope;</span><br><span class="line">   ServiceWorkerRegistrationObject serviceworker;</span><br><span class="line">   sequence&lt;ExternalApplicationResource&gt; related_applications;</span><br><span class="line">   boolean prefer_related_applications = <span class="string">"false"</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">dictionary ImageResource &#123;</span><br><span class="line">  required USVString src;</span><br><span class="line">  DOMString sizes;</span><br><span class="line">  USVString type;</span><br><span class="line">  USVString purpose;</span><br><span class="line">  USVString platform;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">dictionary ServiceWorkerRegistrationObject &#123;</span><br><span class="line">  required USVString src;</span><br><span class="line">  USVString scope;</span><br><span class="line">  WorkerType type = <span class="string">"classic"</span>;</span><br><span class="line">  ServiceWorkerUpdateViaCache update_via_cache = <span class="string">"imports"</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">dictionary ExternalApplicationResource &#123;</span><br><span class="line">  required USVString platform;</span><br><span class="line">  USVString url;</span><br><span class="line">  DOMString id;</span><br><span class="line">  USVString min_version;</span><br><span class="line">  sequence&lt;Fingerprint&gt; fingerprints;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p><strong>dir</strong> 指定了 manifest 中具有方向性的成员的基本方向，可以设置 <code>ltr</code> 左至右, <code>rtl</code> 右至左, <code>auto</code> 没有明确方向。</p>
@@ -85,26 +85,15 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"manifest"</span> <span class="attr">href</span>=<span class="string">"/manifest.json"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>这样浏览器就可以安装你的 Web 应用了。</p>
-
-  </section>
-  <section id="lv-container"></section>
+</section>
 </article>
+
+<section class="article" id="lv-container"></section>
+
 </main>
 
-    <footer class="text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-			
-			  <a class="text-muted badge badge-light" target="_blank" rel="noopener" href="https://github.com/xrr2016">Github</a>
-			
-			
-			  <a class="text-muted badge badge-light" target="_blank" rel="noopener" href="https://juejin.im/user/576666b7207703006b1e0f09">掘金</a>
-			
-        	<p class="copyright text-muted">Copyright © <a href="/">coldstone.fun</a> 2019</p>
-        </div>
-      </div>
-	</div>
+    <footer class="footer">
+  <p>Copyright © <a href="/">coldstone.fun</a> 2019</p>
 </footer>
 
 
@@ -114,14 +103,8 @@
       window.isPost = true
     </script>
 
-    <script>
-      // service worker
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-        })
-      }
-    </script>
+    <script src="/scripts/index.js"></script>
+
     
       <script type="text/javascript">
         (function() {
@@ -139,9 +122,11 @@
             d.appendChild(j);
         })();
       </script>
+
       <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
     
     <script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
+
     <script>
       window.dataLayer = window.dataLayer || []
       function gtag() {
