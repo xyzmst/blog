@@ -36,7 +36,7 @@ node -v
 npm install -g verdaccio
 ```
 
-安装完成就可以使用了
+安装完成就可以使用了， 如果使用的是 root 用户会提示你不要使用 root 账户
 
 ```bash
 verdaccio

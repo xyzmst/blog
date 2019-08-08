@@ -2,7 +2,10 @@
 layout: layout
 ---
 
-<div class="post-content <% if(config.post_style && !config.post_style.indent) {%>no-indent<% } %>">
-  <%-page.content%>
+<section class="about">
+  <%- partial('_partial/bio', null, {cache: true}) %>
+
+  <%- page.content %>
+
   <div id="lv-container"></div>
-</div>
+</section>

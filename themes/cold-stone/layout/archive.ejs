@@ -3,9 +3,9 @@ layout: layout
 ---
 
 <%
-var years = {};
+let years = {};
 site.posts.sort('date').reverse().forEach(function(post){
-    var year = post.date.year()
+    let year = post.date.year()
     if(years[year]===undefined){
         years[year] = [];
     }
@@ -15,12 +15,10 @@ site.posts.sort('date').reverse().forEach(function(post){
 
 <!-- 归档列表 -->
 
-<ul class="archives">
+<ul class="archives list-unstyled">
     <% Object.keys(years).reverse().forEach(function(year){  %>
-        <div class="one-tag-list">
-            <span id="<%= year %>">
-                <span class="tag-text"><%= year %></span>
-            </span>
+        <li class="card">
+            <span id="<%= year %>"><span class="tag-text"><%= year %></span></span>
             <ul>
                 <% years[year].map(function(post){  %>
                 <li>
@@ -35,6 +33,6 @@ site.posts.sort('date').reverse().forEach(function(post){
                 </li>
             <% }) %>
             </ul>
-        </div>
+        </li>
     <% }) %>
 </ul>

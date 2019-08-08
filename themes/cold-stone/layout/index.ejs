@@ -3,7 +3,7 @@ layout: layout
 ---
 <ul class="list-unstyled">
     <% page.posts.each(function(post) { %>
-        <li class="post-preview">
+        <li class="post-item card">
             <a class="post-anchor" href="<%- config.root %><%- post.path %>">
                 <h2 class="post-title hover-underline-animation">
                     <%-_ (post.title || "Untitled").replace(/[<>&"]/g,function(c){
