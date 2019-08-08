@@ -12,15 +12,15 @@ install:
   - yarn
 
 script:
-  - yarn deploy
+  - yarn build
   - echo 'coldstone.fun' > public/CNAME
 
 cache: yarn
 
 deploy:
   provider: pages
-  skip-cleanup: true
   local-dir: public
+  skip-cleanup: true
   github-token: $GITHUB_TOKEN
   keep-history: true
   on:
