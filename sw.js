@@ -5,7 +5,7 @@ if (workbox) {
 
   workbox.routing.registerRoute(
     '/',
-    new workbox.strategies.StaleWhileRevalidate({
+    new workbox.strategies.NetworkFirst({
       cacheName: 'offline'
     })
   )
@@ -25,8 +25,8 @@ if (workbox) {
   )
 
   workbox.routing.registerRoute(
-    /\.(png|jpg|jpeg|svg|gif:webp)$/,
-    new workbox.strategies.CacheFirst({
+    /\.(png|jpg|jpeg|svg|gif|webp)$/,
+    new workbox.strategies.StaleWhileRevalidate({
       cacheName: 'images',
       plugins: [
         new workbox.expiration.Plugin({

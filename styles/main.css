@@ -59,7 +59,8 @@ body.dark .navbar a {
 
 body.dark .card,
 body.dark .navbar,
-body.dark .article {
+body.dark .article,
+body.dark .tag {
   background-color: #3d3b3b;
 }
 
@@ -376,6 +377,13 @@ img::selection {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.tag {
+  padding: 2px 6px;
+  margin-right: 10px;
+  margin-bottom: 6px;
+  background-color: #ffffff;
 }
 .tag-list {
   margin: 0;
