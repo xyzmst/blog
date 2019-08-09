@@ -6,39 +6,19 @@
     </h1>
     <ul class="navbar-nav">
       <li class="nav-item">
-        <% if(is_home()) { %>
-          <a class="nav-link active" href="<%= url_for(config.root) %>"><%- __('nav.home') %></a>
-        <% } else { %>
-          <a class="nav-link" href="<%= url_for(config.root) %>"><%- __('nav.home') %></a>
-        <% } %>
+        <a class="nav-link" href="<%= url_for(config.root) %>"><%- __('nav.home') %></a>
       </li>
       <li class="nav-item">
-        <% if(is_current(config.project_dir)) { %>
-          <a class="nav-link active" href="<%= url_for(config.project_dir) %>"><%- __('nav.projects') %></a>
-        <% } else { %>
           <a class="nav-link" href="<%= url_for(config.project_dir) %>"><%- __('nav.projects') %></a>
-        <% } %>
       </li>
       <li class="nav-item">
-       <% if(is_current(config.tag_dir)) { %>
-          <a class="nav-link active" href="<%= url_for(config.tag_dir) %>"><%- __('nav.tags') %></a>
-        <% } else { %>
-          <a class="nav-link" href="<%= url_for(config.tag_dir) %>"><%- __('nav.tags') %></a>
-        <% } %>
+        <a class="nav-link" href="<%= url_for(config.tag_dir) %>"><%- __('nav.tags') %></a>
       </li>
       <li class="nav-item">
-        <% if(is_current(config.archive_dir)) { %>
-          <a class="nav-link active" href="<%= url_for(config.archive_dir) %>"><%- __('nav.archives') %></a>
-        <% } else { %>
-          <a class="nav-link" href="<%= url_for(config.archive_dir) %>"><%- __('nav.archives') %></a>
-        <% } %>
+        <a class="nav-link" href="<%= url_for(config.archive_dir) %>"><%- __('nav.archives') %></a>
       </li>
       <li class="nav-item">
-        <% if(is_current('/about/')) { %>
-          <a class="nav-link active" href="<%= config.root %><%- 'about/' %>"><%- __('nav.about') %></a>
-        <% } else { %>
-          <a class="nav-link" href="<%= config.root %><%- 'about/' %>"><%- __('nav.about') %></a>
-        <% } %>
+        <a class="nav-link" href="<%= config.root %><%- 'about/' %>"><%- __('nav.about') %></a>
       </li>
     </ul>
   </div>
