@@ -6,7 +6,14 @@ if (workbox) {
   workbox.routing.registerRoute(
     '/',
     new workbox.strategies.NetworkFirst({
-      cacheName: 'offline'
+      cacheName: 'index'
+    })
+  )
+
+  workbox.routing.registerRoute(
+    /\/post.|/,
+    new workbox.strategies.NetworkFirst({
+      cacheName: 'posts'
     })
   )
 
