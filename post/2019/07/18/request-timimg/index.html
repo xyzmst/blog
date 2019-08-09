@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="referrer" content="no-referrer">
+    <meta name="theme-color" content="#333333">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="google" content="notranslate">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="keyword" content="Web, Js, CSS, Node.js, Frontend, Flutter,Docker">
+    <meta name="description" content="随便写点啥。">
+    <title>浏览器请求耗时阶段解释 - 冷石的博客</title>
+    <base href="/">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <link rel="stylesheet" href="/styles/sanitize.css">
+<link rel="stylesheet" href="/styles/main.css">
+    <noscript>
+      <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
+    </noscript>
+</head>
+
+  <body>
+    
+
+    <main class="wrapper"><article class="article">
+  <section>
+    <h1 class="article-title">
+      浏览器请求耗时阶段解释    </h1>
+    <p class="article-meta">
+      <span class="meta-info">
+        LastUpdate：2019-08-09 11:24:38
+        
+          Tags：
+          
+            <a class="meta-tag" href="/tags/#Browser" title="Browser">Browser</a>
+          
+        
+      </span>
+      <a  class="meta-link" href="/">返回</a>
+    </p>
+  </section>
+  <section><h2 id="一个请求耗时阶段解释"><a href="#一个请求耗时阶段解释" class="headerlink" title="一个请求耗时阶段解释"></a>一个请求耗时阶段解释</h2><p><strong>Queueing</strong> 浏览器会在以下情况时将请求加入队列，有优先级更高的请求；当请求协议是 HTTP/1.0 和 HTTP/1.1 时，同一域名下已经有 6 个 TCP 链接；浏览器在分配磁盘缓存</p>
+<p><strong>Stalled</strong> 由于排队中描述的任何原因，请求可能会停止</p>
+<p><strong>DNS Lookup</strong> 浏览器正在解析请求的 IP 地址</p>
+<p><strong>Proxy negotiation</strong> 浏览器与代理服务器协商请求</p>
+<p><strong>Request sent</strong> 请求已经发出</p>
+<p><strong>ServiceWorker Preparation</strong> 浏览器启动 service worker</p>
+<p><strong>Request to ServiceWorker</strong> 请求已经向 service worker 发出</p>
+<p><strong>Waiting (TTFB)</strong> 浏览器等待第一个字节返回，此时间包括 1 次往返延迟和服务器准备响应所用的时间。</p>
+<p><strong>Content Download</strong>. 浏览器接收响应</p>
+<p><strong>Receiving Push</strong>. 浏览器收到通过 HTTP/2 Server Push 的响应</p>
+<p><strong>Reading Push</strong>. 浏览器正在读取先前收到的本地数据</p>
+<h2 id="Timing-breakdown-phases-explained"><a href="#Timing-breakdown-phases-explained" class="headerlink" title="Timing breakdown phases explained"></a>Timing breakdown phases explained</h2><p>Here’s more information about each of the phases you may see in the Timing tab:</p>
+<p><strong>Queueing</strong>. The browser queues requests when:</p>
+<ul>
+<li>There are higher priority requests.</li>
+<li>There are already six TCP connections open for this origin, which is the limit. Applies to HTTP/1.0 and HTTP/1.1 only.</li>
+<li>The browser is briefly allocating space in the disk cache</li>
+</ul>
+<p><strong>Stalled</strong>. The request could be stalled for any of the reasons described in<strong>Queueing</strong>.</p>
+<p><strong>DNS Lookup</strong>. The browser is resolving the request’s IP address.</p>
+<p><strong>Proxy negotiation</strong>. The browser is negotiating the request with a<a href="https://en.wikipedia.org/wiki/Proxy_server" target="_blank" rel="noopener">proxy server</a>.</p>
+<p><strong>Request sent</strong>. The request is being sent.</p>
+<p><strong>ServiceWorker Preparation</strong>. The browser is starting up the service worker.</p>
+<p><strong>Request to ServiceWorker</strong>. The request is being sent to the service worker.</p>
+<p><strong>Waiting (TTFB)</strong>. The browser is waiting for the first byte of a response. TTFB stands for Time To First Byte. This timing includes 1 round trip of latency and the time the server took to prepare the response.</p>
+<p><strong>Content Download</strong>. The browser is receiving the response.</p>
+<p><strong>Receiving Push</strong>. The browser is receiving data for this response via HTTP/2 Server Push.</p>
+<p><strong>Reading Push</strong>. The browser is reading the local data previously received.</p>
+</section>
+</article>
+
+<section class="article" id="lv-container"></section>
+
+<script type="text/javascript">
+  (function() {
+      if (typeof LivereTower === 'function') { return; }
+
+      var j, d = document.getElementById('lv-container');
+
+      d.setAttribute('data-id','city');
+      d.setAttribute('data-uid' , 'MTAyMC80NTY4Mi8yMjE5Mw==');
+
+      j = document.createElement('script');
+      j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+      j.async = true;
+
+      d.appendChild(j);
+  })();
+</script>
+
+<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+
+</main>
+
+    <footer class="footer">
+  <p>Copyright © <a href="/">coldstone.fun</a> 2019</p>
+</footer>
+
+
+    <script src="/scripts/index.js"></script>
+
+    <script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+      gtag('config', 'UA-119658292-2')
+    </script>
+  </body>
+</html>
