@@ -1,5 +1,5 @@
 ---
-title: 数据结构与算法--列表
+title: 数据结构之列表
 date: 2019-08-08 22:14:05
 tags:
 	- DataStructure
