@@ -16,10 +16,10 @@ layout: layout
                 <%_ if (post.tags.length){ %>
                     <%= __('post.tags') _%>：
                     <% post.tags.forEach(function(tag){ %>
-                        <a class="tag" href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>"><%= tag.name %></a>
+                        <a class="meta-tag" href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>"><%= tag.name %></a>
                     <% }) %>
                 <% } %>
-                &nbsp;<%= __('post.postTime') %>：<%= post.date.format(config.date_format) %>
+                <%= __('post.postTime') %>：<%= post.date.format(config.date_format) %>
             </p>
         </li>
     <% }); _%>
