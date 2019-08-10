@@ -51,7 +51,7 @@ class Stack {
 }
 ```
 
-测试
+## 测试
 
 ```ts
 const stack = new Stack()
@@ -72,11 +72,7 @@ console.log('执行 peek 方法后返回：', stack.peek())
 stack.clear()
 
 console.log('执行 clear 方法后\n', stack)
-```
 
-## 结果
-
-```ts
 执行 push 方法后
  Stack { data: [ 'aaa', 'bbb', 'ccc', 'ddd' ], top: 4 }
 执行 pop 方法后
