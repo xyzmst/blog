@@ -1,5 +1,5 @@
 :root {
-  --text-black: #24292e;
+  --text-black: #303133;
   --text-gray: #586069;
   --text-link: #0366d6;
   --bg-white: #f2f3f8;
@@ -86,11 +86,6 @@ a {
   color: inherit;
   text-decoration: none;
   transition: all 0.1s ease;
-}
-
-a:focus,
-a:hover {
-  color: #007bff;
 }
 
 p {
@@ -181,11 +176,11 @@ p {
 }
 
 .nav-link.active {
-  border-bottom-color: #007bff;
+  border-bottom-color: inherit;
 }
 
 .nav-link:hover {
-  border-bottom-color: #007bff;
+  border-bottom-color: inherit;
 }
 
 @media screen and (max-width: 768px) {
@@ -386,9 +381,24 @@ img::selection {
   padding-right: 1rem;
 }
 
+.article-toc {
+  position: fixed;
+  top: 1.5rem;
+  left: calc(50vw + 360px);
+  min-width: 200px;
+  font-size: 0.9rem;
+}
+
+.article-toc .toc {
+  margin: 0;
+}
+
 @media screen and (max-width: 768px) {
   .article-meta {
     font-size: 0.8rem;
+  }
+  .article-toc {
+    display: none;
   }
 }
 
@@ -421,21 +431,21 @@ img::selection {
 }
 
 /* Hover underline animation */
-
 .hover-underline-animation {
   display: inline-block;
   position: relative;
   margin: 0;
 }
+
 .hover-underline-animation::after {
   content: '';
   position: absolute;
   width: 100%;
   transform: scaleX(0);
-  height: 2px;
+  height: 1px;
   bottom: 0;
   left: 0;
-  background-color: #007bff;
+  background-color: var(--text-black);
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }
@@ -445,9 +455,9 @@ img::selection {
 }
 
 /* about */
-
 .about {
   margin-top: 1rem;
+  padding-top: 4rem;
   text-align: center;
 }
 
@@ -489,12 +499,12 @@ img::selection {
 
 .loader .ring {
   fill: none;
-  stroke: var(--text-link);
-  stroke-width: 2;
+  stroke: var(--text-gray);
+  stroke-width: 1;
 }
 
 .loader .ball {
-  fill: var(--text-link);
+  fill: var(--text-gray);
   stroke: none;
 }
 
@@ -508,3 +518,23 @@ img::selection {
 /* .comment {
   min-height: 300px;
 } */
+
+/* search-form */
+.search-form {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.search-form-input {
+  outline: none;
+  border: none;
+  height: 30px;
+  padding-left: 4px;
+  border-bottom: 1px solid var(--text-gray);
+}
+
+/* project-list */
+.project-list h2 {
+  margin: 0;
+}

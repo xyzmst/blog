@@ -7,9 +7,9 @@ if ('serviceWorker' in navigator) {
 // theme
 const body = document.body
 const toggle = document.getElementById('toggle')
-const isDarkTheme = localStorage.getItem('isDarkTheme')
+const theme = localStorage.getItem('theme')
 
-if (isDarkTheme === 'true') {
+if (theme === 'dark') {
   if (toggle) {
     toggle.checked = true
   }
@@ -22,10 +22,10 @@ if (toggle) {
 
     if (target.checked) {
       body.classList.add('dark')
-      localStorage.setItem('isDarkTheme', true)
+      localStorage.setItem('theme', 'dark')
     } else {
       body.classList.remove('dark')
-      localStorage.setItem('isDarkTheme', false)
+      localStorage.setItem('theme', 'light')
     }
   })
 }
@@ -43,7 +43,7 @@ if (utteranc) {
   uscript.setAttribute('repo', 'xrr2016/blog')
   uscript.setAttribute('issue-term', 'pathname')
 
-  if (isDarkTheme === 'true') {
+  if (theme === 'dark') {
     uscript.setAttribute('theme', 'github-dark')
   } else {
     uscript.setAttribute('theme', 'github-light')
@@ -54,7 +54,7 @@ if (utteranc) {
   const timeout = setTimeout(function() {
     loader.remove()
     clearTimeout(timeout)
-  }, 3000)
+  }, 2000)
 }
 
 // nav
@@ -66,4 +66,13 @@ navs.forEach(function(nav, index) {
   if (nav === path) {
     navLinkList[index].classList.add('active')
   }
+})
+
+// toc
+const tocLinkList = document.querySelectorAll('.toc-link')
+
+tocLinkList.forEach(function(link) {
+  const href = link.href
+  const newHref = href.replace(location.origin + '/', location.href)
+  link.setAttribute('href', newHref)
 })
