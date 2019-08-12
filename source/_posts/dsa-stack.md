@@ -86,31 +86,29 @@ console.log('执行 clear 方法后\n', stack)
 
 ### 数制间的转换，将 10 进制的数转化为另一种进制
 
-此算法只针对基数为 2～9 的情况
+此算法只针对基数为 2 ～ 9 的情况
 
 ```ts
 function mulBase(num: number, base: number) {
   const stack = new Stack()
 
   while (num > 0) {
-     stack.push(num % base)
-     num = Math.floor(num /= base)
+    stack.push(num % base)
+    num = Math.floor((num /= base))
   }
   let converted = ''
   while (stack.length > 0) {
     converted += stack.pop()
   }
 
-  return  converted
+  return converted
 }
 
-console.log("num = 2 base = 2：", mulBase(2, 2)) // 10
+console.log('num = 2 base = 2：', mulBase(2, 2)) // 10
 
-console.log("num = 32 base = 2：", mulBase(32, 2)) // 100000
+console.log('num = 32 base = 2：', mulBase(32, 2)) // 100000
 
-console.log("num = 125 base = 8：", mulBase( 125, 8)) // 175
-
-
+console.log('num = 125 base = 8：', mulBase(125, 8)) // 175
 ```
 
 ### 判断回文

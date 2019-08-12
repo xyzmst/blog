@@ -7,7 +7,7 @@ categories: 'WEB'
 
 让用 Hugo 搭建的博客支持 PWA 很简单，只需 2 个步骤即可：
 
-## 1. 添加一个 manifest.json 文件
+## 添加一个 manifest.json 文件
 
 使用 https://app-manifest.firebaseapp.com 来生成博客的 manifest.json 文件，然后将生成出来的文件和图片放到博客的 static 目录，然后在 layout/index.html 的 <head> 标签内引用这个文件
 
@@ -21,7 +21,7 @@ categories: 'WEB'
 
 这样你的博客就可以安装到桌面了
 
-## 2. 使用 Workbox 工具注册 ServiceWorker
+## 使用 Workbox 工具注册 ServiceWorker
 
 在 static 新建一个 `sw.js` 文件，在文件添加以下内容用来为网络请求添加缓存；主要是缓存静态资源 js，css，图片以及字体等文件，
 详细文档可以查看 [Workbox 文档](https://developers.google.cn/web/tools/workbox)
