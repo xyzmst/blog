@@ -3,7 +3,7 @@
   <%- partial('_partial/head') %>
   <body>
     <% if (!is_post()) { %>
-      <%- partial('_partial/nav', null, {cache: true}) %>
+      <%- partial('_partial/header', null, {cache: true}) %>
     <% } %>
 
     <main class="wrapper"><%- body %></main>

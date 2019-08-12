@@ -19,6 +19,9 @@
     </p>
   </section>
   <section><%- page.content %></section>
+  <section class="article-toc">
+    <%- toc(page.content, {list_number	: false }) %>
+  </section>
 </article>
 
 <section class="article">

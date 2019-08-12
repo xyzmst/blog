@@ -2,8 +2,10 @@
   <div class="wrapper">
     <h1 class=" title">
       <span class="title-brand"><%- __('title') %></span>
-      <input type="checkbox" id="toggle" class="offscreen" /><label for="toggle" class="switch"></label>
+      <%- search_form({ class: 'search-form', text: '🔍搜索' }) %>
+      <input class="offscreen" type="checkbox" id="toggle" name="toggle" aria-label="toggle" /><label for="toggle" class="switch"></label>
     </h1>
+
   </div>
 </header>
 
