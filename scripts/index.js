@@ -3,6 +3,12 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js')
   })
 }
+// code highlight
+document.addEventListener('DOMContentLoaded', event => {
+  document.querySelectorAll('figure.highlight').forEach(block => {
+    hljs.highlightBlock(block)
+  })
+})
 
 // theme
 const body = document.body

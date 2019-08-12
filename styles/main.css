@@ -7,13 +7,13 @@
 
 ::-moz-selection {
   color: #fff;
-  background: #007bff;
+  background: var(--text-link);
   text-shadow: none;
 }
 
 ::selection {
   color: #fff;
-  background: #007bff;
+  background: var(--text-link);
   text-shadow: none;
 }
 
@@ -60,7 +60,7 @@ body.dark .card,
 body.dark .header,
 body.dark .navbar,
 body.dark .article,
-body.dark .tag {
+body.dark .tag-item {
   background-color: #3d3b3b;
 }
 
@@ -240,91 +240,15 @@ p {
 }
 
 /* code  */
-pre,
+figure.highlight {
+  padding: 0;
+}
+
 .highlight {
+  margin: 1rem 0;
   overflow: auto;
-  margin: 20px 0;
-  padding: 0;
-  font-size: 13px;
-  color: #4d4d4c;
-  background: #f7f7f7;
-  line-height: 1.6;
-}
-
-code {
-  padding: 2px 4px;
-  word-wrap: break-word;
-  color: #555;
-  background: #eee;
-  border-radius: 3px;
-  font-size: 13px;
-}
-
-pre {
-  padding: 10px;
-}
-
-pre code {
-  padding: 0;
-  color: #4d4d4c;
-  background: none;
-  text-shadow: none;
-}
-
-.highlight {
+  font-size: 0.8rem;
   border-radius: 1px;
-}
-
-.highlight pre {
-  border: none;
-  margin: 0;
-  padding: 10px 0;
-}
-
-.highlight table {
-  margin: 0;
-  width: auto;
-  border: none;
-}
-
-.highlight td {
-  border: none;
-  padding: 0;
-}
-
-.highlight figcaption {
-  font-size: 1em;
-  color: #4d4d4c;
-  line-height: 1em;
-  margin-bottom: 1em;
-}
-
-.highlight figcaption a {
-  float: right;
-  color: #4d4d4c;
-}
-
-.highlight figcaption a:hover {
-  border-bottom-color: #4d4d4c;
-}
-
-.highlight .gutter pre {
-  padding-left: 10px;
-  padding-right: 10px;
-  color: #869194;
-  text-align: right;
-  background-color: #eff2f3;
-}
-
-.highlight .code pre {
-  width: 100%;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: #f7f7f7;
-}
-
-.highlight .line {
-  height: 20px;
 }
 
 .gutter {
@@ -332,6 +256,13 @@ pre code {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  padding: 0 10px;
+  background-color: var(--bg-white);
+}
+
+.code {
+  padding: 0 4px;
+  word-wrap: break-word;
 }
 
 /* img */
@@ -411,7 +342,7 @@ img::selection {
   flex-wrap: wrap;
 }
 
-.tag {
+.tag-item {
   padding: 2px 6px;
   margin-right: 10px;
   margin-bottom: 6px;
