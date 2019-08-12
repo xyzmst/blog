@@ -1,6 +1,6 @@
 :root {
   --text-black: #303133;
-  --text-gray: #586069;
+  --text-gray: #909399;
   --text-link: #0366d6;
   --bg-white: #f2f3f8;
 }
@@ -476,4 +476,9 @@ img::selection {
 /* project-list */
 .project-list h2 {
   margin: 0;
+}
+
+.link-disabled {
+  pointer-events: none;
+  color: var(--text-gray);
 }

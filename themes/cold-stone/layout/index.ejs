@@ -27,9 +27,17 @@ layout: layout
 
 <ul class="list-unstyled pager">
     <li class="left">
-        <a href="<%- config.root %><%- page.prev_link %>" alt="上一页"><% if (page.prev){ %>&larr; 上一页<% } %></a>
+        <% if (page.prev){ %>
+          <a  href="<%- config.root %><%- page.prev_link %>">&larr; 上一页</a>
+        <% } else { %>
+          <a class="link-disabled" href="<%- config.root %><%- page.prev_link %>">&larr; 上一页</a>
+        <% } %>
     </li>
     <li class="right">
-        <a href="<%- config.root %><%- page.next_link %>" alt="下一页"><% if (page.next){ %>下一页 &rarr;<% } %></a>
+        <% if (page.next){ %>
+          <a  href="<%- config.root %><%- page.next_link %>">下一页 &rarr;</a>
+        <% } else { %>
+          <a class="link-disabled" href="<%- config.root %><%- page.next_link %>">下一页 &rarr;</a>
+        <% } %>
     </li>
 </ul>
