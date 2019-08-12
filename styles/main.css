@@ -361,6 +361,12 @@ img::selection {
   padding: 0;
 }
 
+.archives li {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* Hover underline animation */
 .hover-underline-animation {
   display: inline-block;
