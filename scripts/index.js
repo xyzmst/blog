@@ -82,3 +82,11 @@ tocLinkList.forEach(function(link) {
   const newHref = href.replace(location.origin + '/', location.href)
   link.setAttribute('href', newHref)
 })
+
+// ga
+window.dataLayer = window.dataLayer || []
+function gtag() {
+  dataLayer.push(arguments)
+}
+gtag('js', new Date())
+gtag('config', 'UA-119658292-2')
