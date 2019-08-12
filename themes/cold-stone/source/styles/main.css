@@ -460,7 +460,8 @@ img::selection {
 .search-form {
   display: flex;
   align-items: center;
-  margin-right: 1rem;
+  margin-right: 10px;
+  max-width: 120px;
 }
 
 .search-form-input {
@@ -468,6 +469,7 @@ img::selection {
   border: none;
   height: 30px;
   padding-left: 4px;
+  width: 100%;
   border-bottom: 1px solid var(--text-gray);
 }
 
