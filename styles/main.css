@@ -3,6 +3,8 @@
   --text-gray: #909399;
   --text-link: #0366d6;
   --bg-white: #f2f3f8;
+  --bg-dark: #474444;
+  --bg-darken: #3d3b3b;
 }
 
 ::-moz-selection {
@@ -53,7 +55,7 @@ body {
 
 body.dark {
   color: #ffffff;
-  background-color: #474444;
+  background-color: var(--bg-dark);
 }
 
 body.dark .card,
@@ -61,11 +63,15 @@ body.dark .header,
 body.dark .navbar,
 body.dark .article,
 body.dark .tag-item {
-  background-color: #3d3b3b;
+  background-color: var(--bg-darken);
 }
 
 body.dark .navbar a {
   color: #ffffff;
+}
+
+body.dark .hover-underline-animation::after {
+  background-color: #ffffff;
 }
 
 *,
@@ -257,7 +263,6 @@ figure.highlight {
   -ms-user-select: none;
   user-select: none;
   padding: 0 10px;
-  background-color: var(--bg-white);
 }
 
 .code {
@@ -315,13 +320,14 @@ img::selection {
 .article-toc {
   position: fixed;
   top: 1.5rem;
-  left: calc(50vw + 360px);
+  left: calc(50vw + 360px + 1rem);
   min-width: 200px;
   font-size: 0.9rem;
 }
 
 .article-toc .toc {
   margin: 0;
+  padding-left: 1rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -386,6 +392,7 @@ img::selection {
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }
+
 .hover-underline-animation:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
