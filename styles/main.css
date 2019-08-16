@@ -84,10 +84,6 @@ a {
   transition: all 0.1s ease;
 }
 
-p {
-  margin: 0;
-}
-
 .wrapper {
   width: 92%;
   max-width: 720px;
@@ -476,6 +472,14 @@ img::selection {
 
 /* project-list */
 .project-list h2 {
+  margin: 0;
+}
+
+.project-item {
+  display: block;
+}
+
+.project-item p {
   margin: 0;
 }
 
