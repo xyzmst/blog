@@ -19,10 +19,6 @@
   text-shadow: none;
 }
 
-html {
-  box-sizing: border-box;
-}
-
 body {
   color: var(--text-black);
   background-color: var(--bg-white);
@@ -72,12 +68,6 @@ body.dark .navbar a {
 
 body.dark .hover-underline-animation::after {
   background-color: #ffffff;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
 }
 
 h1 {
