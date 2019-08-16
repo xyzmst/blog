@@ -317,6 +317,10 @@ img::selection {
   padding-right: 1rem;
 }
 
+.article a {
+  text-decoration: underline;
+}
+
 .article-toc {
   position: fixed;
   top: 1.5rem;
