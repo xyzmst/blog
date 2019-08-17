@@ -15,10 +15,10 @@
     <title>关于我 - 冷石的博客</title>
     <base href="/">
     <link rel="manifest" href="/manifest.json">
-    <link rel="shortcut icon" href="/icons/icon-192x192.png">
+    <link rel="shortcut icon" href="/icons/icon-72x72.png">
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
     <link rel="stylesheet" href="/styles/sanitize.css">
-<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="/styles/cold-stone.css">
     <noscript>
       <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
     </noscript>
@@ -28,8 +28,10 @@
     
       <header class="header">
   <div class="wrapper">
-    <h1 class=" title">
-      <span class="title-brand">冷石的博客</span>
+    <h1 class="title">
+      
+        <span class="title-brand"> 冷石的博客</span>
+      
       <input class="offscreen" type="checkbox" id="toggle" name="toggle" aria-label="toggle" /><label for="toggle" class="switch"></label>
     </h1>
   </div>
@@ -42,6 +44,9 @@
       </li>
       <li class="nav-item">
           <a class="nav-link" href="/projects">项目</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/categories">分类</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/tags">标签</a>
@@ -74,25 +79,35 @@
 	<a class="about-link" target="_blank" rel="noopener" href="https://juejin.im/user/576666b7207703006b1e0f09">掘金</a>
 
 
+
   
 </section>
 </main>
 
     <footer class="footer">
-  <p>Copyright &copy; <a href="/">coldstone.fun</a> 2019</p>
+  <p>Copyright &copy; <a href="/">https://coldstone.fun</a> 2019</p>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js"></script>
-<script src="/scripts/index.js"></script>
-
-<script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
 <script>
-  window.dataLayer = window.dataLayer || []
-  function gtag() {
-    dataLayer.push(arguments)
-  }
-  gtag('js', new Date())
-  gtag('config', 'UA-119658292-2')
+    window.COLD_STONE = {
+		repo: "xrr2016/blog",
+		gaid: "UA-119658292-2",
+	}
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js"></script>
+<script src="/scripts/cold-stone.js"></script>
+
+<script src=https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+// google analytics
+window.dataLayer = window.dataLayer || []
+function gtag() {
+  dataLayer.push(arguments)
+}
+gtag('js', new Date())
+gtag('config', window.COLD_STONE.ga)
 </script>
 
   </body>

@@ -15,10 +15,10 @@
     <title>对于 Workbox Strategies几种策略的解释 - 冷石的博客</title>
     <base href="/">
     <link rel="manifest" href="/manifest.json">
-    <link rel="shortcut icon" href="/icons/icon-192x192.png">
+    <link rel="shortcut icon" href="/icons/icon-72x72.png">
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
     <link rel="stylesheet" href="/styles/sanitize.css">
-<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="/styles/cold-stone.css">
     <noscript>
       <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
     </noscript>
@@ -33,7 +33,7 @@
       对于 Workbox Strategies几种策略的解释    </h1>
     <p class="article-meta">
       <span class="meta-info">
-        最后更新：2019-08-17 01:10:04
+        最后更新：2019-08-17 02:23:46
         
           标签：
           
@@ -89,20 +89,29 @@
 </main>
 
     <footer class="footer">
-  <p>Copyright &copy; <a href="/">coldstone.fun</a> 2019</p>
+  <p>Copyright &copy; <a href="/">https://coldstone.fun</a> 2019</p>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js"></script>
-<script src="/scripts/index.js"></script>
-
-<script src=https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
 <script>
-  window.dataLayer = window.dataLayer || []
-  function gtag() {
-    dataLayer.push(arguments)
-  }
-  gtag('js', new Date())
-  gtag('config', 'UA-119658292-2')
+    window.COLD_STONE = {
+		repo: "xrr2016/blog",
+		gaid: "UA-119658292-2",
+	}
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js"></script>
+<script src="/scripts/cold-stone.js"></script>
+
+<script src=https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+// google analytics
+window.dataLayer = window.dataLayer || []
+function gtag() {
+  dataLayer.push(arguments)
+}
+gtag('js', new Date())
+gtag('config', window.COLD_STONE.ga)
 </script>
 
   </body>
