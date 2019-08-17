@@ -3,7 +3,7 @@ layout: layout
 ---
 
 <%
-let years = {};
+const years = {};
 site.posts.sort('date').reverse().forEach(function(post){
     let year = post.date.year()
     if(years[year]===undefined){
@@ -14,7 +14,6 @@ site.posts.sort('date').reverse().forEach(function(post){
 %>
 
 <!-- 归档列表 -->
-
 <ul class="archives list-unstyled">
     <% Object.keys(years).reverse().forEach(function(year){  %>
         <li class="card">

@@ -1,20 +1,17 @@
-title: Cold Stone's Blog
+title: Your Blog Title
 
 nav:
   home: HOME
-  projects: PROJECTS
   tags: TAGS
-  archives: ARCHIVES
   about: ABOUT
-  search: SEARCH
-  music: MUSIC
+  projects: PROJECTS
+  archives: ARCHIVES
+  categories: CATEGORIES
 
 post:
   postTime: Post
   updateTime: LastUpdate
   tags: Tags
-  visit: Visit
-  donate: donate
 
 search:
   search: search
