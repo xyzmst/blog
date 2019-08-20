@@ -1,11 +1,11 @@
-<ul class="tags list-unstyled">
+<ul class="tags list-unstyled slide-in-right">
     <% site.tags.map(function(tag){  %>
         <li class="tag-item"><a href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>" rel="<%= tag.length %>"><%= tag.name %></a></li>
     <% }) %>
 </ul>
 
 <!-- 标签列表 -->
-<ul class="list-unstyled">
+<ul class="list-unstyled slide-in-right">
   <% site.tags.map(function(tag){  %>
     <li class="card">
         <p class="tag-list">

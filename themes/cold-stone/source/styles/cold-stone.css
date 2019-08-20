@@ -487,3 +487,19 @@ img::selection {
   pointer-events: none;
   color: var(--text-gray);
 }
+
+/* animate */
+.slide-in-right {
+  animation: slideInRight 0.2s linear forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translate3d(20px, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}

@@ -14,7 +14,7 @@ site.posts.sort('date').reverse().forEach(function(post){
 %>
 
 <!-- 归档列表 -->
-<ul class="archives list-unstyled">
+<ul class="archives list-unstyled slide-in-right">
     <% Object.keys(years).reverse().forEach(function(year){  %>
         <li class="card">
             <span id="<%= year %>"><span class="tag-text"><%= year %></span></span>
