@@ -1,13 +1,13 @@
-<ul class="tags list-unstyled slide-in-right">
+<ul class="tags list-unstyled animate-list">
     <% site.tags.map(function(tag){  %>
-        <li class="tag-item"><a href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>" rel="<%= tag.length %>"><%= tag.name %></a></li>
+        <li class="tag-item slide-in-right"><a href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>" rel="<%= tag.length %>"><%= tag.name %></a></li>
     <% }) %>
 </ul>
 
 <!-- 标签列表 -->
-<ul class="list-unstyled slide-in-right">
+<ul class="list-unstyled animate-list">
   <% site.tags.map(function(tag){  %>
-    <li class="card">
+    <li class="card slide-in-right">
         <p class="tag-list">
           <span class="tag-text" id="<%= tag.name %>"><%= tag.name %></span>
         </p>
