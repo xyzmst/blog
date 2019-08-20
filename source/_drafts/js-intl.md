@@ -2,7 +2,6 @@
 title: 使用 Intl 国际化
 date: 2019-08-16 23:16:35
 tags:
-  - Javascript
 categories:
   - Web
 layout: false

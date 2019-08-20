@@ -1,11 +1,11 @@
-<ul class="tags list-unstyled animate-list">
+<ul class="tags list-unstyled">
     <% site.categories.map(function(category){  %>
-        <li class="tag-item slide-in-right"><a href="<%= config.root %>categories/#<%= category.name %>" title="<%= category.name %>" rel="<%= category.length %>"><%= category.name %></a></li>
+        <li class="tag-item"><a href="<%= config.root %>categories/#<%= category.name %>" title="<%= category.name %>" rel="<%= category.length %>"><%= category.name %></a></li>
     <% }) %>
 </ul>
 
 <!-- 分类列表 -->
-<ul class="animate-list list-unstyled">
+<ul class="list-unstyled animate-list">
   <% site.categories.map(function(category){  %>
     <li class="card slide-in-right">
         <p class="tag-list">

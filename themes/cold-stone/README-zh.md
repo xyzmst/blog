@@ -2,6 +2,8 @@
 
 一个简洁，文字为主的 [Hexo](https://hexo.io/zh-cn) 博客主题
 
+[English](README.md)
+
 ## 前言
 
 个人认为博客的主要内容应该是文字，但是很多 Hexo 主题带有大量的图片，容易分散读者的注意力，而一些以文字为主的主题功能都有些简陋，因此 Cold Stone 主题诞生了！
@@ -107,7 +109,7 @@ sns:
 
 # 博客访问数据
 track:
-  ga: xxxxxxxxxxxxxx
+  gaid: xxxxxxxxxxxxxx
 ```
 
 5. 在 `source` 目录下添加 `avatar.png` 图片
