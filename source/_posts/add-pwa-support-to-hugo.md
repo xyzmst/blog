@@ -2,7 +2,8 @@
 title: '让 Hugo 博客支持 PWA'
 tags: 'PWA'
 date: 2019-07-24T13:34:17+08:00
-categories: 'WEB'
+categories:
+  - Web
 ---
 
 让用 Hugo 搭建的博客支持 PWA 很简单，只需 2 个步骤即可：

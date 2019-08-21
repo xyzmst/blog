@@ -2,7 +2,8 @@
 title: '对于 PWA 应用的 manifest.json 文件的解释'
 tags: 'PWA'
 date: 2019-07-25T13:31:51+08:00
-categories: 'WEB'
+categories:
+  - Web
 ---
 
 网站要支持 PWA，需要一个 `manifest.json` 文件，W3C Web App Manifest 的草案上定义了以下的字段，解释一下每个字段是什么意思。
