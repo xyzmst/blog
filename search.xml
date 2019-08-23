@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>如何在 Egg.js 中使用 Sequelize 的事务 Transaction</title>
+      <link href="/post/2019/08/22/egg-sequelize-transaction/"/>
+      <url>/post/2019/08/22/egg-sequelize-transaction/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>to be continiue…</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Node </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Egg </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>数据结构与算法之队列</title>
       <link href="/post/2019/08/18/das-queue/"/>
       <url>/post/2019/08/18/das-queue/</url>
