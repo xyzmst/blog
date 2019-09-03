@@ -473,9 +473,6 @@ img::selection {
   animation: slideInRight 0.3s linear both;
 }
 
-.animate-list__item {
-}
-
 .animate-list__link {
   display: block;
 }
