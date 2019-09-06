@@ -304,8 +304,8 @@ img::selection {
 
 .article-toc {
   position: fixed;
-  top: 1.5rem;
-  left: calc(50vw + 360px + 1rem);
+  top: 0;
+  left: calc(50% + 360px + 1rem);
   min-width: 200px;
   font-size: 0.9rem;
 }
