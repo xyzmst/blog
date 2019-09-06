@@ -7,6 +7,11 @@ categories: 'Dart'
 
 在 Dart 中有 `final` 和 `const` 两个关键字，貌似都是表示常量的，但是它们还是有区别的
 
+<!--more-->
+
+
+在 Dart 中有 `final` 和 `const` 两个关键字，貌似都是表示常量的，但是它们还是有区别的
+
 final 变量的值只能被设置一次； const 变量在编译时就已经固定 (const 变量是隐式 final 的类型.) 最高级 final 变量或类变量在第一次使用时被初始化。
 
 [官方文档](https://dart.dev/guides/language/language-tour#final-and-const)

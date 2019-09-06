@@ -2,8 +2,14 @@
 title: '使用 Travis CI 部署 Hugo 博客到 Github Pages'
 tags: 'Hugo'
 date: 2019-07-27T04:58:25+08:00
-categories: 'CI'
+categories:
+  - CI
 ---
+
+原本使用的是 Netlify 去部署博客的，域名解析也是通过 Netlify 的 DNS 服务器，但是发现博客在别人的电脑上打不开...发现是域名解析的问题，所以就把博客放到 Github Pages 上了，但是这样就失去了 Netlify 提供的自动构建和部署的能力，需要自己去配置 Travis CI 实现自动部署了
+
+<!--more-->
+
 
 原本使用的是 Netlify 去部署博客的，域名解析也是通过 Netlify 的 DNS 服务器，但是发现博客在别人的电脑上打不开...发现是域名解析的问题，所以就把博客放到 Github Pages 上了，但是这样就失去了 Netlify 提供的自动构建和部署的能力，需要自己去配置 Travis CI 实现自动部署了。
 

@@ -1,9 +1,14 @@
 ---
 title: '理解 Flutter 应用和部件的生命周期'
 tags: 'Flutter'
-categories: 'Flutter'
+categories:
+  - Flutter
 date: 2019-07-28T21:21:03+08:00
 ---
+
+在 Flutter 里面部件以及应用本身都有自己的生命周期，本文分别说明它们的生命周期
+
+<!--more-->
 
 ## 前言
 

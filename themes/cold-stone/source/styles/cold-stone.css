@@ -226,8 +226,6 @@ a {
   justify-content: space-between;
 }
 
-
-
 /* code  */
 figure.highlight {
   padding: 0;
@@ -489,10 +487,6 @@ img::selection {
   animation: slideInRight 0.3s linear both;
 }
 
-.animate-list__link {
-  display: block;
-}
-
 .animate-list__title {
   margin-top: 0;
   max-width: 100%;
@@ -502,7 +496,10 @@ img::selection {
 }
 
 .animate-list__desc {
+  display: flex;
+  align-items: center;
   margin: 0;
+  font-size: .9em;
 }
 
 .animate-list li:nth-of-type(1) {
@@ -602,3 +599,21 @@ img::selection {
 .footer .theme-link {
   text-decoration: underline;
 }
+
+
+.post-info {
+  flex: 1;
+}
+
+.meta-tag {
+  padding: 0 3px;
+}
+
+.post-time {
+  padding: 0 3px;
+}
+
+.read-more {
+  margin-left: 1em;
+}
+

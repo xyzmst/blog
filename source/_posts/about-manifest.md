@@ -8,6 +8,10 @@ categories:
 
 网站要支持 PWA，需要一个 `manifest.json` 文件，W3C Web App Manifest 的草案上定义了以下的字段，解释一下每个字段是什么意思。
 
+<!--more-->
+
+网站要支持 PWA，需要一个 `manifest.json` 文件，W3C Web App Manifest 的草案上定义了以下的字段，解释一下每个字段是什么意思。
+
 ```js
 dictionary WebAppManifest {
    TextDirectionType dir = "auto";

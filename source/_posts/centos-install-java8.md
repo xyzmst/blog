@@ -7,6 +7,10 @@ tags:
 categories: Linux
 ---
 
+由于要在服务器上安装 [Jenkins](https://jenkins.io/zh/) 所以首先要安装 java
+
+<!--more-->
+
 ## 前言
 
 由于要在服务器上安装 [Jenkins](https://jenkins.io/zh/) 所以首先要安装 java。

@@ -6,6 +6,10 @@ categories:
   - Web
 ---
 
+让用 Hugo 搭建的博客支持 PWA 很简单，只需 2 个步骤即可
+
+<!--more-->
+
 让用 Hugo 搭建的博客支持 PWA 很简单，只需 2 个步骤即可：
 
 ## 添加一个 manifest.json 文件

@@ -2,7 +2,8 @@
 title: '关于 Apple 的 Code Signing'
 tags: 'iOS'
 date: '2019-07-15T20:54:56+08:00'
-categories: 'Flutter'
+categories:
+  - Flutter
 ---
 
 想要把 Flutter 写的应用运行在 iPhone 上，必须要进行 Code Signing

@@ -5,6 +5,10 @@ categories: Web
 date: 2019-07-27T12:36:13+08:00
 ---
 
+要将自己的网站支持 PWA，需要注册一个 serviceWorker 到浏览器中，通常使用 Google 的 [Workbox](https://developers.google.com/web/tools/workbox/) 工具，Workbox 可以在浏览器请求资源的时候提供了几种不同的策略对请求响应，本文对几种策略进行说明
+
+<!--more-->
+
 要将自己的网站支持 PWA，需要注册一个 serviceWorker 到浏览器中，通常使用 Google 的 [Workbox](https://developers.google.com/web/tools/workbox/) 工具，Workbox 可以在浏览器请求资源的时候提供了几种不同的策略对请求响应，本文对几种策略进行说明。
 
 ## StaleWhileRevalidate
