@@ -33,7 +33,7 @@
       浏览器请求耗时阶段解释    </h1>
     <p class="article-meta">
       <span class="meta-info">
-        最后更新：2019-09-05 10:41:50
+        最后更新：2019-09-06 11:08:42
         
           标签：
           
@@ -44,7 +44,7 @@
       <a  class="meta-link" href="/">返回</a>
     </p>
   </section>
-  <section><h2 id="一个请求耗时阶段解释"><a href="#一个请求耗时阶段解释" class="headerlink" title="一个请求耗时阶段解释"></a>一个请求耗时阶段解释</h2><p><strong>Queueing</strong> 浏览器会在以下情况时将请求加入队列，有优先级更高的请求；当请求协议是 HTTP/1.0 和 HTTP/1.1 时，同一域名下已经有 6 个 TCP 链接；浏览器在分配磁盘缓存</p>
+  <section><h2 id="浏览器请求耗时阶段解释"><a href="#浏览器请求耗时阶段解释" class="headerlink" title="浏览器请求耗时阶段解释"></a>浏览器请求耗时阶段解释</h2><p><strong>Queueing</strong> 浏览器会在以下情况时将请求加入队列，有优先级更高的请求；当请求协议是 HTTP/1.0 和 HTTP/1.1 时，同一域名下已经有 6 个 TCP 链接；浏览器在分配磁盘缓存</p>
 <p><strong>Stalled</strong> 由于排队中描述的任何原因，请求可能会停止</p>
 <p><strong>DNS Lookup</strong> 浏览器正在解析请求的 IP 地址</p>
 <p><strong>Proxy negotiation</strong> 浏览器与代理服务器协商请求</p>
@@ -71,10 +71,9 @@
 <p><strong>Waiting (TTFB)</strong>. The browser is waiting for the first byte of a response. TTFB stands for Time To First Byte. This timing includes 1 round trip of latency and the time the server took to prepare the response.</p>
 <p><strong>Content Download</strong>. The browser is receiving the response.</p>
 <p><strong>Receiving Push</strong>. The browser is receiving data for this response via HTTP/2 Server Push.</p>
-<p><strong>Reading Push</strong>. The browser is reading the local data previously received.</p>
-</section>
+<p><strong>Reading Push</strong>. The browser is reading the local data previously received.</p></section>
   <section class="card article-toc">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一个请求耗时阶段解释"><span class="toc-text">一个请求耗时阶段解释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Timing-breakdown-phases-explained"><span class="toc-text">Timing breakdown phases explained</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器请求耗时阶段解释"><span class="toc-text">浏览器请求耗时阶段解释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Timing-breakdown-phases-explained"><span class="toc-text">Timing breakdown phases explained</span></a></li></ol>
   </section>
 </article>
 

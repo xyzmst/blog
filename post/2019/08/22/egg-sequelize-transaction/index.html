@@ -33,7 +33,7 @@
       如何在 Egg.js 中使用 Sequelize 的事务 Transaction    </h1>
     <p class="article-meta">
       <span class="meta-info">
-        最后更新：2019-09-05 10:41:50
+        最后更新：2019-09-06 11:08:42
         
           标签：
           
@@ -51,8 +51,7 @@
 <p>实际使用的话需要用 <code>async/await</code> 语法让代码看起来更加清晰一点，在 egg.js 中使用的示例如下，首先需要用当前上下文中的 model 对象（就是对数据表的映射对象）创建一个事务，然后在 <code>try/catch</code> 中执行所要进行的操作，如果操作抛出了异常，那么就会回滚</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> transaction = <span class="keyword">await</span> <span class="keyword">this</span>.ctx.model.transaction()</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">await</span> <span class="keyword">this</span>.ctx.model.create(<span class="keyword">this</span>.ctx.request.body, &#123; transaction &#125;)</span><br><span class="line">  <span class="keyword">await</span> <span class="keyword">this</span>.ctx.service.user.find(userId, &#123; transaction &#125;);</span><br><span class="line">  <span class="keyword">await</span> <span class="keyword">this</span>.ctx.service.product.destory(productId, &#123; transaction &#125;);</span><br><span class="line">  ...</span><br><span class="line">  <span class="keyword">await</span> transaction.commit()</span><br><span class="line">&#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">  <span class="keyword">await</span> transaction.rollback()</span><br><span class="line">  <span class="keyword">throw</span> err</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>用了 <code>async/await</code> 语法，代码确实清晰了很多</p>
-</section>
+<p>用了 <code>async/await</code> 语法，代码确实清晰了很多</p></section>
   <section class="card article-toc">
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text">实践</span></a></li></ol>
   </section>
