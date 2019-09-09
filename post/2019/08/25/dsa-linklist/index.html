@@ -33,7 +33,7 @@
       数据结构与算法之链表    </h1>
     <p class="article-meta">
       <span class="meta-info">
-        最后更新：2019-09-06 11:15:27
+        最后更新：2019-09-09 11:05:27
         
           标签：
           
@@ -70,10 +70,11 @@
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.head.next = <span class="keyword">this</span>.head</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 显示</span></span><br><span class="line">display() &#123;</span><br><span class="line">  <span class="keyword">let</span> currentNode = <span class="keyword">this</span>.head</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (currentNode.next !== <span class="literal">null</span> &amp;&amp; currentNode.next.element !== <span class="string">'head'</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(currentNode.next.element)</span><br><span class="line">    currentNode = currentNode.next</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>链表是一种高效的数据结构，如果发现数组在使用时很慢，就可以考虑用链表替代它，但是如果需要对数据随机访问，数组任然是更优的选择</p></section>
-  <section class="card article-toc">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现"><span class="toc-text">实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#双向链表"><span class="toc-text">双向链表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#循环链表"><span class="toc-text">循环链表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
-  </section>
 </article>
+
+<section class="card article-toc">
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现"><span class="toc-text">实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#双向链表"><span class="toc-text">双向链表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#循环链表"><span class="toc-text">循环链表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+</section>
 
 <section class="article slide-in-right">
 

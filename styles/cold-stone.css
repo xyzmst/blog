@@ -19,7 +19,8 @@
   text-shadow: none;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -160,7 +161,6 @@ a {
 .navbar-nav {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin: 0;
 }
 
@@ -304,7 +304,7 @@ img::selection {
 
 .article-toc {
   position: fixed;
-  top: 0;
+  top: 1.5rem;
   left: calc(50% + 360px + 1rem);
   min-width: 200px;
   font-size: 0.9rem;
@@ -499,7 +499,7 @@ img::selection {
   display: flex;
   align-items: center;
   margin: 0;
-  font-size: .9em;
+  font-size: 0.9em;
 }
 
 .animate-list li:nth-of-type(1) {
@@ -600,7 +600,6 @@ img::selection {
   text-decoration: underline;
 }
 
-
 .post-info {
   flex: 1;
 }
@@ -617,3 +616,9 @@ img::selection {
   margin-left: 1em;
 }
 
+/* main-sidebar */
+.main-sidebar {
+  position: fixed;
+  top: calc(60px);
+  left: calc(50% + 360px + 1rem);
+}
