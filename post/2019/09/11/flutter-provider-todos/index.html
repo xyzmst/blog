@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="referrer" content="no-referrer">
+    <meta name="theme-color" content="#333333">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="google" content="notranslate">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="keyword" content="Web, Js, CSS, Node.js, Frontend, Flutter,Docker">
+    <meta name="description" content="想写什么就写什么">
+    <title>使用 Provider 管理 Flutter 应用状态 - 冷石的博客</title>
+    <base href="/">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="shortcut icon" href="/icons/icon-72x72.png">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <link rel="stylesheet" href="/styles/sanitize.css">
+<link rel="stylesheet" href="/styles/cold-stone.css">
+    <noscript>
+      <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
+    </noscript>
+</head>
+
+  <body>
+    
+
+    <main class="main wrapper"><article class="article slide-in-right">
+  <section>
+    <h1 class="article-title">
+      使用 Provider 管理 Flutter 应用状态    </h1>
+    <p class="article-meta">
+      <span class="meta-info">
+        最后更新：2019-09-15 15:27:39
+        
+          标签：
+          
+            <a class="meta-tag" href="/tags/#Flutter" title="Flutter">Flutter</a>
+          
+        
+      </span>
+      <a  class="meta-link" href="/">返回</a>
+    </p>
+  </section>
+  <section><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一个应用内通常会有两种数据，单个组件内部的使用的数据，很多组件共同使用的数据</p>
+<h2 id="什么是-Provider"><a href="#什么是-Provider" class="headerlink" title="什么是 Provider"></a>什么是 Provider</h2><p>官方的定义是： A mixture between dependency injection (DI) and state management, built with widgets for widgets.</p>
+<h2 id="为什么要使用-Provider"><a href="#为什么要使用-Provider" class="headerlink" title="为什么要使用 Provider"></a>为什么要使用 Provider</h2><h2 id="如何使用-Provider"><a href="#如何使用-Provider" class="headerlink" title="如何使用 Provider"></a>如何使用 Provider</h2><p>首先在项目的 pubspec.yml 的 dependecies 中定义要使用的 provider 版本</p>
+<p>创建一个 store 文件夹</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">dependencies:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line"><span class="attr">  provider:</span> <span class="string">^3.1.0</span></span><br><span class="line">  <span class="string">...</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>未完待续…</p>
+</section>
+</article>
+
+<section class="card article-toc">
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是-Provider"><span class="toc-text">什么是 Provider</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要使用-Provider"><span class="toc-text">为什么要使用 Provider</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何使用-Provider"><span class="toc-text">如何使用 Provider</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+</section>
+
+<section class="article slide-in-right">
+
+  <div class="loader" id="loader">
+    <svg viewBox="0 0 50 50">
+      <circle class="ring" cx="25" cy="25" r="20"></circle>
+      <circle class="ball" cx="25" cy="5" r="3.5"></circle>
+    </svg>
+  </div>
+
+  <div class="comment" id="utteranc"></div>
+  <noscript>为正常使用评论功能请激活 JavaScript</noscript>
+</section>
+
+<a class="card back-to-top" id="backTop">&UpArrow;</a>
+
+</main>
+
+    
+
+    <script>
+	window.COLD_STONE = {
+	  repo: "xrr2016/blog",
+	  gaid: "UA-119658292-2"
+	}
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js"></script>
+<script src="/scripts/cold-stone.js"></script>
+
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
+
+  <script>
+	window.dataLayer = window.dataLayer || []
+	function gtag() {
+		dataLayer.push(arguments)
+	}
+	gtag('js', new Date())
+	gtag('config', window.COLD_STONE.gaid)
+  </script>
+
+
+  </body>
+</html>

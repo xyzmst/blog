@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="referrer" content="no-referrer">
+    <meta name="theme-color" content="#333333">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="google" content="notranslate">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="keyword" content="Web, Js, CSS, Node.js, Frontend, Flutter,Docker">
+    <meta name="description" content="想写什么就写什么">
+    <title>数据结构与算法之字典 - 冷石的博客</title>
+    <base href="/">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="shortcut icon" href="/icons/icon-72x72.png">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <link rel="stylesheet" href="/styles/sanitize.css">
+<link rel="stylesheet" href="/styles/cold-stone.css">
+    <noscript>
+      <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
+    </noscript>
+</head>
+
+  <body>
+    
+
+    <main class="main wrapper"><article class="article slide-in-right">
+  <section>
+    <h1 class="article-title">
+      数据结构与算法之字典    </h1>
+    <p class="article-meta">
+      <span class="meta-info">
+        最后更新：2019-09-15 15:27:39
+        
+          标签：
+          
+            <a class="meta-tag" href="/tags/#DSA" title="DSA">DSA</a>
+          
+        
+      </span>
+      <a  class="meta-link" href="/">返回</a>
+    </p>
+  </section>
+  <section><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>字典是一种以键值对形式存储数据的数据结构，键用来查找，值用来保存数据</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Dictionary &#123;</span><br><span class="line">  data: <span class="built_in">any</span>[] = []</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 添加元素</span></span><br><span class="line">  add(key: <span class="built_in">any</span>, value: <span class="built_in">any</span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.data[key] = value</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 查找元素</span></span><br><span class="line">  find(key: <span class="built_in">any</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.data[key]</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 删除元素</span></span><br><span class="line">  remove(key: <span class="built_in">any</span>) &#123;</span><br><span class="line">    <span class="keyword">delete</span> <span class="keyword">this</span>.data[key]</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 显示元素</span></span><br><span class="line">  show() &#123;</span><br><span class="line">    <span class="built_in">Object</span>.entries(<span class="keyword">this</span>.data).forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'key:'</span>, item[<span class="number">0</span>], <span class="string">' value:'</span>, item[<span class="number">1</span>])</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 元素个数</span></span><br><span class="line">  count() &#123;</span><br><span class="line">    <span class="keyword">let</span> n = <span class="number">0</span></span><br><span class="line">    <span class="built_in">Object</span>.keys(<span class="keyword">this</span>.data).forEach(_ =&gt; &#123;</span><br><span class="line">      n += <span class="number">1</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> n</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 清空元素</span></span><br><span class="line">  clear() &#123;</span><br><span class="line">    <span class="built_in">Object</span>.keys(<span class="keyword">this</span>.data).forEach(<span class="function">(<span class="params">key: <span class="built_in">any</span></span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">delete</span> <span class="keyword">this</span>.data[key]</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dictionary = <span class="keyword">new</span> Dictionary()</span><br><span class="line"></span><br><span class="line">dictionary.add(<span class="string">'a'</span>, <span class="string">'a'</span>)</span><br><span class="line">dictionary.add(<span class="string">'b'</span>, <span class="string">'b'</span>)</span><br><span class="line">dictionary.add(<span class="string">'c'</span>, <span class="string">'c'</span>)</span><br><span class="line">dictionary.add(<span class="string">'d'</span>, <span class="string">'d'</span>)</span><br><span class="line">dictionary.add(<span class="string">'e'</span>, <span class="string">'e'</span>)</span><br><span class="line"></span><br><span class="line">dictionary.show()</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'count: '</span>, dictionary.count())</span><br><span class="line"></span><br><span class="line">dictionary.clear()</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'clear: '</span>, dictionary.count())</span><br></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">key: a  value: a</span><br><span class="line">key: b  value: b</span><br><span class="line">key: c  value: c</span><br><span class="line">key: d  value: d</span><br><span class="line">key: e  value: e</span><br><span class="line">count:  5</span><br><span class="line">clear:  0</span><br></pre></td></tr></table></figure>
+
+<p>排序字典的输出，需要重新定义 show 方法</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 显示元素</span></span><br><span class="line">show() &#123;</span><br><span class="line">  <span class="built_in">Object</span>.entries(<span class="keyword">this</span>.data)</span><br><span class="line">	.sort()</span><br><span class="line">	.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">	  <span class="built_in">console</span>.log(<span class="string">'key:'</span>, item[<span class="number">0</span>], <span class="string">' value:'</span>, item[<span class="number">1</span>])</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试一下</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dictionary = <span class="keyword">new</span> Dictionary()</span><br><span class="line"></span><br><span class="line">dictionary.add(<span class="string">'c'</span>, <span class="string">'c'</span>)</span><br><span class="line">dictionary.add(<span class="string">'a'</span>, <span class="string">'a'</span>)</span><br><span class="line">dictionary.add(<span class="string">'d'</span>, <span class="string">'d'</span>)</span><br><span class="line">dictionary.add(<span class="string">'e'</span>, <span class="string">'e'</span>)</span><br><span class="line">dictionary.add(<span class="string">'b'</span>, <span class="string">'b'</span>)</span><br><span class="line"></span><br><span class="line">dictionary.show()</span><br></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">key: a  value: a</span><br><span class="line">key: b  value: b</span><br><span class="line">key: c  value: c</span><br><span class="line">key: d  value: d</span><br><span class="line">key: e  value: e</span><br></pre></td></tr></table></figure>
+
+<p>使用 Object.keys 方法拿到字典的 keys 数组后，在用 sort 方法就可以显示有序的字典输出了</p></section>
+</article>
+
+<section class="card article-toc">
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现"><span class="toc-text">实现</span></a></li></ol>
+</section>
+
+<section class="article slide-in-right">
+
+  <div class="loader" id="loader">
+    <svg viewBox="0 0 50 50">
+      <circle class="ring" cx="25" cy="25" r="20"></circle>
+      <circle class="ball" cx="25" cy="5" r="3.5"></circle>
+    </svg>
+  </div>
+
+  <div class="comment" id="utteranc"></div>
+  <noscript>为正常使用评论功能请激活 JavaScript</noscript>
+</section>
+
+<a class="card back-to-top" id="backTop">&UpArrow;</a>
+
+</main>
+
+    
+
+    <script>
+	window.COLD_STONE = {
+	  repo: "xrr2016/blog",
+	  gaid: "UA-119658292-2"
+	}
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js"></script>
+<script src="/scripts/cold-stone.js"></script>
+
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
+
+  <script>
+	window.dataLayer = window.dataLayer || []
+	function gtag() {
+		dataLayer.push(arguments)
+	}
+	gtag('js', new Date())
+	gtag('config', window.COLD_STONE.gaid)
+  </script>
+
+
+  </body>
+</html>
