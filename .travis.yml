@@ -13,7 +13,7 @@ install:
 
 script:
   - hexo clean
-  - yarn build
+  - hexo generate
   - echo 'coldstone.fun' > public/CNAME
 
 cache: yarn
