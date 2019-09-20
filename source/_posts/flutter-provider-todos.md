@@ -7,6 +7,10 @@ categories:
   - Flutter
 ---
 
+一个应用内通常会有两种数据，单个组件内部的使用的数据，很多组件共同使用的数据
+
+<!--more-->
+
 ## 前言
 
 一个应用内通常会有两种数据，单个组件内部的使用的数据，很多组件共同使用的数据
@@ -16,6 +20,8 @@ categories:
 官方的定义是： A mixture between dependency injection (DI) and state management, built with widgets for widgets.
 
 ## 为什么要使用 Provider
+
+应用中通常会有一些很多部件都需要的数据，如用户的登录信息，用户设置，地理位置等，如果只是使用 StatefullWeight 的话就需要将状态提升到一个父部件中然后向下进行传递，会很繁琐，
 
 ## 如何使用 Provider
 

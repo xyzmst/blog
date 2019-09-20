@@ -5,9 +5,11 @@ layout: layout
     <% page.posts.each(function(post) { %>
         <li class="animate-list__item card slide-in-right">
             <h2 class="animate-list__title">
-                <%-_ (post.title || "Untitled").replace(/[<>&"]/g,function(c){
-                    return {'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c];
-                }) _%>
+                <a class="hover-underline-animation" href="<%- config.root %><%- post.path %>">
+                    <%-_ (post.title || "Untitled").replace(/[<>&"]/g,function(c){
+                        return {'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c];
+                    }) _%>
+                </a>
             </h2>
             <p><%- post.excerpt %></p>
             <p class="animate-list__desc">
@@ -23,8 +25,6 @@ layout: layout
                     <span><%= __('post.postTime') %>:</span>
                     <span class="post-time"><%= post.date.format(config.date_format) _%></span>
                 </span>
-
-                <a class="read-more hover-underline-animation" href="<%- config.root %><%- post.path %>"><%= __('post.more') _%></a>
             </p>
         </li>
     <% }); _%>
