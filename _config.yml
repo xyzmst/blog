@@ -26,6 +26,8 @@ tag_dir: tags
 archive_dir: archives
 category_dir: categories
 music_dir: music
+friends_dir: friends
+project_dir: projects
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
@@ -87,7 +89,6 @@ deploy:
 
 # blog config
 seo_title: 冷石的博客
-project_dir: projects
 
 # user config
 avatar: avatar.png
