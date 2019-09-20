@@ -27,44 +27,36 @@
   <body>
     
       <header class="header">
-  <div class="wrapper">
-    <h1 class="title">
+  <div class="wrapper header-content">
+    <h1 class="title nav-list-item" data-link="/">
       
-        <span class="title-brand">冷石的博客</span>
+        <a href="/" data-link="/">冷石的博客</a>
       
-      <input class="offscreen" type="checkbox" id="toggle" name="toggle" aria-label="toggle" /><label for="toggle" class="switch"></label>
     </h1>
+    <ul class="nav-list">
+      
+        <li class="nav-list-item" data-link="/projects/">
+          <a class="nav-list-link" href="/projects">项目</a>
+        </li>
+      
+      
+        <li class="nav-list-item" data-link="/categories/">
+          <a class="nav-list-link" href="/categories">分类</a>
+        </li>
+      
+      <li class="nav-list-item" data-link="/archives/">
+        <a class="nav-list-link" href="/archives">存档</a>
+      </li>
+      
+        <li class="nav-list-item" data-link="/friends/">
+          <a class="nav-list-link" href="/friends">友链</a>
+        </li>
+      
+    </ul>
+    <input class="offscreen" type="checkbox" id="toggle" name="toggle" aria-label="toggle" /><label for="toggle" class="switch"></label>
   </div>
 </header>
 
-<nav class="navbar wrapper">
-  <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="/" data-link="/">主页</a>
-      </li>
-      
-        <li class="nav-item">
-          <a class="nav-link" href="/projects" data-link="/projects/">项目</a>
-        </li>
-      
-      
-        <li class="nav-item">
-          <a class="nav-link" href="/categories" data-link="/categories/">分类</a>
-        </li>
-      
-      
-        <li class="nav-item">
-          <a class="nav-link" href="/tags" data-link="/tags/">标签</a>
-        </li>
-      
-      <li class="nav-item">
-        <a class="nav-link" href="/archives" data-link="/archives/">存档</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/about/" data-link="/about/">关于</a>
-      </li>
-    </ul>
-</nav>
 
     
 
@@ -72,7 +64,9 @@
     
         <li class="animate-list__item card slide-in-right">
             <h2 class="animate-list__title">
-                对于 PWA 应用的 manifest.json 文件的解释            </h2>
+                <a class="hover-underline-animation" href="/post/2019/07/24/about-manifest/">
+                    对于 PWA 应用的 manifest.json 文件的解释                </a>
+            </h2>
             <p><p>网站要支持 PWA，需要一个 <code>manifest.json</code> 文件，W3C Web App Manifest 的草案上定义了以下的字段，解释一下每个字段是什么意思。</p></p>
             <p class="animate-list__desc">
                 <span class="post-info">
@@ -87,14 +81,14 @@
                     <span>发布于:</span>
                     <span class="post-time">2019-07-24</span>
                 </span>
-
-                <a class="read-more hover-underline-animation" href="/post/2019/07/24/about-manifest/">阅读全文</a>
             </p>
         </li>
     
         <li class="animate-list__item card slide-in-right">
             <h2 class="animate-list__title">
-                让 Hugo 博客支持 PWA            </h2>
+                <a class="hover-underline-animation" href="/post/2019/07/23/add-pwa-support-to-hugo/">
+                    让 Hugo 博客支持 PWA                </a>
+            </h2>
             <p><p>让用 Hugo 搭建的博客支持 PWA 很简单，只需 2 个步骤即可</p></p>
             <p class="animate-list__desc">
                 <span class="post-info">
@@ -109,14 +103,14 @@
                     <span>发布于:</span>
                     <span class="post-time">2019-07-23</span>
                 </span>
-
-                <a class="read-more hover-underline-animation" href="/post/2019/07/23/add-pwa-support-to-hugo/">阅读全文</a>
             </p>
         </li>
     
         <li class="animate-list__item card slide-in-right">
             <h2 class="animate-list__title">
-                了解 &lt;Link&gt; 标签上 Rel=prexxx 的作用            </h2>
+                <a class="hover-underline-animation" href="/post/2019/07/22/understand-link-prexxx/">
+                    了解 &lt;Link&gt; 标签上 Rel=prexxx 的作用                </a>
+            </h2>
             <p><p>在 HTML 中 <link> 标签指定了当前文档与外部资源之间的关系，本文说明 <link> 标签的 rel 属性分别设置 dns-prefetch，preconnect，prefetch，preload，prerender 的时候有说明作用</p></p>
             <p class="animate-list__desc">
                 <span class="post-info">
@@ -131,14 +125,14 @@
                     <span>发布于:</span>
                     <span class="post-time">2019-07-22</span>
                 </span>
-
-                <a class="read-more hover-underline-animation" href="/post/2019/07/22/understand-link-prexxx/">阅读全文</a>
             </p>
         </li>
     
         <li class="animate-list__item card slide-in-right">
             <h2 class="animate-list__title">
-                浏览器请求耗时阶段解释            </h2>
+                <a class="hover-underline-animation" href="/post/2019/07/18/request-timimg/">
+                    浏览器请求耗时阶段解释                </a>
+            </h2>
             <p><p>浏览器请求耗时阶段解释</p></p>
             <p class="animate-list__desc">
                 <span class="post-info">
@@ -153,14 +147,14 @@
                     <span>发布于:</span>
                     <span class="post-time">2019-07-18</span>
                 </span>
-
-                <a class="read-more hover-underline-animation" href="/post/2019/07/18/request-timimg/">阅读全文</a>
             </p>
         </li>
     
         <li class="animate-list__item card slide-in-right">
             <h2 class="animate-list__title">
-                Dart 语言中的 Final 与 Const 的区别            </h2>
+                <a class="hover-underline-animation" href="/post/2019/07/16/dart-final-vs-const/">
+                    Dart 语言中的 Final 与 Const 的区别                </a>
+            </h2>
             <p><p>在 Dart 中有 <code>final</code> 和 <code>const</code> 两个关键字，貌似都是表示常量的，但是它们还是有区别的</p></p>
             <p class="animate-list__desc">
                 <span class="post-info">
@@ -175,14 +169,14 @@
                     <span>发布于:</span>
                     <span class="post-time">2019-07-16</span>
                 </span>
-
-                <a class="read-more hover-underline-animation" href="/post/2019/07/16/dart-final-vs-const/">阅读全文</a>
             </p>
         </li>
     
         <li class="animate-list__item card slide-in-right">
             <h2 class="animate-list__title">
-                关于 Apple 的 Code Signing            </h2>
+                <a class="hover-underline-animation" href="/post/2019/07/15/code-signing/">
+                    关于 Apple 的 Code Signing                </a>
+            </h2>
             <p></p>
             <p class="animate-list__desc">
                 <span class="post-info">
@@ -197,8 +191,6 @@
                     <span>发布于:</span>
                     <span class="post-time">2019-07-15</span>
                 </span>
-
-                <a class="read-more hover-underline-animation" href="/post/2019/07/15/code-signing/">阅读全文</a>
             </p>
         </li>
     </ul>

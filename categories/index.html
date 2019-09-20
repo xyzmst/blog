@@ -27,44 +27,36 @@
   <body>
     
       <header class="header">
-  <div class="wrapper">
-    <h1 class="title">
+  <div class="wrapper header-content">
+    <h1 class="title nav-list-item" data-link="/">
       
-        <span class="title-brand">冷石的博客</span>
+        <a href="/" data-link="/">冷石的博客</a>
       
-      <input class="offscreen" type="checkbox" id="toggle" name="toggle" aria-label="toggle" /><label for="toggle" class="switch"></label>
     </h1>
+    <ul class="nav-list">
+      
+        <li class="nav-list-item" data-link="/projects/">
+          <a class="nav-list-link" href="/projects">项目</a>
+        </li>
+      
+      
+        <li class="nav-list-item" data-link="/categories/">
+          <a class="nav-list-link" href="/categories">分类</a>
+        </li>
+      
+      <li class="nav-list-item" data-link="/archives/">
+        <a class="nav-list-link" href="/archives">存档</a>
+      </li>
+      
+        <li class="nav-list-item" data-link="/friends/">
+          <a class="nav-list-link" href="/friends">友链</a>
+        </li>
+      
+    </ul>
+    <input class="offscreen" type="checkbox" id="toggle" name="toggle" aria-label="toggle" /><label for="toggle" class="switch"></label>
   </div>
 </header>
 
-<nav class="navbar wrapper">
-  <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="/" data-link="/">主页</a>
-      </li>
-      
-        <li class="nav-item">
-          <a class="nav-link" href="/projects" data-link="/projects/">项目</a>
-        </li>
-      
-      
-        <li class="nav-item">
-          <a class="nav-link" href="/categories" data-link="/categories/">分类</a>
-        </li>
-      
-      
-        <li class="nav-item">
-          <a class="nav-link" href="/tags" data-link="/tags/">标签</a>
-        </li>
-      
-      <li class="nav-item">
-        <a class="nav-link" href="/archives" data-link="/archives/">存档</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/about/" data-link="/about/">关于</a>
-      </li>
-    </ul>
-</nav>
 
     
 
@@ -112,11 +104,6 @@
     <li class="card slide-in-right">
         <h2 class="category-name">Web</h2>
         
-            <a class="tag-post-title" href="/post/2019/07/24/about-manifest/">
-                <p class="hover-underline-animation">
-                    对于 PWA 应用的 manifest.json 文件的解释                </p>
-            </a>
-        
             <a class="tag-post-title" href="/post/2019/07/26/about-workbox-strategies/">
                 <p class="hover-underline-animation">
                     对于 Workbox Strategies几种策略的解释                </p>
@@ -125,6 +112,11 @@
             <a class="tag-post-title" href="/post/2019/07/23/add-pwa-support-to-hugo/">
                 <p class="hover-underline-animation">
                     让 Hugo 博客支持 PWA                </p>
+            </a>
+        
+            <a class="tag-post-title" href="/post/2019/07/24/about-manifest/">
+                <p class="hover-underline-animation">
+                    对于 PWA 应用的 manifest.json 文件的解释                </p>
             </a>
         
             <a class="tag-post-title" href="/post/2019/07/18/request-timimg/">
