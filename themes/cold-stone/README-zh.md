@@ -37,7 +37,7 @@ npm install
 ### 安装主题
 
 ```sh
-git clone https://github.com/xrr2016/hexo-theme-cold-stone.git themes/cold-stone
+git clone https://github.com/xrr2016/hexo-theme-cold-stone.git themes/cold-stone --depth 1
 ```
 
 ### 使用
@@ -149,15 +149,24 @@ hexo clean && hexo deploy
 
 ![audits](images/audits.gif)
 
-# TODOS
+## TODOS
 
-- [ ] 搜索功能
+- [x] 搜索功能
 
 - [x] 分类页面
 
 - [ ] 显示页面访问量
 
-- [ ] 友站链接页面
+- [x] 友站链接页面
+
+## 发布日志
+
+v2019-09-23
+
+- 修改了 PC 端首页布局
+- 新增了文章字数统计功能
+- PC 端添加了 Google 站内搜索
+- 新增了友链页面
 
 ## 协议
 

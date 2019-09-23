@@ -39,7 +39,7 @@ npm install
 ### Install theme
 
 ```sh
-git clone https://github.com/xrr2016/hexo-theme-cold-stone.git themes/cold-stone
+git clone https://github.com/xrr2016/hexo-theme-cold-stone.git themes/cold-stone --depth 1
 ```
 
 ### Usage
@@ -151,15 +151,24 @@ More ways to refer：https://hexo.io/docs/deployment
 
 ![audits](images/audits.gif)
 
-# TODOS
+## TODOS
 
-- [ ] Search
+- [x] Search
 
 - [x] Category
 
 - [ ] Show page views
 
-- [ ] Friends link page
+- [x] Friends link page
+
+## Release log
+
+v2019-09-23
+
+- Modified PC home page layout
+- Added article word count function
+- Added Google Site Search on the PC side
+- Added friends chain page
 
 ## License
 
