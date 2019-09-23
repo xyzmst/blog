@@ -70,10 +70,32 @@
             
                 <li class="animate-list__item card slide-in-right">
                     <h2 class="animate-list__title">
-                        <a class="hover-underline-animation" href="/post/2019/09/11/flutter-provider-todos/">
-                            使用 Provider 管理 Flutter 应用状态                        </a>
+                        <a class="hover-underline-animation" href="/post/2019/09/23/flutter-provider-todos-02/">
+                            使用 Provider 管理 Flutter 应用状态 (下)                        </a>
                     </h2>
-                    <p><p>一个应用内通常会有两种数据，单个组件内部的使用的数据，很多组件共同使用的数据</p></p>
+                    <p><p>紧接上篇，todo 的新增，修改，删除功能都已经完成了，但是数据都是保存在内存中的，重新启动应用数据就重置了，所以需要一个数据库来存放数据，这篇文章就讲下如何使用 http 和 convert 库来将应用数据存储到数据库中</p></p>
+                    <p class="animate-list__desc">
+                        <span class="post-info">
+                            
+                                <span>标签:</span>
+                                <span class="meta-tags">
+                                
+                                    <a class="meta-tag hover-underline-animation" href="/tags/#Flutter" title="Flutter">Flutter</a>
+                                
+                                </span>
+                            
+                            <span>发布于:</span>
+                            <span class="post-time">2019-09-23</span>
+                        </span>
+                    </p>
+                </li>
+            
+                <li class="animate-list__item card slide-in-right">
+                    <h2 class="animate-list__title">
+                        <a class="hover-underline-animation" href="/post/2019/09/11/flutter-provider-todos-01/">
+                            使用 Provider 管理 Flutter 应用状态 (上)                        </a>
+                    </h2>
+                    <p><p>一个应用内通常会有两种数据，组件内部的使用的数据以及很多组件共同使用的数据，组件内部使用的数据可以通过 StatefulWidget 来实现，但是很多组件共同使用的数据就需要一个状态管理工具来进行管理了，本文说明如何使用 Provider 来管理这种应用的全局状态数据</p></p>
                     <p class="animate-list__desc">
                         <span class="post-info">
                             
@@ -224,28 +246,6 @@
                         </span>
                     </p>
                 </li>
-            
-                <li class="animate-list__item card slide-in-right">
-                    <h2 class="animate-list__title">
-                        <a class="hover-underline-animation" href="/post/2019/08/14/flutter-android-build/">
-                            关于 Flutter 的安卓打包                        </a>
-                    </h2>
-                    <p><p>Flutter 在打包安卓应用时有两种方式 <code>flutter build apk</code> 和 <code>flutter build appbundle</code>，本文说下这两种方式有什么区别</p></p>
-                    <p class="animate-list__desc">
-                        <span class="post-info">
-                            
-                                <span>标签:</span>
-                                <span class="meta-tags">
-                                
-                                    <a class="meta-tag hover-underline-animation" href="/tags/#Flutter" title="Flutter">Flutter</a>
-                                
-                                </span>
-                            
-                            <span>发布于:</span>
-                            <span class="post-time">2019-08-14</span>
-                        </span>
-                    </p>
-                </li>
                     </ul>
 
         
@@ -267,7 +267,7 @@
         <div class="card aside-tags">
             <ul class="tags list-unstyled">
                 
-                    <li class="tag-item"><a href="/tags/#Flutter" title="Flutter" rel="4">Flutter</a></li>
+                    <li class="tag-item"><a href="/tags/#Flutter" title="Flutter" rel="5">Flutter</a></li>
                 
                     <li class="tag-item"><a href="/tags/#PWA" title="PWA" rel="2">PWA</a></li>
                 
@@ -300,7 +300,7 @@
             </ul>
         </div>
         <div class="card">
-            <p class="subtitle">博客总字数&#58; 10.6k</p>
+            <p class="subtitle">博客总字数&#58; 10.9k</p>
         </div>
     </aside>
 </section>
