@@ -7,7 +7,7 @@ title: 冷石的博客
 subtitle: 孑然一身，傲立于世
 description: 想写什么就写什么
 keywords: "Web, Js, CSS, Node.js, Frontend, Flutter, Docker"
-author: 冷石
+author: Cold Stone
 language: zh
 timezone: Asia/Shanghai
 
@@ -17,7 +17,7 @@ url: https://coldstone.fun
 root: /
 permalink: :route/:year/:month/:day/:title/
 permalink_defaults:
- route: post
+  route: post
 
 # Directory
 source_dir: source
@@ -54,7 +54,7 @@ highlight:
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ''
+  path: ""
   per_page: 8
   order_by: -date
 
