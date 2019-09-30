@@ -18,6 +18,7 @@
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="/icons/icon-72x72.png">
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/styles/atom-one-light.min.css">
     <link rel="stylesheet" href="/styles/sanitize.css">
 <link rel="stylesheet" href="/styles/cold-stone.css">
     <noscript>
@@ -154,7 +155,7 @@
                         <a class="hover-underline-animation" href="/post/2019/09/23/flutter-provider-todos-02/">
                             使用 Provider 管理 Flutter 应用状态 (下)                        </a>
                     </h2>
-                    <p><p>紧接上篇，todo 的新增，修改，删除功能都已经完成了，但是数据都是保存在内存中的，重新启动应用数据就重置了，所以需要一个数据库来存放数据，这篇文章就讲下如何使用 http 和 convert 库来将应用数据存储到数据库中</p></p>
+                    <p><p>紧接上篇，对于一个代办事项的新增，修改，删除功能都已经完成了，但是数据都是保存在内存中的，重新启动应用数据就重置了，为了存储数据可以将数据存到手机的存储里面或者存到远程服务器上，本文就实现如何使用 <a href="https://github.com/flutterchina/dio" target="_blank" rel="noopener">dio</a> 将数据存到服务器</p></p>
                     <p class="animate-list__desc">
                         <span class="post-info">
                             
@@ -381,7 +382,7 @@
             </ul>
         </div>
         <div class="card">
-            <p class="subtitle">博客总字数&#58; 12.6k</p>
+            <p class="subtitle">博客总字数&#58; 14.7k</p>
         </div>
     </aside>
 </section>
