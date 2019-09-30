@@ -27,7 +27,9 @@ categories:
 
 ## 一个例子 🌰
 
-使用一个 todo 应用来说明如何在 Flutter 应用中使用 Provider，最终的完成的应用是这样的，可以新增，编辑和删除 todo，[源码地址](https://github.com/xrr2016/flutter_provider_todos)
+使用一个 todo 应用来说明如何在 Flutter 应用中使用 Provider，最终的完成的应用是这样的，可以新增，编辑和删除 todo。
+
+[源码地址](https://github.com/xrr2016/flutter_provider_todos)
 
 <img src="images/provider-todos.png" width="360" style="width: 360px;">
 
@@ -50,7 +52,7 @@ dependencies:
 
 <img src="images/todos-folder.jpg" width="360" style="width: 360px;">
 
-首先创建 todos 这个全局性的数据，修改 store/todos.dart，创建一个 Todo 类表示一个代办事项，然后实现 Todos 类， Todos 继承了 ChangeNotifier 类，为了使用 notifyListeners 方法来通知 UI 更新，因此需要导入 foundation.dart，Todos 类使用一个 \_items 数组存放 Todo 数据，以及其它对 Todo 进行操作的方法。
+首先创建 todos 这个全局性的数据，修改 store/todos.dart，创建一个 Todo 类表示一个代办事项，然后实现 Todos 类， Todos 混合了 ChangeNotifier 类，为了使用 notifyListeners 方法来通知 UI 更新，因此需要导入 foundation.dart，Todos 类使用一个 \_items 数组存放 Todo 数据，以及其它对 Todo 进行操作的方法。
 
 ```dart
 import 'package:flutter/foundation.dart';
@@ -534,7 +536,7 @@ class RemoveTodoButton extends StatelessWidget {
 
 <img src="https://github.com/xrr2016/flutter_provider_todos/raw/master/remove-todo.png" width="360" style="width: 360px;">
 
-可以看到要使用对应的方法需要的只是向对应的部件注入这个数据，然后使用就可以了使用了
+可以看到要使用对应的方法需要的只是向对应的部件注入这个数据，然后使用就可以了
 
 ## 结语
 
