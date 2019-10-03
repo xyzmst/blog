@@ -96,7 +96,7 @@ class Todo {
 
 ## 发送请求
 
-配置好 dio 就可以在 todos.dart 向服务器发送请求了，修改 store/todos.dart，给 Todos 类添加了一个 \_dio 属性用来发送请求，一个 getTodos 方法用来获取全部 todo 的列表数据，然后修改 addTodo，removeTodo，editTodo 方法使用 \_dio 向服务器发送 post，delelte，put 请求。
+配置好 dio 就可以在 todos.dart 向服务器发送请求了，修改 store/todos.dart，给 Todos 类添加了一个 \_dio 属性用来发送请求，一个 getTodos 方法用来获取全部 todo 的列表数据，然后修改 addTodo，removeTodo，editTodo 方法使用 \_dio 向服务器发送 post，delete，put 请求。
 
 需要注意的一点是将 json 转换成实例的问题，很容易就会出现类似
 
