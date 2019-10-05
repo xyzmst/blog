@@ -105,3 +105,6 @@ sns:
 # page stat
 track:
   gaid: UA-119658292-2
+
+# Minifier Site Source
+all_minifier: true
