@@ -5,7 +5,7 @@ tags:
   - Node
   - Redis
 categories:
-  - Node
+  - 技术
 ---
 
 Redis 是一款开源的，基于 BSD 许可的，高级键值缓存和存储系统。Redis 的键包括 string，hash，list，set，sorted set，bitmap 和 hyperloglog。你可以在这些类型上面运行原子操作，例如，追加字符串，增加哈希中的值，加入一个元素到列表，计算集合的交集、并集和差集，或者是从有序集合中获取最高排名的元素。
@@ -21,7 +21,6 @@ Redis 是一款开源的，基于 BSD 许可的，高级键值缓存和存储系
 要在 Egg.js 中使用 redis，只需要安装 npm i redis 即可。
 
 通过一个例子来验证一下，创建一个可以返回开源仓库在 Github 上的 star 数量的数据接口，来测试使用 Redis 后带来的提升，代码地址: [https://github.com/xrr2016/egg-redis-test](https://github.com/xrr2016/egg-redis-test)
-
 
 ## 开发
 

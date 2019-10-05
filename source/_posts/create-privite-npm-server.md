@@ -5,7 +5,7 @@ tags:
   - Node
   - Docker
 categories:
-  - Node
+  - 技术
 ---
 
 部门需要建一个 npm 私服，我查了一下发现有一个很好用的开源工具 [Verdaccio](https://github.com/verdaccio/verdaccio)，有 3 中方式可以在自己的服务器上搭建，以 Centos 为例

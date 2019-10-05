@@ -4,13 +4,12 @@ date: 2019-08-22 14:07:14
 tags:
   - Egg
 categories:
-  - Node
+  - 技术
 ---
 
 在查了几遍 [Sequelize](https://sequelize.org/) 关于 [Transactions](https://sequelize.org/master/manual/transactions.html) 的文档，看了大佬同事的代码后，我终于弄懂怎么在 egg.js 框架里面使用事务了 😓
 
 <!--more-->
-
 
 ## 前言
 

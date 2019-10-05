@@ -1,7 +1,9 @@
 ---
 title: 对于 Workbox Strategies几种策略的解释
-tags: Workbox
-categories: Web
+tags:
+  - Workbox
+categories:
+  - 技术
 date: 2019-07-27T12:36:13+08:00
 ---
 

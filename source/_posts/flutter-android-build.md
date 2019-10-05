@@ -2,15 +2,14 @@
 title: 关于 Flutter 的安卓打包
 date: 2019-08-14 09:56:55
 tags:
-- Flutter
+  - Flutter
 categories:
+  - 技术
 ---
-
 
 Flutter 在打包安卓应用时有两种方式 `flutter build apk` 和 `flutter build appbundle`，本文说下这两种方式有什么区别
 
 <!--more-->
-
 
 ## 前言
 

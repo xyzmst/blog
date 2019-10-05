@@ -1,15 +1,14 @@
 ---
 title: '了解 <link> 标签上 rel=prexxx 的作用'
+date: '2019-07-22T17:39:27+08:00'
 tags: 'HTML'
 categories:
-  - Web
-date: '2019-07-22T17:39:27+08:00'
+  - 技术
 ---
 
 在 HTML 中 <link> 标签指定了当前文档与外部资源之间的关系，本文说明 <link> 标签的 rel 属性分别设置 dns-prefetch，preconnect，prefetch，preload，prerender 的时候有说明作用
 
 <!--more-->
-
 
 在 HTML 中 <link> 标签指定了当前文档与外部资源之间的关系
 本文说明 <link> 标签的 rel 属性分别设置 dns-prefetch，preconnect，prefetch，preload，prerender 的时候有说明作用

@@ -4,7 +4,8 @@ date: 2019-08-01 18:56:29
 tags:
   - Centos
   - Java
-categories: Linux
+categories:
+  - 技术
 ---
 
 由于要在服务器上安装 [Jenkins](https://jenkins.io/zh/) 所以首先要安装 java

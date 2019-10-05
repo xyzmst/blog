@@ -1,14 +1,15 @@
 ---
 title: 'Dart 语言中的 final 与 const 的区别'
-tags: 'Dart'
+tags:
+  - Dart
 date: '2019-07-16T17:23:06+08:00'
-categories: 'Dart'
+categories:
+  - 技术
 ---
 
 在 Dart 中有 `final` 和 `const` 两个关键字，貌似都是表示常量的，但是它们还是有区别的
 
 <!--more-->
-
 
 在 Dart 中有 `final` 和 `const` 两个关键字，貌似都是表示常量的，但是它们还是有区别的
 
