@@ -5,7 +5,7 @@
   --bg-white: #f2f3f8;
   --bg-dark: #474444;
   --bg-darken: #3d3b3b;
-  --wrapper-width: 840px;
+  --wrapper-width: 920px;
 }
 
 ::-moz-selection {
@@ -279,6 +279,7 @@ img::selection {
   padding: 2px 6px;
   margin-right: 10px;
   margin-bottom: 6px;
+  font-style: italic;
   background-color: #ffffff;
 }
 
@@ -568,7 +569,7 @@ img::selection {
 }
 
 .index-aside {
-  width: 180px;
+  width: 200px;
 }
 
 @media screen and (max-width: 768px) {
