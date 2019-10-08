@@ -1,7 +1,8 @@
 ---
 title: '了解 <link> 标签上 rel=prexxx 的作用'
 date: '2019-07-22T17:39:27+08:00'
-tags: 'HTML'
+tags:
+  - HTML
 categories:
   - 技术
 ---

@@ -1,6 +1,7 @@
 ---
-title: '关于 Apple 的 Code Signing'
-tags: 'iOS'
+title: 关于 Apple 的 Code Signing
+tags:
+  - iOS
 date: '2019-07-15T20:54:56+08:00'
 categories:
   - 技术

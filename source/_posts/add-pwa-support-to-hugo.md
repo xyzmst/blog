@@ -1,5 +1,5 @@
 ---
-title: '让 Hugo 博客支持 PWA'
+title: 让 Hugo 博客支持 PWA
 tags:
   - PWA
 date: 2019-07-24T13:34:17+08:00

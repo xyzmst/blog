@@ -1,5 +1,5 @@
 ---
-title: '使用 Travis CI 部署 Hugo 博客到 Github Pages'
+title: 使用 Travis CI 部署 Hugo 博客到 Github Pages
 tags:
   - Hugo
 date: 2019-07-27T04:58:25+08:00

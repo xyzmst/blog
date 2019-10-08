@@ -1,7 +1,8 @@
 ---
-title: '理解 Flutter 应用和部件的生命周期'
+title: 理解 Flutter 应用和部件的生命周期
 date: 2019-07-28T21:21:03+08:00
-tags: 'Flutter'
+tags:
+  - Flutter
 categories:
   - 技术
 ---
