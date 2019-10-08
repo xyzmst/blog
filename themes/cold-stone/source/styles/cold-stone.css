@@ -212,8 +212,9 @@ img::selection {
   padding-right: 1em;
 }
 
-.article a {
-  text-decoration: underline;
+.article-content a {
+  color: #08c;
+  text-decoration: none;
 }
 
 .article-toc {
@@ -683,4 +684,8 @@ code {
 .article,
 .avatar-img {
   box-shadow: var(--shadow);
+}
+
+.utterances {
+  max-width: var(--wrapper-width);
 }
