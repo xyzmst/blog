@@ -42,12 +42,12 @@ filename_case: 0
 render_drafts: false
 post_asset_folder: false
 relative_link: false
-future: true
+future: false
 highlight:
-  enable: true
-  line_number: true
-  auto_detect: true
-  tab_replace:
+  enable: false
+  line_number: false
+  auto_detect: false
+  tab_replace: false
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -105,6 +105,3 @@ sns:
 # page stat
 track:
   gaid: UA-119658292-2
-
-# Minifier Site Source
-all_minifier: true
