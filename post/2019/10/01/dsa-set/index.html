@@ -1,110 +1,133 @@
-<!DOCTYPE html>
-<html lang="zh">
-  <head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="renderer" content="webkit|ie-comp|ie-stand">
-    <meta name="referrer" content="no-referrer">
-    <meta name="theme-color" content="#333333">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="google" content="notranslate">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="keyword" content="Web, Js, CSS, Node.js, Frontend, Flutter, Docker">
-    <meta name="description" content="想写什么就写什么">
-    <title>数据结构与算法之集合 - 冷石的博客</title>
-    <base href="/">
-    <link rel="preconnect" href="//cdnjs.cloudflare.com">
-    <link rel="manifest" href="/manifest.json">
-    <link rel="shortcut icon" href="/icons/icon-72x72.png">
-    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/styles/atom-one-light.min.css">
-    <link rel="stylesheet" href="/styles/sanitize.css">
-<link rel="stylesheet" href="/styles/cold-stone.css">
-    <noscript>
-      <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
-    </noscript>
-</head>
+<!DOCTYPE html><html lang="zh"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="chrome=1"><meta name="renderer" content="webkit|ie-comp|ie-stand"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#333333"><meta name="mobile-web-app-capable" content="yes"><meta name="google" content="notranslate"><meta name="format-detection" content="telephone=no"><meta name="keyword" content="Web, Js, CSS, Node.js, Frontend, Flutter, Docker"><meta name="description" content="想写什么就写什么"><title>数据结构与算法之集合 - 冷石的博客</title><base href="/"><link rel="preconnect" href="//cdnjs.cloudflare.com"><link rel="manifest" href="/manifest.json"><link rel="shortcut icon" href="/icons/icon-72x72.png"><link rel="apple-touch-icon" href="/icons/icon-192x192.png"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/styles/atom-one-light.min.css"><link rel="stylesheet" href="/styles/sanitize.css"><link rel="stylesheet" href="/styles/cold-stone.css"><noscript><p class="text-center">你的浏览器还没开启 Javascript 功能！</p></noscript></head><body><main class="main wrapper"><article class="article slide-in-right"><section><h1 class="article-title">数据结构与算法之集合</h1><p class="article-meta"><span class="meta-info"><span>最后更新&#58; 2019-10-08 06:33:49 </span><span>字数&#58; 571</span> <span>阅读时间&#58; 2 min</span> </span><a class="meta-link" href="/">返回</a></p></section><section><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>集合是一种包含不同元素的数据结构，集合中的元素称之为成员。集合有两个重要的特性，一是集合中的成员是无序的，其次集合中不存在相同的成员。</p><h2 id="关于集合"><a href="#关于集合" class="headerlink" title="关于集合"></a>关于集合</h2><p>不包含任何成员的集合称为空集，全集则是包含可能一切成员的集合。<br>如果两个集合的成员完全相等，则两个集合相等。<br>如果一个集合的所有成员都属于另一个集合，则认为这个集合是另一个集合的子集。<br>并集-将两个集合的成员合并的操作。<br>交集-将两个集合共有的成员组成一个新的集合。<br>补集-属于一个集合而不属于另一个集合的成员。</p><h2 id="实现集合"><a href="#实现集合" class="headerlink" title="实现集合"></a>实现集合</h2><pre><code class="ts">class MySet {
+  data = &lt;any&gt;[]
 
-  <body>
-    
+  get size() {
+    return this.data.length
+  }
 
-    
+  add(element: any) {
+    if (this.data.indexOf(element) &gt; -1) {
+      return false
+    }
 
-    <main class="main wrapper"><article class="article slide-in-right">
-  <section>
-    <h1 class="article-title">
-      数据结构与算法之集合
-    </h1>
-    <p class="article-meta">
-      <span class="meta-info">
-        <span>
-          最后更新&#58; 2019-10-05 03:33:25
-        </span>
-        <span>字数&#58; 592</span>
-        <span>阅读时间&#58; 2 min</span>
-      </span>
-      <a  class="meta-link" href="/">返回</a>
-    </p>
-  </section>
-  <section><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>集合是一种包含不同元素的数据结构，集合中的元素称之为成员。集合有两个重要的特性，一是集合中的成员是无序的，其次集合中不存在相同的成员。</p>
-<h2 id="关于集合"><a href="#关于集合" class="headerlink" title="关于集合"></a>关于集合</h2><p>不包含任何成员的集合称为空集，全集则是包含可能一切成员的集合。<br>如果两个集合的成员完全相等，则两个集合相等。<br>如果一个集合的所有成员都属于另一个集合，则认为这个集合是另一个集合的子集。<br>并集-将两个集合的成员合并的操作。<br>交集-将两个集合共有的成员组成一个新的集合。<br>补集-属于一个集合而不属于另一个集合的成员。</p>
-<h2 id="实现集合"><a href="#实现集合" class="headerlink" title="实现集合"></a>实现集合</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> MySet &#123;</span><br><span class="line">  data = &lt;<span class="built_in">any</span>&gt;[]</span><br><span class="line"></span><br><span class="line">  <span class="keyword">get</span> size() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.data.length</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  add(element: <span class="built_in">any</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.data.indexOf(element) &gt; <span class="number">-1</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.data.push(element)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  remove(element: <span class="built_in">any</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> index = <span class="keyword">this</span>.data.indexOf(element)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (index &gt; <span class="number">-1</span>) &#123;</span><br><span class="line">      <span class="keyword">this</span>.data.splice(index, <span class="number">1</span>)</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  contains(element: <span class="built_in">any</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.data.indexOf(element) &gt; <span class="number">-1</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 并集</span></span><br><span class="line">  uinon(<span class="keyword">set</span>: MySet) &#123;</span><br><span class="line">    <span class="keyword">const</span> newSet = <span class="keyword">new</span> MySet()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.data.forEach(<span class="function">(<span class="params">e: <span class="built_in">any</span></span>) =&gt;</span> newSet.add(e))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; <span class="keyword">set</span>.data.length; index++) &#123;</span><br><span class="line">      <span class="keyword">const</span> ele = <span class="keyword">set</span>.data[index]</span><br><span class="line">      <span class="keyword">if</span> (!newSet.contains(ele)) &#123;</span><br><span class="line">        newSet.add(ele)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> newSet</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 交集</span></span><br><span class="line">  intersect(<span class="keyword">set</span>: MySet) &#123;</span><br><span class="line">    <span class="keyword">const</span> newSet = <span class="keyword">new</span> MySet()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.data.forEach(<span class="function">(<span class="params">ele: <span class="built_in">any</span></span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">set</span>.contains(ele)) &#123;</span><br><span class="line">        newSet.add(ele)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> newSet</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 判断是否是补集</span></span><br><span class="line">  subset(<span class="keyword">set</span>: MySet) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.size &gt; <span class="keyword">set</span>.size) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; <span class="keyword">this</span>.data.length; index++) &#123;</span><br><span class="line">        <span class="keyword">const</span> element = <span class="keyword">this</span>.data[index]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">set</span>.contains(element)) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 返回集合中不同的成员</span></span><br><span class="line">  difference(<span class="keyword">set</span>: MySet) &#123;</span><br><span class="line">    <span class="keyword">const</span> newSet = <span class="keyword">new</span> MySet()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; <span class="keyword">this</span>.data.length; index++) &#123;</span><br><span class="line">      <span class="keyword">const</span> element = <span class="keyword">this</span>.data[index]</span><br><span class="line">      <span class="keyword">if</span> (!<span class="keyword">set</span>.contains(element)) &#123;</span><br><span class="line">        newSet.add(element)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> newSet</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  show() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.data.forEach(<span class="function">(<span class="params">e: <span class="built_in">any</span></span>) =&gt;</span> <span class="built_in">console</span>.log(e))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    this.data.push(element)
+  }
 
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> setOne = <span class="keyword">new</span> MySet()</span><br><span class="line"></span><br><span class="line">setOne.add(<span class="string">'a'</span>)</span><br><span class="line">setOne.add(<span class="string">'b'</span>)</span><br><span class="line">setOne.add(<span class="string">'c'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> setTwo = <span class="keyword">new</span> MySet()</span><br><span class="line"></span><br><span class="line">setTwo.add(<span class="string">'c'</span>)</span><br><span class="line">setTwo.add(<span class="string">'d'</span>)</span><br><span class="line">setTwo.add(<span class="string">'e'</span>)</span><br><span class="line">setTwo.add(<span class="string">'f'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> setThree = setOne.uinon(setTwo)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'合集'</span>)</span><br><span class="line">setThree.show()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 合集</span></span><br><span class="line"><span class="comment">// a b c d e f</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> setFour = setOne.intersect(setTwo)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'交集'</span>)</span><br><span class="line">setFour.show()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 交集</span></span><br><span class="line"><span class="comment">// c</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> isSubset = setOne.subset(setTwo)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'是否是补集'</span>, isSubset)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否是补集 false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> setSix = setOne.difference(setTwo)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'查看集合中不同的成员'</span>)</span><br><span class="line">setSix.show()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查看集合中不同的成员</span></span><br><span class="line"><span class="comment">// a b</span></span><br></pre></td></tr></table></figure></section>
-</article>
+  remove(element: any) {
+    const index = this.data.indexOf(element)
 
-<section class="card article-toc">
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于集合"><span class="toc-text">关于集合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现集合"><span class="toc-text">实现集合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li></ol>
-</section>
+    if (index &gt; -1) {
+      this.data.splice(index, 1)
+      return true
+    }
 
-<section class="article slide-in-right">
+    return false
+  }
 
-  <div class="loader" id="loader">
-    <svg viewBox="0 0 50 50">
-      <circle class="ring" cx="25" cy="25" r="20"></circle>
-      <circle class="ball" cx="25" cy="5" r="3.5"></circle>
-    </svg>
-  </div>
+  contains(element: any) {
+    if (this.data.indexOf(element) &gt; -1) {
+      return true
+    }
+    return false
+  }
 
-  <div class="comment" id="utteranc"></div>
-  <noscript>Please activate JavaScript for normal use of comments</noscript>
-</section>
+  // 并集
+  uinon(set: MySet) {
+    const newSet = new MySet()
 
-<a class="card back-to-top" id="backTop">&UpArrow;</a>
+    this.data.forEach((e: any) =&gt; newSet.add(e))
 
-</main>
+    for (let index = 0; index &lt; set.data.length; index++) {
+      const ele = set.data[index]
+      if (!newSet.contains(ele)) {
+        newSet.add(ele)
+      }
+    }
 
-    
+    return newSet
+  }
 
-    <script>
-	window.COLD_STONE = {
-	  repo: "",
-	  gaid: "UA-119658292-2"
-	}
-</script>
+  // 交集
+  intersect(set: MySet) {
+    const newSet = new MySet()
 
+    this.data.forEach((ele: any) =&gt; {
+      if (set.contains(ele)) {
+        newSet.add(ele)
+      }
+    })
+    return newSet
+  }
 
-	<script>
-		window.COLD_STONE.repo = "xrr2016/blog"
-	</script>
+  // 判断是否是补集
+  subset(set: MySet) {
+    if (this.size &gt; set.size) {
+      return false
+    } else {
+      for (let index = 0; index &lt; this.data.length; index++) {
+        const element = this.data[index]
 
+        if (!set.contains(element)) {
+          return false
+        }
+      }
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js"></script>
-<script src="/scripts/cold-stone.js"></script>
+      return true
+    }
+  }
 
+  // 返回集合中不同的成员
+  difference(set: MySet) {
+    const newSet = new MySet()
 
-  <script src="//www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
+    for (let index = 0; index &lt; this.data.length; index++) {
+      const element = this.data[index]
+      if (!set.contains(element)) {
+        newSet.add(element)
+      }
+    }
 
-  <script>
-	window.dataLayer = window.dataLayer || []
-	function gtag() {
-		dataLayer.push(arguments)
-	}
-	gtag('js', new Date())
-	gtag('config', window.COLD_STONE.gaid)
-  </script>
+    return newSet
+  }
 
+  show() {
+    return this.data.forEach((e: any) =&gt; console.log(e))
+  }
+}</code></pre><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><pre><code class="ts">const setOne = new MySet()
 
-  </body>
-</html>
+setOne.add(&#39;a&#39;)
+setOne.add(&#39;b&#39;)
+setOne.add(&#39;c&#39;)
+
+const setTwo = new MySet()
+
+setTwo.add(&#39;c&#39;)
+setTwo.add(&#39;d&#39;)
+setTwo.add(&#39;e&#39;)
+setTwo.add(&#39;f&#39;)
+
+const setThree = setOne.uinon(setTwo)
+console.log(&#39;合集&#39;)
+setThree.show()
+
+// 合集
+// a b c d e f
+
+const setFour = setOne.intersect(setTwo)
+console.log(&#39;交集&#39;)
+setFour.show()
+
+// 交集
+// c
+
+const isSubset = setOne.subset(setTwo)
+console.log(&#39;是否是补集&#39;, isSubset)
+
+// 是否是补集 false
+
+const setSix = setOne.difference(setTwo)
+console.log(&#39;查看集合中不同的成员&#39;)
+setSix.show()
+
+// 查看集合中不同的成员
+// a b</code></pre></section></article><section class="card article-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于集合"><span class="toc-text">关于集合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现集合"><span class="toc-text">实现集合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li></ol></section><section class="article slide-in-right"><div class="loader" id="loader"><svg viewBox="0 0 50 50"><circle class="ring" cx="25" cy="25" r="20"></circle><circle class="ball" cx="25" cy="5" r="3.5"></circle></svg></div><div class="comment" id="utteranc"></div><noscript>Please activate JavaScript for normal use of comments</noscript></section><a class="card back-to-top" id="backTop">&UpArrow;</a></main><script>window.COLD_STONE={repo:"",gaid:"UA-119658292-2"}</script><script>window.COLD_STONE.repo="xrr2016/blog"</script><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js"></script><script src="/scripts/cold-stone.js"></script><script src="//www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config",window.COLD_STONE.gaid)</script></body></html>
