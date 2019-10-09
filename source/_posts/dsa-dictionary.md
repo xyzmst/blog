@@ -83,7 +83,7 @@ console.log('clear: ', dictionary.count())
 
 输出
 
-```json
+```textmate
 key: a  value: a
 key: b  value: b
 key: c  value: c
@@ -122,7 +122,7 @@ dictionary.show()
 
 输出
 
-```json
+```textmate
 key: a  value: a
 key: b  value: b
 key: c  value: c

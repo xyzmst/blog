@@ -31,7 +31,7 @@ categories:
 
 [源码地址](https://github.com/xrr2016/flutter_provider_todos)
 
-<img src="images/provider-todos.png" width="360" style="width: 360px;">
+<img src="images/provider-todos.png" width="360" style="max-width: 360px;">
 
 ### 创建应用
 
@@ -50,7 +50,7 @@ dependencies:
 
 创建一个 store 文件夹以及 todos.dart 用来存放应用中需要用到的全局性数据，新建一个 widget 目录，用来存放应用中的部件以及一个显示 todo 的页面 todos_page.dart
 
-<img src="images/todos-folder.jpg" width="360" style="width: 360px;">
+<img src="images/todos-folder.jpg" width="360" style="max-width: 360px;">
 
 首先创建 todos 这个全局性的数据，修改 store/todos.dart，创建一个 Todo 类表示一个代办事项，然后实现 Todos 类， Todos 混合了 ChangeNotifier 类，为了使用 notifyListeners 方法来通知 UI 更新，因此需要导入 foundation.dart，Todos 类使用一个 \_items 数组存放 Todo 数据，以及其它对 Todo 进行操作的方法。
 
@@ -233,7 +233,7 @@ class TodosPage extends StatelessWidget {
 
 接下来就是要实现这 3 个按钮了，在 widget 目录创建对应的文件，每个按钮都会使用到 Todos 类里面定义的方法，所以都需要导入 provider 和 Todos 类，点击按钮会弹出一个对话框询问对应的操作，
 
-<img src="images/todos-widget.jpg" style="width: 360px;">
+<img src="images/todos-widget.jpg" style="max-width: 360px;">
 
 添加 Todo 按钮
 
@@ -352,7 +352,7 @@ class _AddTodoButtonState extends State<AddTodoButton> {
 
 ```
 
-<img src="https://github.com/xrr2016/flutter_provider_todos/raw/master/add-todo.png" width="360" style="width: 360px;">
+<img src="https://github.com/xrr2016/flutter_provider_todos/raw/master/add-todo.png" width="360" style="max-width: 360px;">
 
 编辑 Todo 按钮
 
@@ -477,7 +477,7 @@ class _EditTodoButtonState extends State<EditTodoButton> {
 
 ```
 
-<img src="https://github.com/xrr2016/flutter_provider_todos/raw/master/edit-todo.png" width="360" style="width: 360px;">
+<img src="https://github.com/xrr2016/flutter_provider_todos/raw/master/edit-todo.png" width="360" style="max-width: 360px;">
 
 删除 Todo 按钮
 
@@ -534,7 +534,7 @@ class RemoveTodoButton extends StatelessWidget {
 
 ```
 
-<img src="https://github.com/xrr2016/flutter_provider_todos/raw/master/remove-todo.png" width="360" style="width: 360px;">
+<img src="https://github.com/xrr2016/flutter_provider_todos/raw/master/remove-todo.png" width="360" style="max-width: 360px;">
 
 可以看到要使用对应的方法需要的只是向对应的部件注入这个数据，然后使用就可以了
 
