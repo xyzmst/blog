@@ -26,7 +26,7 @@ layout: layout
                                 </span>
                             <% } %>
                             <span><%= __('post.postTime') %>:</span>
-                            <span class="post-time"><%= post.date.format(config.date_format) _%></span>
+                            <time class="post-time" datetime="<%= post.date.format(config.date_format) _%>"><%= post.date.format(config.date_format) _%></time>
                         </span>
                     </p>
                 </li>
@@ -73,6 +73,7 @@ layout: layout
 
         <div class="card">
             <p class="subtitle"><%= __('blogwordcount') %>&#58; <%= totalcount(site) %></p>
+            <p class="subtitle hide" id="busuanzi_container_site_uv">博客访客数&#58; <span id="busuanzi_value_site_uv"></span>人</p>
         </div>
     </aside>
 </section>
