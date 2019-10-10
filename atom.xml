@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>冷石的博客</title>
+  <icon>https://coldstone.fun/avatar.png</icon>
+  <subtitle>孑然一身，傲立于世</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://coldstone.fun/"/>
+  <updated>2019-10-10T09:07:48.988Z</updated>
+  <id>https://coldstone.fun/</id>
+  
+  <author>
+    <name>Cold Stone</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用 Intl 对象进行日期时间格式化</title>
+    <link href="https://coldstone.fun/post/2019/10/05/js-intl/"/>
+    <id>https://coldstone.fun/post/2019/10/05/js-intl/</id>
+    <published>2019-10-05T04:04:00.000Z</published>
+    <updated>2019-10-10T09:07:48.988Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;平时项目中要对日期时间格式化通常会使用如 &lt;a href=&quot;https://github.com/iamkun/dayjs&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;dayjs&lt;/a&gt;，&lt;a href=&quot;https://github.com/date-fns/date-fns&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;date-fns&lt;/a&gt;，&lt;a href=&quot;https://github.com/moment/moment&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;moment&lt;/a&gt; 这些第三方库，但是我们可能只需要某几个方法，却安装了一整个库，大大增加了项目的体积，具体可以看这篇文章的数据 &lt;a href=&quot;https://github.com/you-dont-need/You-Dont-Need-Momentjs&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;You-Dont-Need-Momentjs&lt;/a&gt;。本文主要说明如何使用浏览器自带的 Intl 对象进行日期时间的格式化&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://coldstone.fun/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="JS" scheme="https://coldstone.fun/tags/JS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据结构与算法之集合</title>
+    <link href="https://coldstone.fun/post/2019/10/01/dsa-set/"/>
+    <id>https://coldstone.fun/post/2019/10/01/dsa-set/</id>
+    <published>2019-10-01T02:46:48.000Z</published>
+    <updated>2019-10-10T09:07:48.988Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;集合是一种包含不同元素的数据结构，集合中的元素称之为成员。集合有两个重要的特性，一是集合中的成员是无序的，其次集合中不存在相同的成员。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://coldstone.fun/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="DSA" scheme="https://coldstone.fun/tags/DSA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 Provider 管理 Flutter 应用状态 (下)</title>
+    <link href="https://coldstone.fun/post/2019/09/23/flutter-provider-todos-02/"/>
+    <id>https://coldstone.fun/post/2019/09/23/flutter-provider-todos-02/</id>
+    <published>2019-09-23T08:17:17.000Z</published>
+    <updated>2019-10-10T09:07:48.988Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;紧接上篇，对于一个代办事项的新增，修改，删除功能都已经完成了，但是数据都是保存在内存中的，重新启动应用数据就重置了，为了存储数据可以将数据存到手机的存储里面或者存到远程服务器上，本文就实现如何使用 &lt;a href=&quot;https://github.com/flutterchina/dio&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;dio&lt;/a&gt; 将数据存到服务器&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://coldstone.fun/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Flutter" scheme="https://coldstone.fun/tags/Flutter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 Provider 管理 Flutter 应用状态 (上)</title>
+    <link href="https://coldstone.fun/post/2019/09/11/flutter-provider-todos-01/"/>
+    <id>https://coldstone.fun/post/2019/09/11/flutter-provider-todos-01/</id>
+    <published>2019-09-11T13:48:56.000Z</published>
+    <updated>2019-10-10T09:07:48.988Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一个应用内通常会有两种数据，部件内部的使用的临时性数据以及很多部件使用的全局性数据，部件内部使用的数据可以通过 StatefulWidget 来管理，但是全局性的数据如果通过从上到下传递的方式会使代码写的十分繁琐，这时就需要一个状态管理工具来进行管理了，本文说明如何使用 Provider 来管理这种应用的全局性的数据&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://coldstone.fun/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Flutter" scheme="https://coldstone.fun/tags/Flutter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据结构与算法之哈希表</title>
+    <link href="https://coldstone.fun/post/2019/09/08/dsa-hash/"/>
+    <id>https://coldstone.fun/post/2019/09/08/dsa-hash/</id>
+    <published>2019-09-08T08:26:45.000Z</published>
+    <updated>2019-10-10T09:07:48.988Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;哈希表是一种常用的数据结构，可以快速的插入和取用，但是查询数据效率低下&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://coldstone.fun/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="DSA" scheme="https://coldstone.fun/tags/DSA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在 Egg.js 中使用 Redis 缓存提升性能</title>
+    <link href="https://coldstone.fun/post/2019/08/31/egg-redis-cache/"/>
+    <id>https://coldstone.fun/post/2019/08/31/egg-redis-cache/</id>
+    <published>2019-08-31T05:20:56.000Z</published>
+    <updated>2019-10-10T09:07:48.988Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Redis 是一款开源的，基于 BSD 许可的，高级键值缓存和存储系统。Redis 的键包括 string，hash，list，set，sorted set，bitmap 和 hyperloglog。你可以在这些类型上面运行原子操作，例如，追加字符串，增加哈希中的值，加入一个元素到列表，计算集合的交集、并集和差集，或者是从有序集合中获取最高排名的元素。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://coldstone.fun/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Node" scheme="https://coldstone.fun/tags/Node/"/>
+    
+      <category term="Redis" scheme="https://coldstone.fun/tags/Redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据结构与算法之字典</title>
+    <link href="https://coldstone.fun/post/2019/08/28/dsa-dictionary/"/>
+    <id>https://coldstone.fun/post/2019/08/28/dsa-dictionary/</id>
+    <published>2019-08-28T13:09:13.000Z</published>
+    <updated>2019-10-10T09:07:48.988Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;字典是一种以键值对形式存储数据的数据结构，键用来查找，值用来保存数据&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://coldstone.fun/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="DSA" scheme="https://coldstone.fun/tags/DSA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据结构与算法之链表</title>
+    <link href="https://coldstone.fun/post/2019/08/25/dsa-linklist/"/>
+    <id>https://coldstone.fun/post/2019/08/25/dsa-linklist/</id>
+    <published>2019-08-25T04:49:36.000Z</published>
+    <updated>2019-10-10T09:07:48.988Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;链表是一组节点组成的集合，每个节点都使用一个对象的引用指向它的下一个节点，指向节点的引用叫做链&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://coldstone.fun/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="DSA" scheme="https://coldstone.fun/tags/DSA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何在 Egg.js 中使用 Sequelize 的事务 Transaction</title>
+    <link href="https://coldstone.fun/post/2019/08/22/egg-sequelize-transaction/"/>
+    <id>https://coldstone.fun/post/2019/08/22/egg-sequelize-transaction/</id>
+    <published>2019-08-22T06:07:14.000Z</published>
+    <updated>2019-10-10T09:07:48.988Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在查了几遍 &lt;a href=&quot;https://sequelize.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Sequelize&lt;/a&gt; 关于 &lt;a href=&quot;https://sequelize.org/master/manual/transactions.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Transactions&lt;/a&gt; 的文档，看了大佬同事的代码后，我终于弄懂怎么在 egg.js 框架里面使用事务了 😓&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://coldstone.fun/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Egg" scheme="https://coldstone.fun/tags/Egg/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据结构与算法之队列</title>
+    <link href="https://coldstone.fun/post/2019/08/18/das-queue/"/>
+    <id>https://coldstone.fun/post/2019/08/18/das-queue/</id>
+    <published>2019-08-18T14:18:36.000Z</published>
+    <updated>2019-10-10T09:07:48.988Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;队列是一种列表，只能在队尾插入元素，在队首删除元素。队列用于存储按顺序排列的的数据，先进先出，可以将队列想象成在饭店排队取餐的人群，在队伍前面的先取餐，后来的人后取餐&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://coldstone.fun/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="DSA" scheme="https://coldstone.fun/tags/DSA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于 Flutter 的安卓打包</title>
+    <link href="https://coldstone.fun/post/2019/08/14/flutter-android-build/"/>
+    <id>https://coldstone.fun/post/2019/08/14/flutter-android-build/</id>
+    <published>2019-08-14T01:56:55.000Z</published>
+    <updated>2019-10-10T09:07:48.988Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Flutter 在打包安卓应用时有两种方式 &lt;code&gt;flutter build apk&lt;/code&gt; 和 &lt;code&gt;flutter build appbundle&lt;/code&gt;，本文说下这两种方式有什么区别&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://coldstone.fun/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Flutter" scheme="https://coldstone.fun/tags/Flutter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据结构与算法之栈</title>
+    <link href="https://coldstone.fun/post/2019/08/10/dsa-stack/"/>
+    <id>https://coldstone.fun/post/2019/08/10/dsa-stack/</id>
+    <published>2019-08-10T15:12:09.000Z</published>
+    <updated>2019-10-10T09:07:48.988Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;栈是一种高效的数据结构，因为它只能在栈顶添加或删除，这样的操作很快，它是被称之为后入先出（LIFO，last in first out）的数据结构。可以将栈想象成一叠装菜的盘子，用的时候先拿最上面的，洗好的盘子又会放到最上面&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://coldstone.fun/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="DSA" scheme="https://coldstone.fun/tags/DSA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据结构与算法之列表</title>
+    <link href="https://coldstone.fun/post/2019/08/08/datastructure-list/"/>
+    <id>https://coldstone.fun/post/2019/08/08/datastructure-list/</id>
+    <published>2019-08-08T14:14:05.000Z</published>
+    <updated>2019-10-10T09:07:48.988Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;列表是一种常用的数据结构，如代办事项，十佳榜单等。当不需要在一个很长的序列中查找元素，或者对其排序时，列表显得尤其有用&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://coldstone.fun/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="DSA" scheme="https://coldstone.fun/tags/DSA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在服务器上搭建 Npm 私服</title>
+    <link href="https://coldstone.fun/post/2019/08/08/create-privite-npm-server/"/>
+    <id>https://coldstone.fun/post/2019/08/08/create-privite-npm-server/</id>
+    <published>2019-08-08T07:33:00.000Z</published>
+    <updated>2019-10-10T09:07:48.988Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;部门需要建一个 npm 私服，我查了一下发现有一个很好用的开源工具 &lt;a href=&quot;https://github.com/verdaccio/verdaccio&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Verdaccio&lt;/a&gt;，有 3 中方式可以在自己的服务器上搭建，以 Centos 为例&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://coldstone.fun/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Node" scheme="https://coldstone.fun/tags/Node/"/>
+    
+      <category term="Docker" scheme="https://coldstone.fun/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Flutter World 上线啦</title>
+    <link href="https://coldstone.fun/post/2019/08/03/flutter-world-release/"/>
+    <id>https://coldstone.fun/post/2019/08/03/flutter-world-release/</id>
+    <published>2019-08-03T15:21:48.000Z</published>
+    <updated>2019-10-10T09:07:48.988Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一大波关于 Flutter 的学习资源集合&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://coldstone.fun/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Flutter" scheme="https://coldstone.fun/tags/Flutter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在 Centos 中安装 Java8</title>
+    <link href="https://coldstone.fun/post/2019/08/01/centos-install-java8/"/>
+    <id>https://coldstone.fun/post/2019/08/01/centos-install-java8/</id>
+    <published>2019-08-01T10:56:29.000Z</published>
+    <updated>2019-10-10T09:07:48.988Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由于要在服务器上安装 &lt;a href=&quot;https://jenkins.io/zh/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Jenkins&lt;/a&gt; 所以首先要安装 java&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://coldstone.fun/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Centos" scheme="https://coldstone.fun/tags/Centos/"/>
+    
+      <category term="Java" scheme="https://coldstone.fun/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>理解 Flutter 应用和部件的生命周期</title>
+    <link href="https://coldstone.fun/post/2019/07/28/understand-flutter-lifecycle/"/>
+    <id>https://coldstone.fun/post/2019/07/28/understand-flutter-lifecycle/</id>
+    <published>2019-07-28T05:21:03.000Z</published>
+    <updated>2019-10-10T09:07:48.988Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在 Flutter 里面部件以及应用本身都有自己的生命周期，本文分别说明它们的生命周期&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://coldstone.fun/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Flutter" scheme="https://coldstone.fun/tags/Flutter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>对于 Workbox Strategies几种策略的解释</title>
+    <link href="https://coldstone.fun/post/2019/07/26/about-workbox-strategies/"/>
+    <id>https://coldstone.fun/post/2019/07/26/about-workbox-strategies/</id>
+    <published>2019-07-26T20:36:13.000Z</published>
+    <updated>2019-10-10T09:07:48.988Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;要将自己的网站支持 PWA，需要注册一个 serviceWorker 到浏览器中，通常使用 Google 的 &lt;a href=&quot;https://developers.google.com/web/tools/workbox/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Workbox&lt;/a&gt; 工具，Workbox 可以在浏览器请求资源的时候提供了几种不同的策略对请求响应，本文对几种策略进行说明&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://coldstone.fun/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Workbox" scheme="https://coldstone.fun/tags/Workbox/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 Travis CI 部署 Hugo 博客到 Github Pages</title>
+    <link href="https://coldstone.fun/post/2019/07/26/hugo-travis-github-page/"/>
+    <id>https://coldstone.fun/post/2019/07/26/hugo-travis-github-page/</id>
+    <published>2019-07-26T12:58:25.000Z</published>
+    <updated>2019-10-10T09:07:48.988Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;原本使用的是 Netlify 去部署博客的，域名解析也是通过 Netlify 的 DNS 服务器，但是发现博客在别人的电脑上打不开…发现是域名解析的问题，所以就把博客放到 Github Pages 上了，但是这样就失去了 Netlify 提供的自动构建和部署的能力，需要自己去配置 Travis CI 实现自动部署了&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://coldstone.fun/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Hugo" scheme="https://coldstone.fun/tags/Hugo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>对于 PWA 应用的 manifest.json 文件的解释</title>
+    <link href="https://coldstone.fun/post/2019/07/24/about-manifest/"/>
+    <id>https://coldstone.fun/post/2019/07/24/about-manifest/</id>
+    <published>2019-07-24T21:31:51.000Z</published>
+    <updated>2019-10-10T09:07:48.988Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;网站要支持 PWA，需要一个 &lt;code&gt;manifest.json&lt;/code&gt; 文件，W3C Web App Manifest 的草案上定义了以下的字段，解释一下每个字段是什么意思。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://coldstone.fun/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="PWA" scheme="https://coldstone.fun/tags/PWA/"/>
+    
+  </entry>
+  
+</feed>
