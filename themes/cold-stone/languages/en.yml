@@ -24,6 +24,10 @@ page:
   previous: previous
   next: next
 
-blogwordcount: Blog Word Count
+blog:
+ totalpost: Total
+ wordcount: Blog Word Count
+ visitcount: Blog Visit Count
+
 
 back: Back

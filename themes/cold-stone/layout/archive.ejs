@@ -14,7 +14,7 @@ site.posts.sort('date').reverse().forEach(function(post){
 %>
 
 <section class="animate-list">
-    <div class="card slide-in-right">共计&#58; <%= site.posts.length %>文章</div>
+    <div class="card slide-in-right"><%= __('blog.totalpost') %>&#58; <%= site.posts.length %></div>
     <!-- 归档列表 -->
     <ul class="archives list-unstyled ">
         <% Object.keys(years).reverse().forEach(function(year){  %>
