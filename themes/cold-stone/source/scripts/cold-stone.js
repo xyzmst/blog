@@ -10,12 +10,12 @@ if ('serviceWorker' in navigator) {
 const path = location.pathname
 const navLinkList = Array.from(document.querySelectorAll('.nav-list-item'))
 const navs = [
-  '/projects/',
-  '/categories/',
   '/tags/',
-  '/archives/',
   '/about/',
-  '/friends/'
+  '/friends/',
+  '/projects/',
+  '/archives/',
+  '/categories/'
 ]
 
 if (path === '/' || /page/.test(path)) {

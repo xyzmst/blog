@@ -11,13 +11,6 @@ if (workbox) {
   )
 
   workbox.routing.registerRoute(
-    /\/post.|/,
-    new workbox.strategies.NetworkFirst({
-      cacheName: 'posts'
-    })
-  )
-
-  workbox.routing.registerRoute(
     /\.(?:js|css)$/,
     new workbox.strategies.StaleWhileRevalidate({
       cacheName: 'static'

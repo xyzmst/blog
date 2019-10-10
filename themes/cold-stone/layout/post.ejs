@@ -11,7 +11,7 @@
           <%= __('post.updateTime') %>&#58;<time class="post-time" datetime="<%= page.updated.format(config.date_format) %>"><%= page.updated.format(config.date_format) %></time>
         </span>
         <span><%= __('post.readingTime') %>&#58; <%= min2read(page.more) %> min</span>
-        <span class="hide" id="busuanzi_container_page_pv">本文阅读量&#58; <span id="busuanzi_value_page_pv"></span></span>
+        <span class="hide" id="busuanzi_container_page_pv"><%= __('post.readed') %>&#58; <span id="busuanzi_value_page_pv"></span></span>
       </span>
       <a class="meta-link hover-underline-animation" id="back" ><%= __('page.previous') %></a>
       <a class="meta-link hover-underline-animation" href="<%- config.root %>"><%= __('nav.home') %></a>
