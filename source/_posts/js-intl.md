@@ -7,15 +7,13 @@ categories:
   - 技术
 ---
 
-平时项目中要对日期时间格式化通常会使用如 [dayjs](https://github.com/iamkun/dayjs)，[date-fns](https://github.com/date-fns/date-fns)，[moment](https://github.com/moment/moment) 这些第三方库，但是我们可能只需要某几个方法，但是缺安装了一整个库大大增加了项目的体积，具体可以看这篇文章的数据 [You-Dont-Need-Momentjs](https://github.com/you-dont-need/You-Dont-Need-Momentjs)。本文主要说明如何使用浏览器自带的 Intl 对象进行日期时间的格式化
+平时项目中要对日期时间格式化通常会使用如 [dayjs](https://github.com/iamkun/dayjs)，[date-fns](https://github.com/date-fns/date-fns)，[moment](https://github.com/moment/moment) 这些第三方库，但是我们可能只需要某几个方法，却安装了一整个库，大大增加了项目的体积，具体可以看这篇文章的数据 [You-Dont-Need-Momentjs](https://github.com/you-dont-need/You-Dont-Need-Momentjs)。本文主要说明如何使用浏览器自带的 Intl 对象进行日期时间的格式化
 
 <!--more-->
 
 ## 前言
 
-平时项目中要对日期时间格式化通常会使用如 [dayjs](https://github.com/iamkun/dayjs)，[date-fns](https://github.com/date-fns/date-fns)，[moment](https://github.com/moment/moment) 这些第三方库，但是我们可能只需要某几个方法，却安装了一整个库，大大增加了项目的体积，具体可以看这篇文章的数据 [You-Dont-Need-Momentjs](https://github.com/you-dont-need/You-Dont-Need-Momentjs)。
-
-其实浏览器本身就有一个对象是来做这些事情的，本文主要说明如何使用 Intl 对象的 DateTimeFormat 和 RelativeTimeFormat 这两个属性来进行对日期时间的格式化
+平时项目中要对日期时间格式化通常会使用如 [dayjs](https://github.com/iamkun/dayjs)，[date-fns](https://github.com/date-fns/date-fns)，[moment](https://github.com/moment/moment) 这些第三方库，但是我们可能只需要某几个方法，却安装了一整个库，大大增加了项目的体积，具体可以看这篇文章的数据 [You-Dont-Need-Momentjs](https://github.com/you-dont-need/You-Dont-Need-Momentjs)。本文主要说明如何使用浏览器自带的 Intl 对象进行日期时间的格式化
 
 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl)
 
