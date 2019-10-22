@@ -28,7 +28,7 @@ category_dir: categories
 music_dir: music
 friends_dir: friends
 project_dir: projects
-code_dir: downloads/code
+code_dir: code
 i18n_dir: :lang
 skip_render:
 
@@ -119,3 +119,6 @@ feed:
   order_by: -date
   icon: avatar.png
   autodiscovery: true
+
+
+all_minifier: false

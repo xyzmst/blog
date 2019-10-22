@@ -10,7 +10,7 @@
     "build": "hexo generate"
   },
   "dependencies": {
-    "hexo": "^3.9.0",
+    "hexo": "^4.0.0",
     "hexo-all-minifier": "^0.5.3",
     "hexo-deployer-git": "^1.0.0",
     "hexo-generator-archive": "^0.1.5",
