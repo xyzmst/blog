@@ -2,12 +2,16 @@
 <html lang="<%- config.language %>">
   <%- partial('_partial/head') %>
   <body>
-    <% if (is_home()) { %>
+    <% if (config.author && is_home()) { %>
       <%- partial('_partial/prelude', null, {cache: true}) %>
     <% } %>
 
     <% if (!is_post()) { %>
       <%- partial('_partial/header', null, {cache: true}) %>
+    <% } %>
+
+    <% if (is_post()) { %>
+      <%- partial('_partial/progerss', null, {cache: true}) %>
     <% } %>
 
     <main class="main wrapper"><%- body %></main>
