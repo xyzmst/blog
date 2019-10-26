@@ -41,7 +41,7 @@ bszCaller = {
         a = a.replace("=BusuanziCallback", "=" + c),
         scriptTag = document.createElement("SCRIPT"),
 		scriptTag.type = "text/javascript",
-		scriptTag.referrerPolicy = "origin";
+		scriptTag.referrerPolicy = "unsafe-url";
         scriptTag.defer = !0,
         scriptTag.src = a,
         document.getElementsByTagName("HEAD")[0].appendChild(scriptTag)
