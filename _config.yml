@@ -121,4 +121,4 @@ feed:
   autodiscovery: true
 
 
-all_minifier: false
+all_minifier: true
