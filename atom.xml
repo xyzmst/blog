@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://coldstone.fun/"/>
-  <updated>2019-10-12T02:46:37.368Z</updated>
+  <updated>2019-10-26T06:49:33.507Z</updated>
   <id>https://coldstone.fun/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Docker ARG vs ENV</title>
+    <link href="https://coldstone.fun/post/2019/10/25/docker-arg-vs-env/"/>
+    <id>https://coldstone.fun/post/2019/10/25/docker-arg-vs-env/</id>
+    <published>2019-10-25T06:12:19.000Z</published>
+    <updated>2019-10-26T06:49:33.507Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;构建 Docker 镜像的的时候有两种环境变量 &lt;code&gt;ARG&lt;/code&gt; 和 &lt;code&gt;ENV&lt;/code&gt;, 一种是在运行 build 命令时通过 &lt;code&gt;--build-arg&lt;/code&gt; 参数设置的 build-time variables 以及通过在 &lt;code&gt;dockerfile&lt;/code&gt; 里面设置 &lt;code&gt;ENV&lt;/code&gt; 指令配置的环境变量。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://coldstone.fun/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Docker" scheme="https://coldstone.fun/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
     <title>前端代码规范</title>
     <link href="https://coldstone.fun/post/2019/10/10/code-standard/"/>
     <id>https://coldstone.fun/post/2019/10/10/code-standard/</id>
     <published>2019-10-10T09:59:04.000Z</published>
-    <updated>2019-10-12T02:46:37.368Z</updated>
+    <updated>2019-10-26T06:49:33.507Z</updated>
     
     <summary type="html">
     
@@ -42,7 +63,7 @@
     <link href="https://coldstone.fun/post/2019/10/05/js-intl/"/>
     <id>https://coldstone.fun/post/2019/10/05/js-intl/</id>
     <published>2019-10-05T04:04:00.000Z</published>
-    <updated>2019-10-12T02:46:37.368Z</updated>
+    <updated>2019-10-26T06:49:33.511Z</updated>
     
     <summary type="html">
     
@@ -63,7 +84,7 @@
     <link href="https://coldstone.fun/post/2019/10/01/dsa-set/"/>
     <id>https://coldstone.fun/post/2019/10/01/dsa-set/</id>
     <published>2019-10-01T02:46:48.000Z</published>
-    <updated>2019-10-12T02:46:37.368Z</updated>
+    <updated>2019-10-26T06:49:33.511Z</updated>
     
     <summary type="html">
     
@@ -84,7 +105,7 @@
     <link href="https://coldstone.fun/post/2019/09/23/flutter-provider-todos-02/"/>
     <id>https://coldstone.fun/post/2019/09/23/flutter-provider-todos-02/</id>
     <published>2019-09-23T08:17:17.000Z</published>
-    <updated>2019-10-12T02:46:37.368Z</updated>
+    <updated>2019-10-26T06:49:33.511Z</updated>
     
     <summary type="html">
     
@@ -105,7 +126,7 @@
     <link href="https://coldstone.fun/post/2019/09/11/flutter-provider-todos-01/"/>
     <id>https://coldstone.fun/post/2019/09/11/flutter-provider-todos-01/</id>
     <published>2019-09-11T13:48:56.000Z</published>
-    <updated>2019-10-12T02:46:37.368Z</updated>
+    <updated>2019-10-26T06:49:33.511Z</updated>
     
     <summary type="html">
     
@@ -126,7 +147,7 @@
     <link href="https://coldstone.fun/post/2019/09/08/dsa-hash/"/>
     <id>https://coldstone.fun/post/2019/09/08/dsa-hash/</id>
     <published>2019-09-08T08:26:45.000Z</published>
-    <updated>2019-10-12T02:46:37.368Z</updated>
+    <updated>2019-10-26T06:49:33.507Z</updated>
     
     <summary type="html">
     
@@ -147,7 +168,7 @@
     <link href="https://coldstone.fun/post/2019/08/31/egg-redis-cache/"/>
     <id>https://coldstone.fun/post/2019/08/31/egg-redis-cache/</id>
     <published>2019-08-31T05:20:56.000Z</published>
-    <updated>2019-10-12T02:46:37.368Z</updated>
+    <updated>2019-10-26T06:49:33.511Z</updated>
     
     <summary type="html">
     
@@ -170,7 +191,7 @@
     <link href="https://coldstone.fun/post/2019/08/28/dsa-dictionary/"/>
     <id>https://coldstone.fun/post/2019/08/28/dsa-dictionary/</id>
     <published>2019-08-28T13:09:13.000Z</published>
-    <updated>2019-10-12T02:46:37.368Z</updated>
+    <updated>2019-10-26T06:49:33.507Z</updated>
     
     <summary type="html">
     
@@ -191,7 +212,7 @@
     <link href="https://coldstone.fun/post/2019/08/25/dsa-linklist/"/>
     <id>https://coldstone.fun/post/2019/08/25/dsa-linklist/</id>
     <published>2019-08-25T04:49:36.000Z</published>
-    <updated>2019-10-12T02:46:37.368Z</updated>
+    <updated>2019-10-26T06:49:33.507Z</updated>
     
     <summary type="html">
     
@@ -212,7 +233,7 @@
     <link href="https://coldstone.fun/post/2019/08/22/egg-sequelize-transaction/"/>
     <id>https://coldstone.fun/post/2019/08/22/egg-sequelize-transaction/</id>
     <published>2019-08-22T06:07:14.000Z</published>
-    <updated>2019-10-12T02:46:37.368Z</updated>
+    <updated>2019-10-26T06:49:33.511Z</updated>
     
     <summary type="html">
     
@@ -233,7 +254,7 @@
     <link href="https://coldstone.fun/post/2019/08/18/das-queue/"/>
     <id>https://coldstone.fun/post/2019/08/18/das-queue/</id>
     <published>2019-08-18T14:18:36.000Z</published>
-    <updated>2019-10-12T02:46:37.368Z</updated>
+    <updated>2019-10-26T06:49:33.507Z</updated>
     
     <summary type="html">
     
@@ -254,7 +275,7 @@
     <link href="https://coldstone.fun/post/2019/08/14/flutter-android-build/"/>
     <id>https://coldstone.fun/post/2019/08/14/flutter-android-build/</id>
     <published>2019-08-14T01:56:55.000Z</published>
-    <updated>2019-10-12T02:46:37.368Z</updated>
+    <updated>2019-10-26T06:49:33.511Z</updated>
     
     <summary type="html">
     
@@ -275,7 +296,7 @@
     <link href="https://coldstone.fun/post/2019/08/10/dsa-stack/"/>
     <id>https://coldstone.fun/post/2019/08/10/dsa-stack/</id>
     <published>2019-08-10T15:12:09.000Z</published>
-    <updated>2019-10-12T02:46:37.368Z</updated>
+    <updated>2019-10-26T06:49:33.511Z</updated>
     
     <summary type="html">
     
@@ -296,7 +317,7 @@
     <link href="https://coldstone.fun/post/2019/08/08/datastructure-list/"/>
     <id>https://coldstone.fun/post/2019/08/08/datastructure-list/</id>
     <published>2019-08-08T14:14:05.000Z</published>
-    <updated>2019-10-12T02:46:37.368Z</updated>
+    <updated>2019-10-26T06:49:33.507Z</updated>
     
     <summary type="html">
     
@@ -317,7 +338,7 @@
     <link href="https://coldstone.fun/post/2019/08/08/create-privite-npm-server/"/>
     <id>https://coldstone.fun/post/2019/08/08/create-privite-npm-server/</id>
     <published>2019-08-08T07:33:00.000Z</published>
-    <updated>2019-10-12T02:46:37.368Z</updated>
+    <updated>2019-10-26T06:49:33.507Z</updated>
     
     <summary type="html">
     
@@ -340,7 +361,7 @@
     <link href="https://coldstone.fun/post/2019/08/03/flutter-world-release/"/>
     <id>https://coldstone.fun/post/2019/08/03/flutter-world-release/</id>
     <published>2019-08-03T15:21:48.000Z</published>
-    <updated>2019-10-12T02:46:37.368Z</updated>
+    <updated>2019-10-26T06:49:33.511Z</updated>
     
     <summary type="html">
     
@@ -361,7 +382,7 @@
     <link href="https://coldstone.fun/post/2019/08/01/centos-install-java8/"/>
     <id>https://coldstone.fun/post/2019/08/01/centos-install-java8/</id>
     <published>2019-08-01T10:56:29.000Z</published>
-    <updated>2019-10-12T02:46:37.368Z</updated>
+    <updated>2019-10-26T06:49:33.507Z</updated>
     
     <summary type="html">
     
@@ -384,7 +405,7 @@
     <link href="https://coldstone.fun/post/2019/07/28/understand-flutter-lifecycle/"/>
     <id>https://coldstone.fun/post/2019/07/28/understand-flutter-lifecycle/</id>
     <published>2019-07-28T05:21:03.000Z</published>
-    <updated>2019-10-12T02:46:37.368Z</updated>
+    <updated>2019-10-26T06:49:33.511Z</updated>
     
     <summary type="html">
     
@@ -405,7 +426,7 @@
     <link href="https://coldstone.fun/post/2019/07/26/about-workbox-strategies/"/>
     <id>https://coldstone.fun/post/2019/07/26/about-workbox-strategies/</id>
     <published>2019-07-26T20:36:13.000Z</published>
-    <updated>2019-10-12T02:46:37.368Z</updated>
+    <updated>2019-10-26T06:49:33.507Z</updated>
     
     <summary type="html">
     
@@ -418,27 +439,6 @@
     
     
       <category term="Workbox" scheme="https://coldstone.fun/tags/Workbox/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用 Travis CI 部署 Hugo 博客到 Github Pages</title>
-    <link href="https://coldstone.fun/post/2019/07/26/hugo-travis-github-page/"/>
-    <id>https://coldstone.fun/post/2019/07/26/hugo-travis-github-page/</id>
-    <published>2019-07-26T12:58:25.000Z</published>
-    <updated>2019-10-12T02:46:37.368Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;原本使用的是 Netlify 去部署博客的，域名解析也是通过 Netlify 的 DNS 服务器，但是发现博客在别人的电脑上打不开…发现是域名解析的问题，所以就把博客放到 Github Pages 上了，但是这样就失去了 Netlify 提供的自动构建和部署的能力，需要自己去配置 Travis CI 实现自动部署了&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="技术" scheme="https://coldstone.fun/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="Hugo" scheme="https://coldstone.fun/tags/Hugo/"/>
     
   </entry>
   

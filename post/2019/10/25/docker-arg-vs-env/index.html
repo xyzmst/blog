@@ -12,7 +12,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="keyword"  content="Web, Js, CSS, Node.js, Frontend, Flutter, Docker">
     <meta name="description" content="想写什么就写什么">
-    <title>如何在 Egg.js 中使用 Sequelize 的事务 Transaction - 冷石的博客</title>
+    <title>Docker ARG vs ENV - 冷石的博客</title>
     <base href="/">
     <link rel="preconnect" href="//cdnjs.cloudflare.com">
     <link rel="manifest" href="/manifest.json">
@@ -35,7 +35,7 @@
     <main class="main wrapper"><article class="article slide-in-right">
   <section>
     <h1 class="article-title">
-      如何在 Egg.js 中使用 Sequelize 的事务 Transaction
+      Docker ARG vs ENV
     </h1>
     <p class="article-meta">
       <span class="meta-info">
@@ -48,57 +48,24 @@
       <a class="meta-link hover-underline-animation" id="back" >上一页</a>
     </p>
   </section>
-  <section class="article-content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在查了几遍 <a href="https://sequelize.org/" target="_blank" rel="noopener">Sequelize</a> 关于 <a href="https://sequelize.org/master/manual/transactions.html" target="_blank" rel="noopener">Transactions</a> 的文档，看了大佬同事的代码后，我终于弄懂怎么在 egg.js 框架里面使用事务了 😓</p>
-<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><p>Sequelize 关于事务的示例代码是这样滴，首先通过 <code>sequelize.transaction</code> 方法创建了一个事务后，把这个事务传给需要进行操作的函数，如新增用户，给用户加属性等，但是看上去代码比较难懂</p>
-<pre><code class="js">return sequelize.transaction().then(t =&gt; {
-  return User.create(
-    {
-      firstName: &#39;Bart&#39;,
-      lastName: &#39;Simpson&#39;
-    },
-    { transaction: t }
-  )
-    .then(user =&gt; {
-      return user.addSibling(
-        {
-          firstName: &#39;Lisa&#39;,
-          lastName: &#39;Simpson&#39;
-        },
-        { transaction: t }
-      )
-    })
-    .then(() =&gt; {
-      return t.commit()
-    })
-    .catch(err =&gt; {
-      return t.rollback()
-    })
-})</code></pre>
-<p>实际使用的话需要用 <code>async/await</code> 语法让代码看起来更加清晰一点，在 egg.js 中使用的示例如下，首先需要用当前上下文中的 model 对象（就是对数据表的映射对象）创建一个事务，然后在 <code>try/catch</code> 中执行所要进行的操作，如果操作抛出了异常，那么就会回滚</p>
-<pre><code class="js">const transaction = await this.ctx.model.transaction()
-
-try {
-  await this.ctx.model.create(this.ctx.request.body, { transaction })
-  await this.ctx.service.user.find(userId, { transaction });
-  await this.ctx.service.product.destory(productId, { transaction });
-  ...
-  await transaction.commit()
-} catch (err) {
-  await transaction.rollback()
-  throw err
-}</code></pre>
-<p>用了 <code>async/await</code> 语法，代码确实清晰了很多</p></section>
+  <section class="article-content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>构建 Docker 镜像的的时候有两种环境变量 <code>ARG</code> 和 <code>ENV</code>, 一种是在运行 build 命令时通过 <code>--build-arg</code> 参数设置的 build-time variables 以及通过在 <code>dockerfile</code> 里面设置 <code>ENV</code> 指令配置的环境变量，本文说明它们之间的区别。</p>
+<h2 id="ARG"><a href="#ARG" class="headerlink" title="ARG"></a>ARG</h2><p>Dockerfile 里面的 ARG 指令定义了一个变量，在运行 <code>docker build</code> 命令时使用 <code>--build-arg &lt;varname&gt; = &lt;value&gt;</code> 参数将其传递给构建器。</p>
+<pre><code class="dockerfile">ARG &lt;name&gt;[=&lt;default value&gt;]</code></pre>
+<p>这种变量只存在于镜像构建的时候，一旦镜像构建完成就失效了，不要使用构建时变量来传递诸如 github 密钥，用户凭据等机密数据，构建时变量值可以使用 docker history 命令查看。</p>
+<h2 id="ENV"><a href="#ENV" class="headerlink" title="ENV"></a>ENV</h2><p>Dockerfile 里面的 ENV 指令将环境变量 <key> 设置为值 <value>，这个变量将在构建阶段中所有后续指令的环境中使用。</p>
+<pre><code class="dockerfile">ENV &lt;key&gt; &lt;value&gt;
+ENV &lt;key&gt;=&lt;value&gt; ...</code></pre>
+<p>使用 ENV 设置的环境变量将一直存在于构建镜像时以及镜像容器运行时，可以使用 docker inspect 查看设置打的变量。也可以使用 <code>docker run --env &lt;key&gt; = &lt;value&gt;</code> 来更改它们。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>如果只是需要构建镜像时的环境变量，使用 <code>ARG</code>，如果这个变量在容器运行时也有用到就需要用 <code>ENV</code>，注意使用 <code>ENV</code> 指令定义的环境变量会覆盖同名的 <code>ARG</code> 指令定义的变量。</p></section>
 </article>
 
 <section class="prev-next card slide-in-right">
 	
-		<a href="/post/2019/08/25/dsa-linklist/" class="link prev" title="数据结构与算法之链表">
-			<span class="hover-underline-animation">&larr; 数据结构与算法之链表</span>
-		</a>
+		<a class="link-disabled prev link">&larr; 没有更多了</a>
 	
 	
-		<a href="/post/2019/08/18/das-queue/" class="link next" title="数据结构与算法之队列">
-			<span class="hover-underline-animation">数据结构与算法之队列 &rarr;</span>
+		<a href="/post/2019/10/10/code-standard/" class="link next" title="前端代码规范">
+			<span class="hover-underline-animation">前端代码规范 &rarr;</span>
 		</a>
 	
 </section>
@@ -106,7 +73,7 @@ try {
 
 <section class="article-toc">
   <div class="card">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text">实践</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARG"><span class="toc-text">ARG</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ENV"><span class="toc-text">ENV</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语"><span class="toc-text">结语</span></a></li></ol>
   </div>
   <div class="card home-link">
     <a class="hover-underline-animation" href="/">&leftarrow; 返回首页</a>
