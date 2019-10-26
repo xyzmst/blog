@@ -1,55 +1,4 @@
-<!DOCTYPE html>
-<html lang="zh">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="renderer" content="webkit|ie-comp|ie-stand">
-    <meta name="referrer" content="no-referrer">
-    <meta name="theme-color" content="#333333">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="google" content="notranslate">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="keyword"  content="Web, Js, CSS, Node.js, Frontend, Flutter, Docker">
-    <meta name="description" content="想写什么就写什么">
-    <title>数据结构与算法之字典 - 冷石的博客</title>
-    <base href="/">
-    <link rel="preconnect" href="//cdnjs.cloudflare.com">
-    <link rel="manifest" href="/manifest.json">
-    <link rel="shortcut icon" href="/icons/icon-72x72.png">
-    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/styles/atom-one-light.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/styles/atom-one-dark.min.css" media="screen and (prefers-color-scheme: dark)">
-    <link rel="stylesheet" href="/styles/sanitize.css">
-<link rel="stylesheet" href="/styles/cold-stone.css">
-    <noscript>
-      <p class="text-center">你的浏览器还没开启 Javascript 功能！</p>
-    </noscript>
-</head>
-
-  <body>
-    
-
-    
-
-    <main class="main wrapper"><article class="article slide-in-right">
-  <section>
-    <h1 class="article-title">
-      数据结构与算法之字典
-    </h1>
-    <p class="article-meta">
-      <span class="meta-info">
-        <span>
-          最后更新&#58;<time class="post-time" datetime="2019-10-26">2019-10-26</time>
-        </span>
-        <span>阅读时间&#58; 1 min</span>
-        <span class="hide" id="busuanzi_container_page_pv">阅读量&#58; <span id="busuanzi_value_page_pv"></span></span>
-      </span>
-      <a class="meta-link hover-underline-animation" id="back" >上一页</a>
-    </p>
-  </section>
-  <section class="article-content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>字典是一种以键值对形式存储数据的数据结构，键用来查找，值用来保存数据</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code class="ts">class Dictionary {
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="chrome=1"><meta name="renderer" content="webkit|ie-comp|ie-stand"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#333333"><meta name="mobile-web-app-capable" content="yes"><meta name="google" content="notranslate"><meta name="format-detection" content="telephone=no"><meta name="keyword" content="Web, Js, CSS, Node.js, Frontend, Flutter, Docker"><meta name="description" content="想写什么就写什么"><title>数据结构与算法之字典 - 冷石的博客</title><base href="/"><link rel="preconnect" href="//cdnjs.cloudflare.com"><link rel="manifest" href="/manifest.json"><link rel="shortcut icon" href="/icons/icon-72x72.png"><link rel="apple-touch-icon" href="/icons/icon-192x192.png"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/styles/atom-one-light.min.css"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/styles/atom-one-dark.min.css" media="screen and (prefers-color-scheme:dark)"><link rel="stylesheet" href="/styles/sanitize.css"><link rel="stylesheet" href="/styles/cold-stone.css"><noscript><p class="text-center">你的浏览器还没开启 Javascript 功能！</p></noscript><meta name="generator" content="Hexo 4.0.0"></head><body><main class="main wrapper"><article class="article slide-in-right"><section><h1 class="article-title">数据结构与算法之字典</h1><p class="article-meta"><span class="meta-info"><span>最后更新&#58;<time class="post-time" datetime="2019-10-26">2019-10-26</time> </span><span>阅读时间&#58; 1 min</span> <span class="hide" id="busuanzi_container_page_pv">阅读量&#58; <span id="busuanzi_value_page_pv"></span></span> </span><a class="meta-link hover-underline-animation" id="back">上一页</a></p></section><section class="article-content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>字典是一种以键值对形式存储数据的数据结构，键用来查找，值用来保存数据</p><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code class="ts">class Dictionary {
   data: any[] = []
 
   // 添加元素
@@ -89,9 +38,7 @@
       delete this.data[key]
     })
   }
-}</code></pre>
-<p>测试</p>
-<pre><code class="ts">const dictionary = new Dictionary()
+}</code></pre><p>测试</p><pre><code class="ts">const dictionary = new Dictionary()
 
 dictionary.add(&#39;a&#39;, &#39;a&#39;)
 dictionary.add(&#39;b&#39;, &#39;b&#39;)
@@ -105,26 +52,20 @@ console.log(&#39;count: &#39;, dictionary.count())
 
 dictionary.clear()
 
-console.log(&#39;clear: &#39;, dictionary.count())</code></pre>
-<p>输出</p>
-<pre><code class="textmate">key: a  value: a
+console.log(&#39;clear: &#39;, dictionary.count())</code></pre><p>输出</p><pre><code class="textmate">key: a  value: a
 key: b  value: b
 key: c  value: c
 key: d  value: d
 key: e  value: e
 count:  5
-clear:  0</code></pre>
-<p>排序字典的输出，需要重新定义 show 方法</p>
-<pre><code class="ts">// 显示元素
+clear:  0</code></pre><p>排序字典的输出，需要重新定义 show 方法</p><pre><code class="ts">// 显示元素
 show() {
   Object.entries(this.data)
     .sort()
     .forEach(item =&gt; {
       console.log(&#39;key:&#39;, item[0], &#39; value:&#39;, item[1])
     })
-}</code></pre>
-<p>测试一下</p>
-<pre><code class="ts">const dictionary = new Dictionary()
+}</code></pre><p>测试一下</p><pre><code class="ts">const dictionary = new Dictionary()
 
 dictionary.add(&#39;c&#39;, &#39;c&#39;)
 dictionary.add(&#39;a&#39;, &#39;a&#39;)
@@ -132,88 +73,8 @@ dictionary.add(&#39;d&#39;, &#39;d&#39;)
 dictionary.add(&#39;e&#39;, &#39;e&#39;)
 dictionary.add(&#39;b&#39;, &#39;b&#39;)
 
-dictionary.show()</code></pre>
-<p>输出</p>
-<pre><code class="textmate">key: a  value: a
+dictionary.show()</code></pre><p>输出</p><pre><code class="textmate">key: a  value: a
 key: b  value: b
 key: c  value: c
 key: d  value: d
-key: e  value: e</code></pre>
-<p>使用 Object.keys 方法拿到字典的 keys 数组后，在用 sort 方法就可以显示有序的字典输出了</p></section>
-</article>
-
-<section class="prev-next card slide-in-right">
-	
-		<a href="/post/2019/08/31/egg-redis-cache/" class="link prev" title="在 Egg.js 中使用 Redis 缓存提升性能">
-			<span class="hover-underline-animation">&larr; 在 Egg.js 中使用 Redis 缓存提升性能</span>
-		</a>
-	
-	
-		<a href="/post/2019/08/25/dsa-linklist/" class="link next" title="数据结构与算法之链表">
-			<span class="hover-underline-animation">数据结构与算法之链表 &rarr;</span>
-		</a>
-	
-</section>
-
-
-<section class="article-toc">
-  <div class="card">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现"><span class="toc-text">实现</span></a></li></ol>
-  </div>
-  <div class="card home-link">
-    <a class="hover-underline-animation" href="/">&leftarrow; 返回首页</a>
-  </div>
-</section>
-
-<section class="article slide-in-right">
-  <div class="loader" id="loader">
-    <svg viewBox="0 0 50 50">
-      <circle class="ring" cx="25" cy="25" r="20"></circle>
-      <circle class="ball" cx="25" cy="5" r="3.5"></circle>
-    </svg>
-  </div>
-
-  <div class="comment" id="utteranc"></div>
-  <noscript>Please activate JavaScript for normal use of comments</noscript>
-</section>
-
-<a class="card back-to-top" id="backTop">&UpArrow;</a>
-
-</main>
-
-    
-
-    <script>
-	window.COLD_STONE = {
-		root: "/",
-		author: "Cold Stone" || '',
-		gaid: "UA-119658292-2" || '',
-		repo: "xrr2016/blog" || '',
-	}
-</script>
-
-
-
-
-	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js"></script>
-	<script>hljs.initHighlightingOnLoad()</script>
-
-
-<script src="/scripts/busuanzi.js" referrerpolicy="origin"></script>
-<script src="/scripts/cold-stone.js"></script>
-
-
-  <script src="//www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script>
-
-  <script>
-	window.dataLayer = window.dataLayer || []
-	function gtag() {
-		dataLayer.push(arguments)
-	}
-	gtag('js', new Date())
-	gtag('config', window.COLD_STONE.gaid)
-  </script>
-
-
-  </body>
-</html>
+key: e  value: e</code></pre><p>使用 Object.keys 方法拿到字典的 keys 数组后，在用 sort 方法就可以显示有序的字典输出了</p></section></article><section class="prev-next card slide-in-right"><a href="/post/2019/08/31/egg-redis-cache/" class="link prev" title="在 Egg.js 中使用 Redis 缓存提升性能"><span class="hover-underline-animation">&larr; 在 Egg.js 中使用 Redis 缓存提升性能</span> </a><a href="/post/2019/08/25/dsa-linklist/" class="link next" title="数据结构与算法之链表"><span class="hover-underline-animation">数据结构与算法之链表 &rarr;</span></a></section><section class="article-toc"><div class="card"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现"><span class="toc-text">实现</span></a></li></ol></div><div class="card home-link"><a class="hover-underline-animation" href="/">&leftarrow; 返回首页</a></div></section><section class="article slide-in-right"><div class="loader" id="loader"><svg viewBox="0 0 50 50"><circle class="ring" cx="25" cy="25" r="20"></circle><circle class="ball" cx="25" cy="5" r="3.5"></circle></svg></div><div class="comment" id="utteranc"></div><noscript>Please activate JavaScript for normal use of comments</noscript></section><a class="card back-to-top" id="backTop">&UpArrow;</a></main><script>window.COLD_STONE={root:"/",author:"Cold Stone",gaid:"UA-119658292-2",repo:"xrr2016/blog"}</script><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js"></script><script>hljs.initHighlightingOnLoad()</script><script src="/scripts/busuanzi.js" referrerpolicy="origin"></script><script src="/scripts/cold-stone.js"></script><script src="//www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config",window.COLD_STONE.gaid)</script></body></html>
