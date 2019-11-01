@@ -739,6 +739,7 @@ code {
 /* dark */
 
 @media (prefers-color-scheme: dark) {
+  html,
   body,
   .search-form-input {
     color: #ffffff;
@@ -759,6 +760,13 @@ code {
     border-color: #fff;
   }
 
+  h2,
+  .title,
+  .animate-list__title,
+  .article-title,
+  .article-meta {
+    color: #fff;
+  }
   .navbar a {
     color: #fff;
   }
