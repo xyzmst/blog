@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>对 Egg.js 的接口进行测试</title>
+      <link href="/post/2019/11/01/eggjs-test/"/>
+      <url>/post/2019/11/01/eggjs-test/</url>
+      
+        <content type="html"><![CDATA[<p>优秀的代码需要有单元测试进行质量保证，每个测试用例都给应用的稳定性提供了一层保障，本文说一下如何对使用 egg.js 写的接口进行单元测试</p><a id="more"></a><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>优秀的代码需要有单元测试进行质量保证，每个测试用例都给应用的稳定性提供了一层保障。</p><h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><p>Egg.js 的测试代码都是放在工程的 test 目录下，命名的方式为 <code>${filename}.test.js</code>，比如我想测试项目的 <code>User controller</code> 就在 <code>test</code> 目录下新建一个 <code>controller/user.test.js</code>，同理要测 <code>Service</code> 就是创建一个 <code>service</code> 目录，然后就是写测试代码了。</p><p>假设现在需要对一个 <code>UserService</code> 进行测试，首先在 <code>user.test.js</code> 中引入 <code>egg-mock</code> 模块用来创建一个 app 实例以及一个 <code>ctx</code> 对象，一般在请求接口的时候会在 <code>ctx</code> 对象上携带这次请求的各种参数或者是用户信息，这需要在创建 <code>ctx</code> 的时候添加所要的数据。</p><pre><code class="js">const { app, assert } = require(&#39;egg-mock/bootstrap&#39;);const ctx = app.mockContext({  user: {    name: &#39;your-name&#39;,  },});assert(ctx.user);</code></pre><p>如果还需要添加请求头信息，比如用户的 <code>token</code>, 需要这样</p><pre><code class="js">ctx.request.headers = {  authorization: yourToken};</code></pre><p>准备完毕，接下来编写具体的测试代码了，假如 <code>UserService</code> 有一个 <code>create</code> 方法，作用是创建一个新的 <code>user</code>，参数是请求体传过来的新建用户数据，那么可以这样写测试代码</p><pre><code class="js">it(&#39;create 方法返回新增用户成功信息&#39;, async () =&gt; {  const data = {    name: &#39;user name&#39; + Date.now(),    age: parseInt(Math.random() * 60),    gender: Math.random() &gt; .5 ? &#39;male&#39;: &#39;female&#39;  };  const response = await ctx.service.user.create(data);  assert(response.success === true);  assert(response.payload.length &gt; 0);});</code></pre><p>断言返回值 <code>success</code> 为 <code>true</code>，以及 <code>payload</code> 的 <code>length</code> 属性长度大于 0，当然这需要根据具体的业务来写；一个 <code>service</code> 可能会有很多的方法，需要尽可能多的对这些方法进行测试。</p><p>最后就是执行测试代码了，通过命令 <code>npm run test</code> 执行 <code>egg-bin test</code>，或者在 <code>idea</code> 添加一个测试的 <code>configuration</code> 点击执行即可，这样 <code>test</code> 目录下的所有测试都会运行。</p><p>运行全部的测试耗时可能会很长或者有时只需要对一个测试文件进行测试，这时通过指定测试文件的路径即可</p><pre><code class="sh">npm run test &lt;TestFilePath&gt;</code></pre><p>运行测试的时候会加载 <code>config.unittest.js</code> 里面的配置，运行完毕，没有通过的测试会显示具体的错误信息，可以方便的定位错误，如果测试都通过了就会出现这样的信息</p><p><img src="images/egg-test.jpg" alt="test"></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://eggjs.org/zh-cn/core/unittest.html" target="_blank" rel="noopener">单元测试</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Node </tag>
+            
+            <tag> Egg </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Docker ARG vs ENV</title>
       <link href="/post/2019/10/25/docker-arg-vs-env/"/>
       <url>/post/2019/10/25/docker-arg-vs-env/</url>
