@@ -6,6 +6,7 @@
   --bg-dark: #474444;
   --bg-darken: #3d3b3b;
   --wrapper-width: 920px;
+  --menu-fore-color: #53586a;
   --shadow: 0 0.4rem 0.8rem -0.1rem rgba(0, 32, 128, 0.1), 0 0 0 1px #f0f2f7;
 }
 
@@ -527,7 +528,6 @@ img::selection {
 
 /* footer */
 .footer {
-  padding: 1rem;
   margin-top: 1rem;
   background-color: #fff;
 }
@@ -782,4 +782,21 @@ code {
   .hover-underline-animation::after {
     background-color: #fff;
   }
+}
+
+
+.menu-button {
+  cursor: pointer;
+  transition: all .3s ease;
+  background: transparent;
+  color: var(--menu-fore-color);
+  display: none;
+  text-align: center;
+  margin: .5rem 0 0;
+  border: none;
+  outline: none;
+}
+
+.menu-button.show {
+  display: block;
 }
