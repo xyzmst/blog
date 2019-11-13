@@ -22,11 +22,11 @@
 <%- partial('_partial/prev_next', null, {cache: false}) %>
 
 <section class="article-toc">
-  <div class="card">
+  <div class="card uk-margin-remove-bottom">
     <%- toc(page.more, {list_number	: false }) %>
   </div>
   <div class="card home-link">
-    <a class="" href="<%- config.root %>">&leftarrow; <%= __('back') %><%= __('nav.home') %></a>
+    <a href="<%- config.root %>">&leftarrow; <%= __('back') %><%= __('nav.home') %></a>
   </div>
 </section>
 
