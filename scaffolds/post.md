@@ -1,7 +1,8 @@
 ---
-title: {{ title }}
-date: {{ date }}
-tags:
+title: { { title } }
+date: { { date } }
 categories:
   - 技术
+tags:
+  - xxx
 ---
