@@ -222,6 +222,10 @@ img::selection {
   background-color: #ffffff;
 }
 
+.article-header {
+  margin-bottom: 40px;
+}
+
 .article-title {
   margin-top: 0;
 }
