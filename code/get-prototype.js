@@ -1,0 +1,1 @@
+function getPrototype(o,e){return o.hasOwnProperty(e)?o:getPrototype(Object.getPrototypeOf(o),e)}const obj={a:"a"},o1=Object.create(obj);o1.b="b",console.log(o1.a),console.log(o1.b),console.log(o1.hasOwnProperty("a")),console.log(o1.hasOwnProperty("b")),console.log(getPrototype(o1,"a")),console.log(getPrototype(o1,"b"));
