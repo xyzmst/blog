@@ -1,5 +1,5 @@
 ---
-title: 使用 Flutter 实现一个走马灯
+title: 使用 Flutter 实现一个走马灯布局
 categories:
   - 技术
 tags:
@@ -7,7 +7,7 @@ tags:
 date: 2019-11-20 15:55:26
 ---
 
-<img src="images/heroes.jpg" width="180"  style="width: 180px;"/>
+<img src="images/carousel.jpg" height="334" />
 
 走马灯是一种常见的效果，本文讲一下如何用 `PageView` 在 `Flutter` 里实现一个走马灯
 
@@ -15,13 +15,15 @@ date: 2019-11-20 15:55:26
 
 ## 效果
 
-实现的效果如下，当前页面的高度比其它页面高，切换页面的时候有一个高度变化的动画。实现这样的效果需要用到 `PageView.builder` 部件。
+实现的效果如下，当前页面的高度比其它页面高，切换页面的时候有一个高度变化的动画。实现这样的效果主要用到的是 `PageView.builder` 部件。
 
 <div>
   <video src="videos/heroes.mp4" controls width="320" autoplay muted />
 </div>
 
 ## 开发
+
+### 创建首页
 
 首先创建一个 `IndexPage` 部件，这个部件用来放 `PageView`，因为需要使用 `setState` 方法更新 UI，所以它是 stateful 的。
 
@@ -96,7 +98,7 @@ body: Column(
 > final double viewportFraction;
 > ```
 
-
+### 实现 `_buildItem`
 
 接着实现 `_buildItem` 方法，这个方法就是返回 `PageView.builder` 里每一个页面渲染的内容，第一个参数 `activeIndex` 是当前显示在屏幕上页面的 `index`，第二个参数 `index` 是每一项自己的 `index`。
 
@@ -121,6 +123,8 @@ _buildItem(activeIndex, index) {
 ```
 
 <img src="images/empty00.jpg" width="320"  style="width: 320px;"/>
+
+### 添加内容
 
 然后给 `AnimatedContainer` 添加每一项的内容
 
@@ -169,6 +173,8 @@ child: Stack(
 ),
 ```
 
+### 实现指示器
+
 然后实现页面的指示器，创建一个 `PageIndicator` 部件，需要传入 `pageCount` 表示总页数，以及 `currentIndex` 表示当前显示的页数索引。把所有指示器放在一个 `Row` 部件里，判断当前指示器的 `index` 是否为正在显示页面的 `index`，是的话显示较深的颜色。
 
 ```dart
@@ -215,7 +221,126 @@ class PageIndicator extends StatelessWidget {
 }
 ```
 
-最后把 `PageIndicator` 放在 `SizedBox` 下即可。
+添加 `PageIndicator` 到 `SizedBox` 下放
+
+### 封装 `Carousel`
+
+最后的最后优化一下代码，把部件封装一下，让它成为一个单独的部件，创建一个 `Carousel` 部件，对外暴露 `items` 和 `height` 两个属性，分别配置数据和高度。
+
+```dart
+class Carousel extends StatefulWidget {
+  final List items;
+  final double height;
+
+  const Carousel({
+    @required this.items,
+    @required this.height,
+  });
+
+  @override
+  _CarouselState createState() => _CarouselState();
+}
+
+class _CarouselState extends State<Carousel> {
+  int _pageIndex = 0;
+  PageController _pageController;
+
+  Widget _buildItem(activeIndex, index) {
+    final items = widget.items;
+
+    return Center(
+      child: AnimatedContainer(
+        curve: Curves.easeInOut,
+        duration: Duration(milliseconds: 300),
+        height: activeIndex == index ? 500.0 : 450.0,
+        margin: EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),
+        decoration: BoxDecoration(
+          color: items[index].color,
+          borderRadius: BorderRadius.all(Radius.circular(12.0)),
+        ),
+        child: Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            ClipRRect(
+              borderRadius: BorderRadius.all(
+                Radius.circular(12.0),
+              ),
+              child: Image.network(
+                items[index].image,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Container(
+                      padding: EdgeInsets.all(12.0),
+                      decoration: BoxDecoration(
+                        color: Colors.black26,
+                        borderRadius: BorderRadius.only(
+                          bottomRight: Radius.circular(12.0),
+                          bottomLeft: Radius.circular(12.0),
+                        ),
+                      ),
+                      child: Text(
+                        items[index].title,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(
+      initialPage: 0,
+      viewportFraction: 0.8,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Container(
+          height: widget.height,
+          child: PageView.builder(
+            pageSnapping: true,
+            itemCount: heroes.length,
+            controller: _pageController,
+            onPageChanged: (int index) {
+              setState(() {
+                _pageIndex = index;
+              });
+            },
+            itemBuilder: (BuildContext ctx, int index) {
+              return _buildItem(_pageIndex, index);
+            },
+          ),
+        ),
+        PageIndicator(_pageIndex, widget.items.length),
+      ],
+    );
+  }
+}
+```
+
+之后在 `IndexPage` 部件里就只用实例化一个 `Carousel` 了，同时由于 `IndexPage` 不用管理部件状态了，可以将它变成 `StatelessWidget`。
 
 ## 完整代码
 
@@ -252,25 +377,26 @@ List heroes = [
   ),
 ];
 
-class IndexPage extends StatefulWidget {
+class Carousel extends StatefulWidget {
+  final List items;
+  final double height;
+
+  const Carousel({
+    @required this.items,
+    @required this.height,
+  });
+
   @override
-  _IndexPageState createState() => _IndexPageState();
+  _CarouselState createState() => _CarouselState();
 }
 
-class _IndexPageState extends State<IndexPage> {
+class _CarouselState extends State<Carousel> {
   int _pageIndex = 0;
   PageController _pageController;
 
-  @override
-  void initState() {
-    super.initState();
-    _pageController = PageController(
-      initialPage: 0,
-      viewportFraction: 0.8,
-    );
-  }
-
   Widget _buildItem(activeIndex, index) {
+    final items = widget.items;
+
     return Center(
       child: AnimatedContainer(
         curve: Curves.easeInOut,
@@ -278,7 +404,7 @@ class _IndexPageState extends State<IndexPage> {
         height: activeIndex == index ? 500.0 : 450.0,
         margin: EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),
         decoration: BoxDecoration(
-          color: heroes[index].color,
+          color: items[index].color,
           borderRadius: BorderRadius.all(Radius.circular(12.0)),
         ),
         child: Stack(
@@ -289,7 +415,7 @@ class _IndexPageState extends State<IndexPage> {
                 Radius.circular(12.0),
               ),
               child: Image.network(
-                heroes[index].image,
+                items[index].image,
                 fit: BoxFit.cover,
               ),
             ),
@@ -308,7 +434,7 @@ class _IndexPageState extends State<IndexPage> {
                         ),
                       ),
                       child: Text(
-                        heroes[index].title,
+                        items[index].title,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 20.0,
@@ -328,34 +454,36 @@ class _IndexPageState extends State<IndexPage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(
+      initialPage: 0,
+      viewportFraction: 0.8,
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.white,
-      ),
-      body: Column(
-        children: <Widget>[
-          SizedBox(
-            height: 580.0,
-            child: PageView.builder(
-              pageSnapping: true,
-              itemCount: heroes.length,
-              controller: _pageController,
-              onPageChanged: (int index) {
-                setState(() {
-                  _pageIndex = index;
-                });
-              },
-              itemBuilder: (BuildContext ctx, int index) {
-                return _buildItem(_pageIndex, index);
-              },
-            ),
+    return Column(
+      children: <Widget>[
+        Container(
+          height: widget.height,
+          child: PageView.builder(
+            pageSnapping: true,
+            itemCount: heroes.length,
+            controller: _pageController,
+            onPageChanged: (int index) {
+              setState(() {
+                _pageIndex = index;
+              });
+            },
+            itemBuilder: (BuildContext ctx, int index) {
+              return _buildItem(_pageIndex, index);
+            },
           ),
-          PageIndicator(_pageIndex, heroes.length),
-        ],
-      ),
-      backgroundColor: Colors.white,
+        ),
+        PageIndicator(_pageIndex, widget.items.length),
+      ],
     );
   }
 }
@@ -401,4 +529,23 @@ class PageIndicator extends StatelessWidget {
     );
   }
 }
+
+class IndexPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: Colors.white,
+      ),
+      body: Carousel(
+        height: 540,
+        items: heroes,
+      ),
+      backgroundColor: Colors.white,
+    );
+  }
+}
 ```
+
+至此，整个布局就完成了！ 😎
