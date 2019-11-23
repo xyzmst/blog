@@ -800,16 +800,15 @@ code {
   }
 
   h2,
+  h3,
+  h4,
+  h5,
+  h6,
   .title,
   .animate-list__title,
   .article-title,
-  .article-meta {
-    color: #fff;
-  }
-  .navbar a {
-    color: #fff;
-  }
-
+  .article-meta,
+  .navbar a,
   blockquote {
     color: #fff;
   }
@@ -828,7 +827,7 @@ code {
   transition: all 0.3s ease;
   background: transparent;
   color: var(--menu-fore-color);
-  display: none;
+  /* display: none; */
   text-align: center;
   margin: 0.5rem 0 0;
   border: none;
