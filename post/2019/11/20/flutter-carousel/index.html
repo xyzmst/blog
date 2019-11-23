@@ -1,0 +1,458 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="chrome=1"><meta name="renderer" content="webkit|ie-comp|ie-stand"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#333333"><meta name="mobile-web-app-capable" content="yes"><meta name="google" content="notranslate"><meta name="format-detection" content="telephone=no"><meta name="keyword" content="Web, Js, CSS, Node.js, Frontend, Flutter, Docker"><meta name="description" content="想写什么就写什么"><title>使用 Flutter 实现一个走马灯布局 - 冷石的博客</title><base href="/"><link rel="preconnect" href="//cdnjs.cloudflare.com"><link rel="manifest" href="/manifest.json"><link rel="shortcut icon" href="/icons/icon-72x72.png"><link rel="apple-touch-icon" href="/icons/icon-192x192.png"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/styles/atom-one-light.min.css"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/styles/atom-one-dark.min.css" media="screen and (prefers-color-scheme:dark)"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/css/uikit.min.css"><script src="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit.min.js" async></script><script src="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit-icons.min.js" async></script><link rel="stylesheet" href="/styles/cold-stone.css"><noscript><p class="text-center">你的浏览器还没开启 Javascript 功能！</p></noscript><meta name="generator" content="Hexo 4.0.0"></head><body><main class="main wrapper"><article class="article slide-in-right"><section class="article-header"><h1 class="article-title">使用 Flutter 实现一个走马灯布局</h1><p class="article-meta"><span class="meta-info"><span>最后更新&#58;<time class="post-time" datetime="2019-11-23">2019-11-23</time> </span><span>阅读时间&#58; 8 min</span> <span class="hide" id="busuanzi_container_page_pv">阅读量&#58; <span id="busuanzi_value_page_pv"></span></span> </span><a class="meta-link" id="back">上一页</a></p></section><section class="article-content"><h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>实现的效果如下，当前页面的高度比其它页面高，切换页面的时候有一个高度变化的动画。实现这样的效果主要用到的是 <code>PageView.builder</code> 部件。</p><div><video src="videos/heroes.mp4" controls width="320" autoplay muted></video></div><h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><h3 id="创建首页"><a href="#创建首页" class="headerlink" title="创建首页"></a>创建首页</h3><p>首先创建一个 <code>IndexPage</code> 部件，这个部件用来放 <code>PageView</code>，因为需要使用 <code>setState</code> 方法更新 UI，所以它是 stateful 的。</p><pre><code class="dart">import &#39;package:flutter/material.dart&#39;;
+
+class IndexPage extends StatefulWidget {
+  @override
+  _IndexPageState createState() =&gt; _IndexPageState();
+}
+
+class _IndexPageState extends State&lt;IndexPage&gt; {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: Colors.white,
+      ),
+      body: Column(
+        children: &lt;Widget&gt;[],
+      ),
+    );
+  }
+}</code></pre><p>然后在部件内申明一个 <code>_pageIndex</code> 变量用来保存当前显示的页面的 index，在 <code>initState</code> 生命周期里面初始化一个 <code>PageController</code> 用来配置 <code>PageView</code> 部件。</p><p>在 <code>body</code> 的 <code>Column</code> 里面创建一个 <code>PageView.builder</code>，使用一个 <code>SizedBox</code> 部件指定 <code>PageView</code> 的高度，将 <code>controller</code> 设置为 <code>_pageController</code>，在 <code>onPageChanged</code> 事件里将当前显示页面的 <code>index</code> 值赋值给 <code>_pageIndex</code> 变量。</p><pre><code class="dart">int _pageIndex = 0;
+PageController _pageController;
+
+@override
+void initState() {
+  super.initState();
+  _pageController = PageController(
+    initialPage: 0,
+    viewportFraction: 0.8,
+  );
+}
+
+body: Column(
+  children: &lt;Widget&gt;[
+    SizedBox(
+      height: 580.0,
+      child: PageView.builder(
+        itemCount: 3,
+        pageSnapping: true,
+        controller: _pageController,
+        onPageChanged: (int index) {
+          setState(() {
+            _pageIndex = index;
+          });
+        },
+        itemBuilder: (BuildContext ctx, int index) {
+          return _buildItem(_pageIndex, index);
+        },
+      ),
+    ),
+  ],
+),</code></pre><blockquote><p>关键点: 设置 <code>PageController</code> 的 <code>viewportFraction</code> 参数小于 1，这个值是用来设置每个页面在屏幕上显示的比例，小于 1 的话，就可以在当前页面同时显示其它页面的内容了。</p><pre><code class="dart">/// The fraction of the viewport that each page should occupy.
+/// Defaults to 1.0, which means each page fills the viewport in the scrolling direction.
+final double viewportFraction;</code></pre></blockquote><h3 id="实现-buildItem"><a href="#实现-buildItem" class="headerlink" title="实现 _buildItem"></a>实现 <code>_buildItem</code></h3><p>接着实现 <code>_buildItem</code> 方法，这个方法就是返回 <code>PageView.builder</code> 里每一个页面渲染的内容，第一个参数 <code>activeIndex</code> 是当前显示在屏幕上页面的 <code>index</code>，第二个参数 <code>index</code> 是每一项自己的 <code>index</code>。</p><p>使用一个 <code>Center</code> 部件让内容居中显示，然后用一个 <code>AnimatedContainer</code> 添加页面切换时的高度变化的动画效果，切换页面的时候使用了<code>setState</code> 方法改变了 <code>_pageIndex</code>，<code>Flutter</code> 重新绘制每一项。关键点在于判断当前页面是否为正在显示的页面，是的话它的高度就是 500 不是的话就是 450。</p><pre><code class="dart">_buildItem(activeIndex, index) {
+  return Center(
+    child: AnimatedContainer(
+      curve: Curves.easeInOut,
+      duration: Duration(milliseconds: 300),
+      height: activeIndex == index ? 500.0 : 450.0,
+      margin: EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),
+      decoration: BoxDecoration(
+        color: heroes[index].color,
+        borderRadius: BorderRadius.all(Radius.circular(12.0)),
+      ),
+      child: Stack(),
+    ),
+  );
+}</code></pre><img src="images/empty00.jpg" width="320" style="width:320px"><h3 id="添加内容"><a href="#添加内容" class="headerlink" title="添加内容"></a>添加内容</h3><p>然后给 <code>AnimatedContainer</code> 添加每一项的内容</p><pre><code class="dart">child: Stack(
+  fit: StackFit.expand,
+  children: &lt;Widget&gt;[
+    ClipRRect(
+      borderRadius: BorderRadius.all(
+        Radius.circular(12.0),
+      ),
+      child: Image.network(
+        heroes[index].image,
+        fit: BoxFit.cover,
+      ),
+    ),
+    Align(
+      alignment: Alignment.bottomCenter,
+      child: Row(
+        children: &lt;Widget&gt;[
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.all(12.0),
+              decoration: BoxDecoration(
+                color: Colors.black26,
+                borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(12.0),
+                  bottomLeft: Radius.circular(12.0),
+                ),
+              ),
+              child: Text(
+                heroes[index].title,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+    ),
+  ],
+),</code></pre><h3 id="实现指示器"><a href="#实现指示器" class="headerlink" title="实现指示器"></a>实现指示器</h3><p>然后实现页面的指示器，创建一个 <code>PageIndicator</code> 部件，需要传入 <code>pageCount</code> 表示总页数，以及 <code>currentIndex</code> 表示当前显示的页数索引。把所有指示器放在一个 <code>Row</code> 部件里，判断当前指示器的 <code>index</code> 是否为正在显示页面的 <code>index</code>，是的话显示较深的颜色。</p><pre><code class="dart">class PageIndicator extends StatelessWidget {
+  final int pageCount;
+  final int currentIndex;
+
+  const PageIndicator(this.currentIndex, this.pageCount);
+
+  Widget _indicator(bool isActive) {
+    return Container(
+      width: 6.0,
+      height: 6.0,
+      margin: EdgeInsets.symmetric(horizontal: 3.0),
+      decoration: BoxDecoration(
+        color: isActive ? Color(0xff666a84) : Color(0xffb9bcca),
+        shape: BoxShape.circle,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            offset: Offset(0.0, 3.0),
+            blurRadius: 3.0,
+          ),
+        ],
+      ),
+    );
+  }
+
+  List&lt;Widget&gt; _buildIndicators() {
+    List&lt;Widget&gt; indicators = [];
+    for (int i = 0; i &lt; pageCount; i++) {
+      indicators.add(i == currentIndex ? _indicator(true) : _indicator(false));
+    }
+    return indicators;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: _buildIndicators(),
+    );
+  }
+}</code></pre><p>添加 <code>PageIndicator</code> 到 <code>SizedBox</code> 下放</p><h3 id="封装-Carousel"><a href="#封装-Carousel" class="headerlink" title="封装 Carousel"></a>封装 <code>Carousel</code></h3><p>最后的最后优化一下代码，把部件封装一下，让它成为一个单独的部件，创建一个 <code>Carousel</code> 部件，对外暴露 <code>items</code> 和 <code>height</code> 两个属性，分别配置数据和高度。</p><pre><code class="dart">class Carousel extends StatefulWidget {
+  final List items;
+  final double height;
+
+  const Carousel({
+    @required this.items,
+    @required this.height,
+  });
+
+  @override
+  _CarouselState createState() =&gt; _CarouselState();
+}
+
+class _CarouselState extends State&lt;Carousel&gt; {
+  int _pageIndex = 0;
+  PageController _pageController;
+
+  Widget _buildItem(activeIndex, index) {
+    final items = widget.items;
+
+    return Center(
+      child: AnimatedContainer(
+        curve: Curves.easeInOut,
+        duration: Duration(milliseconds: 300),
+        height: activeIndex == index ? 500.0 : 450.0,
+        margin: EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),
+        decoration: BoxDecoration(
+          color: items[index].color,
+          borderRadius: BorderRadius.all(Radius.circular(12.0)),
+        ),
+        child: Stack(
+          fit: StackFit.expand,
+          children: &lt;Widget&gt;[
+            ClipRRect(
+              borderRadius: BorderRadius.all(
+                Radius.circular(12.0),
+              ),
+              child: Image.network(
+                items[index].image,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Row(
+                children: &lt;Widget&gt;[
+                  Expanded(
+                    child: Container(
+                      padding: EdgeInsets.all(12.0),
+                      decoration: BoxDecoration(
+                        color: Colors.black26,
+                        borderRadius: BorderRadius.only(
+                          bottomRight: Radius.circular(12.0),
+                          bottomLeft: Radius.circular(12.0),
+                        ),
+                      ),
+                      child: Text(
+                        items[index].title,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(
+      initialPage: 0,
+      viewportFraction: 0.8,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: &lt;Widget&gt;[
+        Container(
+          height: widget.height,
+          child: PageView.builder(
+            pageSnapping: true,
+            itemCount: heroes.length,
+            controller: _pageController,
+            onPageChanged: (int index) {
+              setState(() {
+                _pageIndex = index;
+              });
+            },
+            itemBuilder: (BuildContext ctx, int index) {
+              return _buildItem(_pageIndex, index);
+            },
+          ),
+        ),
+        PageIndicator(_pageIndex, widget.items.length),
+      ],
+    );
+  }
+}</code></pre><p>之后在 <code>IndexPage</code> 部件里就只用实例化一个 <code>Carousel</code> 了，同时由于 <code>IndexPage</code> 不用管理部件状态了，可以将它变成 <code>StatelessWidget</code>。</p><h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><pre><code class="dart">import &#39;package:flutter/material.dart&#39;;
+
+class Hero {
+  final Color color;
+  final String image;
+  final String title;
+
+  Hero({
+    @required this.color,
+    @required this.image,
+    @required this.title,
+  });
+}
+
+List heroes = [
+  Hero(
+    color: Color(0xFF86F3FB),
+    image: &quot;https://game.gtimg.cn/images/lol/act/img/skin/big22009.jpg&quot;,
+    title: &#39;寒冰射手-艾希&#39;,
+  ),
+  Hero(
+    color: Color(0xFF7D6588),
+    image: &quot;https://game.gtimg.cn/images/lol/act/img/skin/big39006.jpg&quot;,
+    title: &#39;刀锋舞者-艾瑞莉娅&#39;,
+  ),
+  Hero(
+    color: Color(0xFF4C314D),
+    image: &quot;https://game.gtimg.cn/images/lol/act/img/skin/big103015.jpg&quot;,
+    title: &#39;九尾妖狐-阿狸&#39;,
+  ),
+];
+
+class Carousel extends StatefulWidget {
+  final List items;
+  final double height;
+
+  const Carousel({
+    @required this.items,
+    @required this.height,
+  });
+
+  @override
+  _CarouselState createState() =&gt; _CarouselState();
+}
+
+class _CarouselState extends State&lt;Carousel&gt; {
+  int _pageIndex = 0;
+  PageController _pageController;
+
+  Widget _buildItem(activeIndex, index) {
+    final items = widget.items;
+
+    return Center(
+      child: AnimatedContainer(
+        curve: Curves.easeInOut,
+        duration: Duration(milliseconds: 300),
+        height: activeIndex == index ? 500.0 : 450.0,
+        margin: EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),
+        decoration: BoxDecoration(
+          color: items[index].color,
+          borderRadius: BorderRadius.all(Radius.circular(12.0)),
+        ),
+        child: Stack(
+          fit: StackFit.expand,
+          children: &lt;Widget&gt;[
+            ClipRRect(
+              borderRadius: BorderRadius.all(
+                Radius.circular(12.0),
+              ),
+              child: Image.network(
+                items[index].image,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Row(
+                children: &lt;Widget&gt;[
+                  Expanded(
+                    child: Container(
+                      padding: EdgeInsets.all(12.0),
+                      decoration: BoxDecoration(
+                        color: Colors.black26,
+                        borderRadius: BorderRadius.only(
+                          bottomRight: Radius.circular(12.0),
+                          bottomLeft: Radius.circular(12.0),
+                        ),
+                      ),
+                      child: Text(
+                        items[index].title,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(
+      initialPage: 0,
+      viewportFraction: 0.8,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: &lt;Widget&gt;[
+        Container(
+          height: widget.height,
+          child: PageView.builder(
+            pageSnapping: true,
+            itemCount: heroes.length,
+            controller: _pageController,
+            onPageChanged: (int index) {
+              setState(() {
+                _pageIndex = index;
+              });
+            },
+            itemBuilder: (BuildContext ctx, int index) {
+              return _buildItem(_pageIndex, index);
+            },
+          ),
+        ),
+        PageIndicator(_pageIndex, widget.items.length),
+      ],
+    );
+  }
+}
+
+class PageIndicator extends StatelessWidget {
+  final int currentIndex;
+  final int pageCount;
+
+  const PageIndicator(this.currentIndex, this.pageCount);
+
+  Widget _indicator(bool isActive) {
+    return Container(
+      width: 6.0,
+      height: 6.0,
+      margin: EdgeInsets.symmetric(horizontal: 3.0),
+      decoration: BoxDecoration(
+        color: isActive ? Color(0xff666a84) : Color(0xffb9bcca),
+        shape: BoxShape.circle,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            offset: Offset(0.0, 3.0),
+            blurRadius: 3.0,
+          ),
+        ],
+      ),
+    );
+  }
+
+  List&lt;Widget&gt; _buildIndicators() {
+    List&lt;Widget&gt; indicators = [];
+    for (int i = 0; i &lt; pageCount; i++) {
+      indicators.add(i == currentIndex ? _indicator(true) : _indicator(false));
+    }
+    return indicators;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: _buildIndicators(),
+    );
+  }
+}
+
+class IndexPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: Colors.white,
+      ),
+      body: Carousel(
+        height: 540,
+        items: heroes,
+      ),
+      backgroundColor: Colors.white,
+    );
+  }
+}</code></pre><p>至此，整个布局就完成了！ 😎</p></section></article><section class="prev-next card slide-in-right"><a class="link-disabled prev link">&larr; 没有更多了</a> <a href="/post/2019/11/15/two-interview-question/" class="link next" title="分享两道面试题"><span class="hover-underline-animation">分享两道面试题 &rarr;</span></a></section><section class="article-toc"><div class="card uk-margin-remove-bottom"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#效果"><span class="toc-text">效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发"><span class="toc-text">开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建首页"><span class="toc-text">创建首页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现-buildItem"><span class="toc-text">实现 _buildItem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加内容"><span class="toc-text">添加内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现指示器"><span class="toc-text">实现指示器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#封装-Carousel"><span class="toc-text">封装 Carousel</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#完整代码"><span class="toc-text">完整代码</span></a></li></ol></div><div class="card home-link"><a href="/">&leftarrow; 返回首页</a></div></section><section class="article slide-in-right"><div class="loader" id="loader"><svg viewBox="0 0 50 50"><circle class="ring" cx="25" cy="25" r="20"></circle><circle class="ball" cx="25" cy="5" r="3.5"></circle></svg></div><div class="comment" id="utteranc"></div><noscript>Please activate JavaScript for normal use of comments</noscript></section><a class="card back-to-top" id="backTop">&UpArrow;</a></main><script>window.COLD_STONE={root:"/",author:"Cold Stone",gaid:"UA-119658292-2",repo:"xrr2016/blog"}</script><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js"></script><script>hljs.initHighlightingOnLoad()</script><script src="/scripts/busuanzi.js" referrerpolicy="origin"></script><script src="/scripts/cold-stone.js"></script><script src="//www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config",window.COLD_STONE.gaid)</script></body></html>
