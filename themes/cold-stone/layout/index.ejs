@@ -65,7 +65,7 @@ layout: layout
 
     <aside class="index-aside">
         <div class="card aside-tags">
-            <ul class="tags list-unstyled">
+            <ul class="tags list-unstyled" uk-sortable="handle: .tag-item">
                 <% site.tags.map(function(tag){  %>
                 <li class="tag-item"><a href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>"
                         rel="<%= tag.length %>">#<%= tag.name %></a></li>

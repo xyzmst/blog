@@ -1,11 +1,11 @@
-<article class="article slide-in-right">
+<article class="article slide-in-right uk-article">
   <section class="article-header">
-    <h1 class="article-title">
+    <h1 class="article-title uk-article-title">
       <%- trim(page.title.replace(/[<>&"]/g, function(c){
         return {'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c];
       })) %>
     </h1>
-    <p class="article-meta">
+    <p class="article-meta uk-article-meta">
       <span class="meta-info">
         <span>
           <%= __('post.updateTime') %>&#58;<time class="post-time"
