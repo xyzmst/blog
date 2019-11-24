@@ -32,15 +32,19 @@
     </div>
 
     <div class="uk-navbar-right">
-      <a class="uk-navbar-toggle" uk-search-icon href="#"></a>
-      <div class="uk-drop" uk-drop="mode: click; pos: left-center; offset: 0">
-        <form class="uk-search uk-search-navbar uk-width-1-1 search-form" action="//google.com/search" method="get"
-          accept-charset="UTF-8" target="_blank">
-          <input class="uk-search-input search-form-input" type="search" name="q" placeholder="<%- __('search') %>"
-            autofocus>
-          <input type="hidden" name="sitesearch" value="<%= config.url %>">
-        </form>
-      </div>
+      <a class="uk-navbar-toggle" href="#modal-full" uk-search-icon uk-toggle></a>
     </div>
   </nav>
 </header>
+
+<div id="modal-full" class="uk-modal-full uk-modal" uk-modal>
+  <div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle" uk-height-viewport>
+    <button class="uk-modal-close-full" type="button" uk-close></button>
+    <form class="uk-search uk-search-large search-form" action="//google.com/search" method="get" accept-charset="UTF-8"
+      target="_blank">
+      <input class="uk-search-input search-form-input" type="search" name="q" placeholder="<%- __('search') %>"
+        autofocus autocomplete="false">
+      <input type="hidden" name="sitesearch" value="<%= config.url %>">
+    </form>
+  </div>
+</div>
