@@ -188,3 +188,22 @@ if (toggle) {
     }
   })
 }
+
+// article
+const article = document.querySelector('.article')
+
+if (article) {
+  const articleToc = document.querySelector('.article-toc')
+
+  article.addEventListener('mouseenter', () => {
+    // const timeout = setTimeout(() => {
+    //   articleToc.classList.add('fade')
+    //   clearTimeout(timeout)
+    // }, 300)
+    articleToc.classList.add('fade')
+  })
+
+  article.addEventListener('mouseleave', () => {
+    articleToc.classList.remove('fade')
+  })
+}

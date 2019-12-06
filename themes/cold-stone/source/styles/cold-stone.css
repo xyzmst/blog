@@ -281,6 +281,11 @@ img::selection {
   left: calc(50% + (var(--wrapper-width) / 2) + 1rem);
   min-width: 200px;
   font-size: 0.9rem;
+  transition: all ease 0.3s;
+}
+
+.article-toc.fade {
+  opacity: 0.6;
 }
 
 .article-toc ol {
