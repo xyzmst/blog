@@ -8,7 +8,7 @@ tags:
 date: 2019-12-5 20:00:00
 ---
 
-![egg](./images/egg.jpg)
+<img src="images/egg.jpg" height="448" />
 
 总结一下之前用 Egg.js 开发的文件上传接口的任务
 
