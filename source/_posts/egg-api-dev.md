@@ -8,6 +8,8 @@ tags:
 date: 2019-12-5 20:00:00
 ---
 
+![egg](./images/egg.jpg)
+
 总结一下之前用 Egg.js 开发的文件上传接口的任务
 
 <!--more-->
@@ -267,7 +269,7 @@ export default () => {
 
 ## 遇到的问题
 
-上传到 OSS 的图片在浏览器无法预览变为下载
+***上传到 OSS 的图片在浏览器无法预览变为下载***
 
 首先阿里云规定
 
@@ -279,20 +281,93 @@ export default () => {
 
 ---
 
-`egg-multipart` 插件使用 `stream` 模式无法获取请求体传过来的参数
+***`egg-multipart` 插件使用 `stream` 模式无法获取请求体传过来的参数***
 
-用 `file` 模式能够正确的拿到 `ctx.request.body` 里的请求参数，但是将
+用 `file` 模式能够正确的拿到 `ctx.request.body` 里的请求参数，但是将使用 `stream` 模式就无法获取，搜索了一下后发现使用 `stream` 模式需要将上传文件放到表单的最后一项去，不然拿不到其它参数。
 
-搜索了一下后发现要
-
----
-
-无法链接 Redis
-
-用 `docker-compose.yml` 启动应用和一个 redis 服务
+> https://eggjs.org/zh-cn/basics/controller.html#%E8%8E%B7%E5%8F%96%E4%B8%8A%E4%BC%A0%E7%9A%84%E6%96%87%E4%BB%B6
+> 只支持上传一个文件。
+> 上传文件必须在所有其他的 fields 后面，否则在拿到文件流时可能还获取不到 fields。
 
 ---
 
-Egg.js 全局错误处理返回格式问题
+***Redis 无法链接问题***
 
-未完待续...
+用以下的 `docker-compose.yml` 文件启动 Egg.js 应用和一个 `Redis` 服务，然后想在上传接口的请求频率限制的中间件中使用这个 `Redis` 服务，然后一直报链接失败...Google 之后试了几种方法依然没有成功 :sad:
+
+```yml
+version: "3"
+
+services:
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: always
+    hostname: redis
+    ports:
+      - "6379:6379"
+    networks:
+       - upload-server-network
+
+  upload_server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: upload_server
+    restart: always
+    environment:
+      - EGG_SERVER_ENV:prod
+    ports:
+      - 7001:7001
+    depends_on:
+      - redis
+    networks:
+      - upload-server-network
+
+networks:
+  upload-server-network:
+    driver: bridge
+
+````
+
+---
+
+***Egg.js 全局错误处理返回格式问题***
+
+Egg.js 本身有一个全局错误处理的插件 [egg-onerror](https://github.com/eggjs/egg-onerror)，但是用这个插件在处理上传文件的异常时，直接 `throw` 错误，返回给前端的数据格式是文本类型的，不是 json 格式，除非前端在发送请求的添加 `Accept: application/json` 请求头信息。
+只能在 `config.default.js` 使用 `all` 进行捕获异常，然后用 `JSON.stringify` 方法在处理一遍，这样 `throw new Error(e.message)` 的时候返回给前端的才是 json。
+
+```js
+config.onerror = {
+  all(err, ctx) {
+    ctx.status = err.status || 500
+
+    ctx.body = JSON.stringify({
+      code: ctx.status,
+      success: false,
+      message: err.message,
+    })
+  },
+}
+```
+
+最终还是没有使用这个插件，自己添加了一个方法，进行异常捕获。
+
+```ts
+private error(msg) {
+  const { ctx } = this
+
+  ctx.status = 400
+  ctx.body = {
+    code: ctx.status,
+    success: false,
+    message: msg,
+  }
+}
+...
+
+this.error('错误的 bucket')
+return
+```
+
+---
