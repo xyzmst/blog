@@ -8,7 +8,7 @@ tags:
 date: 2019-12-5 20:00:00
 ---
 
-<img src="images/egg.jpg" height="448" />
+![egg](./images/egg.jpg)
 
 总结一下之前用 Egg.js 开发的文件上传接口的任务
 
@@ -16,7 +16,7 @@ date: 2019-12-5 20:00:00
 
 ## 需求
 
-要在浏览器端将文件上传到阿里的 OSS 对象存储，需要用到阿里云提供的 [SDK](https://github.com/ali-sdk/ali-oss)，但是这样会在前端暴露 OSS 的 accessKeyId 和 accessKeySecret，这是不安全的。所以需要一个文件上传接口把前端传过来的文件上传到对象存储里面，最初只支持阿里云，之后可能会支持其它的云服务商比如七牛云。
+要在浏览器端将文件上传到阿里的 OSS 对象存储，需要用到阿里云提供的 [SDK](https://github.com/ali-sdk/ali-oss)，但是这样会在前端暴露 OSS 的 `accessKeyId` 和 `accessKeySecret`，这是不安全的。所以需要一个文件上传接口把前端传过来的文件上传到对象存储里面，最初只支持阿里云，之后可能会支持其它的云服务商比如七牛云。
 
 ## 开发
 
@@ -164,13 +164,13 @@ describe('测试 oss controller', () => {
 
 ## 部署
 
-Egg.js 本身部署十分的方便，只需要在服务器上运行以下脚步即可
+Egg.js 本身部署十分的方便，只需要在服务器上运行以下命令即可
 
 ```bash
 egg-scripts start --daemon --env=prod --title=upload-server
 ```
 
-但是将这个服务变成一个 `Docker` iamge 就更方便了
+但是将这个服务变成一个 `Docker` `iamge` 就更方便了
 
 > 注意:
 > 要用 `Docker` 运行 Egg 服务需要将 `package.json` 中 `scripts` 的 `start` 命令去掉 `--daemon` 参数，变成
