@@ -113,7 +113,7 @@ tr td {
 }
 
 .wrapper {
-  width: 92%;
+  width: 96%;
   margin: 0 auto;
   max-width: var(--wrapper-width);
 }
