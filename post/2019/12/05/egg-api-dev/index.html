@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="chrome=1"><meta name="renderer" content="webkit|ie-comp|ie-stand"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#333333"><meta name="mobile-web-app-capable" content="yes"><meta name="google" content="notranslate"><meta name="format-detection" content="telephone=no"><meta name="keyword" content="Web, Js, CSS, Node.js, Frontend, Flutter, Docker"><meta name="description" content="想写什么就写什么"><title>Egg.js 上传接口开发总结 - 冷石的博客</title><base href="/"><link rel="preconnect" href="//cdnjs.cloudflare.com"><link rel="manifest" href="/manifest.json"><link rel="shortcut icon" href="/icons/icon-72x72.png"><link rel="apple-touch-icon" href="/icons/icon-192x192.png"><link href="https://cdn.bootcss.com/highlight.js/9.15.10/styles/atom-one-light.min.css" rel="stylesheet"><link href="https://cdn.bootcss.com/highlight.js/9.15.10/styles/atom-one-dark.min.css" rel="stylesheet" media="screen and (prefers-color-scheme:dark)"><link href="https://cdn.bootcss.com/uikit/3.2.0/css/uikit.min.css" rel="stylesheet"><script src="https://cdn.bootcss.com/uikit/3.2.0/js/uikit.min.js" async></script><script src="https://cdn.bootcss.com/uikit/3.2.0/js/uikit-icons.min.js" async></script><link rel="stylesheet" href="/styles/cold-stone.css"><noscript><p class="text-center">你的浏览器还没开启 Javascript 功能！</p></noscript><meta name="generator" content="Hexo 4.0.0"></head><body><main class="main wrapper"><article class="article slide-in-right uk-article"><section class="article-header"><h1 class="article-title uk-article-title">Egg.js 上传接口开发总结</h1><p class="article-meta uk-article-meta"><span class="meta-info"><span>最后更新&#58;<time class="post-time" datetime="2019-12-06">2019-12-06</time> </span><span>阅读时间&#58; 7 min</span> <span class="hide" id="busuanzi_container_page_pv">阅读量&#58; <span id="busuanzi_value_page_pv"></span></span> </span><a class="meta-link" id="back">上一页</a></p></section><section class="article-content"><h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>要在浏览器端将文件上传到阿里的 OSS 对象存储，需要用到阿里云提供的 <a href="https://github.com/ali-sdk/ali-oss" target="_blank" rel="noopener">SDK</a>，但是这样会在前端暴露 OSS 的 accessKeyId 和 accessKeySecret，这是不安全的。所以需要一个文件上传接口把前端传过来的文件上传到对象存储里面，最初只支持阿里云，之后可能会支持其它的云服务商比如七牛云。</p><h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><p>后端框架用的是 Egg.js，因为比较熟悉。然后这只是一个文件上传的服务，一个路由就行。</p><pre><code class="js">router.post(`/${app.name}/v1/upload`, controller.oss.upload)</code></pre><p>然后实现对应的 <code>OssController</code> 的 <code>upload</code> 方法，一般的实践是在 <code>Controller</code> 层进行参数校验，这里用内置的是 <code>egg-validate</code> 插件进行校验。假如有两个参数 <code>folder</code> 和 <code>bucket</code> 代表文件上传的目录和 <code>bucket</code>，那么验证代码如下</p><pre><code class="js">const body = ctx.request.body
+
+const rules = {
+  folder: { type: &#39;string&#39;, required: false, default: &#39;/&#39;, trim: true },
+  bucket: { type: &#39;string&#39;, required: false, default:  &#39;you-bucket-name&#39; },
+}
+
+await ctx.validate(rules, body)</code></pre><p>接受前端的上传文件用的是 <a href="https://github.com/eggjs/egg-multipart" target="_blank" rel="noopener">egg-multipart</a> 插件，这个插件有两种模式 <code>file</code> 和 <code>stream</code>，<code>file</code> 模式适合简单的文件上传，这种模式会先将前端传来的图片存到服务器上，执行完操作后需要用 <code>ctx.cleanupRequestFiles()</code> 方法将文件删除。 <code>stream</code> 模式适合在对上传文件进一步处理的时候使用，如压缩，解压等，如果上传文件是图片那么可以将这个流传递给处理图片的库进行处理。</p><p>在 <code>config.default.js</code> 配置 <code>egg-multipart</code> 插件，在 <code>fileExtensions</code> 新增需要添加的文件类型扩展名，<code>cleanSchedule</code> 配置定时清除零时保存的文件。</p><pre><code class="ts">config.multipart = {
+  mode: &#39;file&#39;,
+  fileSize: &#39;50mb&#39;,
+  tmpdir: path.join(os.tmpdir(), &#39;egg-multipart-tmp&#39;, appInfo.name),
+  cleanSchedule: {
+    cron: &#39;0 30 4 * * *&#39;,
+  },
+  fileExtensions: [ &#39;.pdf&#39;, &#39;.doc&#39;, &#39;.docx&#39; ],
+}</code></pre><p>然后用 <code>ctx.request.files</code> 获取请求过来的文件，这里也需要进行验证请求是否有文件，校验好请求参数后就把请求参数传到 <code>Services</code> 层里</p><pre><code class="js">const files = ctx.request.files
+const body = ctx.request.body
+...
+ctx.body = await ctx.service.oss.upload(body, files)</code></pre><p>对应的 <code>OssService</code> 是负责主要的任务地方，新建 <code>OSS</code> 实例对象，上传文件，设置上传文件的请求头，返回上传结果。</p><pre><code class="ts">import * as fs from &#39;fs&#39;
+import * as OSS from &#39;ali-oss&#39;
+
+const ONE_YEAR = 3600 * 24 * 365
+
+/**
+ * OssService
+ */
+export default class OssService extends Service {
+  private client
+
+  private createClient(option) {
+      this.client = new OSS({})
+    }
+  }
+
+  private async uploadFile(dir, file) {
+    let result
+
+    const filename = file.filename.replace(/\.(\w+)$/, `-${Date.now()}.$1`)
+
+    try {
+      result = await this.client.put(`${dir}${filename}`, file.filepath, {
+        headers: { &#39;Cache-Control&#39;: `max-age=${ONE_YEAR}`, &#39;Content-Disposition&#39;: &#39;&#39; },
+      })
+    } catch (e) {
+      this.ctx.logger.error(new Error(e.message))
+      throw new Error(e.message)
+    } finally {
+      fs.unlink(file.filepath, () =&gt; true)
+    }
+
+    return result
+  }
+
+  public async upload(parmas, files) {
+    this.createClient(parmas)
+
+    let result
+
+    if (files.length &gt; 1) {
+      result = []
+
+      for (const file of files) {
+        const res = await this.uploadFile(parmas.dir, file)
+
+        result.push({ url: res.url })
+      }
+
+    } else {
+      const file = files[0]
+      const res = await this.uploadFile(parmas.dir, file)
+
+      result = { url: res.url }
+    }
+
+    return result
+  }
+}</code></pre><p>至此上传文件到 OSS 接口基本完成了</p><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>Egg.js 集成了 <a href="https://github.com/visionmedia/supertest" target="_blank" rel="noopener">SuperTest</a> 测试框架，所以写接口的单元测试很方便。这个接口主要是对 <code>Controller</code> 层请求参数进行测试。测试代码写在项目目录 <code>test/app/controller/oss.test.ts</code> 文件内。</p><pre><code class="ts">import { app, assert } from &#39;egg-mock/bootstrap&#39;
+
+describe(&#39;测试 oss controller&#39;, () =&gt; {
+  it(&#39;不再白名单的 bucket 名返回错误&#39;, async () =&gt; {
+    const result = await app.httpRequest()
+      .post(&#39;/upload-server/v1/upload&#39;)
+      .set(&#39;Content-type&#39;, &#39;multipart/form-data; boundary=--------------------------820317025826519383208825&#39;)
+      .field(&#39;bucket&#39;, &#39;wrong-bucket&#39;)
+      .expect(403)
+
+    assert(result.body)
+  })
+
+  it(&#39;上传文件成功&#39;, async () =&gt; {
+    const result = await app.httpRequest()
+      .post(&#39;/upload-server/v1/upload&#39;)
+      .set(&#39;Content-type&#39;, &#39;multipart/form-data; boundary=--------------------------820317025826519383208825&#39;)
+      .field(&#39;dir&#39;, &#39;images&#39;)
+      .attach(&#39;avatar&#39;, &#39;test/app/controller/avatar.png&#39;)
+      .expect(200)
+
+    assert(result.body)
+  })
+})
+</code></pre><h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>Egg.js 本身部署十分的方便，只需要在服务器上运行以下脚步即可</p><pre><code class="bash">egg-scripts start --daemon --env=prod --title=upload-server</code></pre><p>但是将这个服务变成一个 <code>Docker</code> iamge 就更方便了</p><blockquote><p>注意:<br>要用 <code>Docker</code> 运行 Egg 服务需要将 <code>package.json</code> 中 <code>scripts</code> 的 <code>start</code> 命令去掉 <code>--daemon</code> 参数，变成<br><code>egg-scripts start --env=prod --title=upload-server</code><br>因为在 <code>Docker</code> 运行 Egg 应用需要是前台模式运行</p></blockquote><pre><code class="dockerfile">FROM node:lts-alpine
+
+# 设置时区
+RUN apk --update add tzdata \
+    &amp;&amp; cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    &amp;&amp; echo &quot;Asia/Shanghai&quot; &gt; /etc/timezone \
+    &amp;&amp; apk del tzdata
+
+WORKDIR /upload-server
+
+COPY package*.json ./
+
+RUN npm install --registry=https://registry.npm.taobao.org
+
+COPY . /upload-server
+
+RUN npm run tsc &amp;&amp; npm prune --production
+
+EXPOSE 7001
+
+CMD npm start</code></pre><p>有了镜像后，写一个运行容器的脚本，添加可执行的权限，之后启动服务就可以只用运行这个脚本即可。</p><pre><code class="sh">#!/bin/bash
+
+set -e
+
+IMAGE_NAME=&quot;upload-server&quot;
+CONTAINER_NAME=&quot;upload-server&quot;
+
+echo &#39;拉取代码&#39;
+
+git pull origin master
+
+echo &#39;运行容器&#39;
+
+docker rm -f ${CONTAINER_NAME} || true
+
+docker build -t ${IMAGE_NAME} .
+
+docker run -d -p 7001:7001 --env-file .env --name=${CONTAINER_NAME} ${IMAGE_NAME}
+
+exit
+EOF</code></pre><pre><code class="bash">chmod +x ./deploy.sh</code></pre><p>运行脚本</p><pre><code class="bash">./deploy.sh</code></pre><h2 id="请求频率限制"><a href="#请求频率限制" class="headerlink" title="请求频率限制"></a>请求频率限制</h2><p>为了防止接口被滥用需要限制请求接口的频率，在 Github 找到一个 <a href="https://github.com/koajs/ratelimit" target="_blank" rel="noopener">koa-ratelimit</a> 的仓库，由于 Egg.js 支持 Koa 的插件，所以也适合。</p><p>参考这个仓库的文档，在项目 <code>middleware</code> 文件添加一个 <code>ratelimit.ts</code>，用这个中间件来控制，一开始使用的 <code>redis</code> 作为 <code>driver</code> 可是遇到一个 <code>docker-compose</code> 网络链接问题始终无法解决，遂放弃，改用内存模式。</p><pre><code class="ts">import * as Redis from &#39;ioredis&#39;
+import * as ratelimit from &#39;koa-ratelimit&#39;
+
+const db = new Map();
+
+export default () =&gt; {
+  return ratelimit({
+    db: db,
+    driver: &#39;memory&#39;,
+    duration: 60000,
+    errorMessage: &#39;请求次数超过限制&#39;,
+    id: ctx =&gt; ctx.ip,
+    headers: {
+      remaining: &#39;Upload-Limit-Remaining&#39;,
+      reset: &#39;Uplaod-Limit-Reset&#39;,
+      total: &#39;Upload-Limit-Total&#39;,
+    },
+    max: 300,
+    disableHeader: false,
+  })
+}</code></pre><h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>上传到 OSS 的图片在浏览器无法预览变为下载</p><p>首先阿里云规定</p><blockquote><p>对于图片文件（在未修改文件http头的情况下）：<br>若您的Bucket是2019年9月23日前创建的，使用OSS默认访问域名或自有域名生成的文件URL从浏览器访问时可以预览文件内容。<br>若您的Bucket是2019年9月23日后创建的，使用OSS默认域名生成的文件URL从浏览器访问时会以附件形式下载；使用自有域名生成的文件URL访问时，可以预览&gt; 文件内容。绑定自有域名步骤请参见绑定自定义域名。</p></blockquote><p>然后是上传的图片不能添加 <code>Content-Disposition</code> 返回头信息，给文件添加了这个 http 返回头，也会让图片变成下载。</p><hr><p><code>egg-multipart</code> 插件使用 <code>stream</code> 模式无法获取请求体传过来的参数</p><p>用 <code>file</code> 模式能够正确的拿到 <code>ctx.request.body</code> 里的请求参数，但是将</p><p>搜索了一下后发现要</p><hr><p>无法链接 Redis</p><p>用 <code>docker-compose.yml</code> 启动应用和一个 redis 服务</p><hr><p>Egg.js 全局错误处理返回格式问题</p><p>未完待续…</p></section></article><section class="prev-next card slide-in-right"><a class="link-disabled prev link">&larr; 没有更多了</a> <a href="/post/2019/11/20/flutter-carousel/" class="link next" title="使用 Flutter 实现一个走马灯布局"><span class="hover-underline-animation">使用 Flutter 实现一个走马灯布局 &rarr;</span></a></section><section class="article-toc"><div class="card uk-margin-remove-bottom"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#需求"><span class="toc-text">需求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发"><span class="toc-text">开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署"><span class="toc-text">部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#请求频率限制"><span class="toc-text">请求频率限制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遇到的问题"><span class="toc-text">遇到的问题</span></a></li></ol></div><div class="card home-link"><a href="/">&leftarrow; 返回首页</a></div></section><section class="article slide-in-right"><div class="loader" id="loader"><svg viewBox="0 0 50 50"><circle class="ring" cx="25" cy="25" r="20"></circle><circle class="ball" cx="25" cy="5" r="3.5"></circle></svg></div><div class="comment" id="utteranc"></div><noscript>Please activate JavaScript for normal use of comments</noscript></section><a class="card back-to-top" id="backTop">&UpArrow;</a></main><script>window.COLD_STONE={root:"/",author:"Cold Stone",gaid:"UA-119658292-2",repo:"xrr2016/blog"}</script><script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script><script>hljs.initHighlightingOnLoad()</script><script src="/scripts/busuanzi.js" referrerpolicy="origin"></script><script src="/scripts/cold-stone.js"></script><script src="//www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config",window.COLD_STONE.gaid)</script></body></html>
