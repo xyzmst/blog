@@ -603,7 +603,7 @@ img::selection {
   cursor: pointer;
   transition: all 0.3s ease;
   background: transparent;
-  color: var(--menu-fore-color);
+  color: inherit;
   visibility: hidden;
   opacity: 0;
   text-align: center;
