@@ -31,9 +31,15 @@
       </ul>
     </div>
 
-    <div class="uk-navbar-right">
-      <a class="uk-navbar-toggle" href="#modal-full" uk-search-icon uk-toggle></a>
-    </div>
+    <%- if (is_post()) { %>
+      <div class="uk-navbar-right translate-x">
+        <a class="uk-navbar-toggle" href="#modal-full" uk-search-icon uk-toggle></a>
+      </div>
+    <% } else { %>
+      <div class="uk-navbar-right">
+        <a class="uk-navbar-toggle" href="#modal-full" uk-search-icon uk-toggle></a>
+      </div>
+    <% } %>
   </nav>
 </header>
 
