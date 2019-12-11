@@ -1,0 +1,79 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="chrome=1"><meta name="renderer" content="webkit|ie-comp|ie-stand"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#333333"><meta name="mobile-web-app-capable" content="yes"><meta name="google" content="notranslate"><meta name="format-detection" content="telephone=no"><meta name="keyword" content="Web, Js, CSS, Node.js, Frontend, Flutter, Docker"><meta name="description" content="想写什么就写什么"><title>数据结构与算法之哈希表 - 冷石的博客</title><base href="/"><link rel="preconnect" href="//cdn.bootcss.com"><link rel="manifest" href="/manifest.json"><link rel="shortcut icon" href="/icons/icon-72x72.png"><link rel="apple-touch-icon" href="/icons/icon-192x192.png"><link href="https://cdn.bootcss.com/highlight.js/9.15.10/styles/atom-one-light.min.css" rel="stylesheet"><link href="https://cdn.bootcss.com/highlight.js/9.15.10/styles/atom-one-dark.min.css" rel="stylesheet" media="screen and (prefers-color-scheme:dark)"><link href="https://cdn.bootcss.com/uikit/3.2.0/css/uikit.min.css" rel="stylesheet"><script src="https://cdn.bootcss.com/uikit/3.2.0/js/uikit.min.js" async></script><script src="https://cdn.bootcss.com/uikit/3.2.0/js/uikit-icons.min.js" async></script><link rel="stylesheet" href="/styles/cold-stone.css"><noscript><p class="text-center">你的浏览器还没开启 Javascript 功能！</p></noscript><meta name="generator" content="Hexo 4.0.0"></head><body><header class="header" uk-sticky="top: 100; animation: uk-animation-slide-top; bottom: #sticky-on-scroll-up"><nav class="wrapper header-content"><div class="nav-overlay uk-navbar-left"><h1 class="title nav-list-item uk-logo" data-link="/"><a href="/" data-link="/">冷石的博客</a></h1><ul class="nav-list"><li class="nav-list-item" data-link="/categories/"><a class="nav-list-link" href="/categories">分类</a></li><li class="nav-list-item" data-link="/friends/"><a class="nav-list-link" href="/friends">友链</a></li><li class="nav-list-item" data-link="/about/"><a class="nav-list-link" href="/about/">关于</a></li><li class="nav-list-item" data-link="/rss/"><a class="nav-list-link" href="/atom.xml">RSS</a></li></ul></div><div class="uk-navbar-right translate-x"><a class="uk-navbar-toggle" href="#modal-full" uk-search-icon uk-toggle></a></div></nav></header><div id="modal-full" class="uk-modal-full uk-modal" uk-modal><div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle" uk-height-viewport><button class="uk-modal-close-full" type="button" uk-close></button><form class="uk-search uk-search-large search-form" action="//google.com/search" method="get" accept-charset="UTF-8" target="_blank"><input class="uk-search-input search-form-input" type="search" name="q" placeholder="搜索" autofocus autocomplete="false"> <input type="hidden" name="sitesearch" value="https://coldstone.fun"></form></div></div><main class="main wrapper"><article class="article slide-in-right uk-article"><section class="article-header"><h1 class="article-title uk-article-title">数据结构与算法之哈希表</h1><p class="article-meta uk-article-meta"><span class="meta-info"><span>最后更新&#58;<time class="post-time" datetime="2019-12-11">2019-12-11</time> </span><span>阅读时间&#58; 2 min</span> <span class="hide" id="busuanzi_container_page_pv">阅读量&#58; <span id="busuanzi_value_page_pv"></span></span></span></p></section><section class="article-content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>哈希表是一种常用的数据结构，可以快速的插入和取用，但是查询数据效率低下。</p><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>基于数组实现哈希表，数组的长度是预先设定的，有需要是增加。最常见的是将数组的长度设为一个质数</p><pre><code class="ts">class HashTable {
+  table = &lt;any&gt;[]
+
+  constructor() {
+    this.table = Array.from({
+      length: 137
+    })
+  }
+
+  // 将字符串的 ASCLL 码相加对数组长度求余
+  hash(data: string) {
+    let total = 0
+    for (let index = 0; index &lt; data.length; index++) {
+      total += data.charCodeAt(index)
+    }
+    return total % this.table.length
+  }
+
+  // 更优的 hash 方法
+  betterHash(data: string) {
+    const H = 37
+    let total = 0
+
+    for (let index = 0; index &lt; data.length; index++) {
+      total += H * total + data.charCodeAt(index)
+    }
+
+    total = total % this.table.length
+
+    if (total &lt; 0) {
+      total += this.table.length - 1
+    }
+
+    return parseInt(total.toString())
+  }
+
+  // 存储数据
+  put(key: string, data: any) {
+    const pos = this.betterHash(key)
+    this.table[pos] = data
+  }
+
+  // 获取数据
+  get(key: string) {
+    return this.table[this.betterHash(key)]
+  }
+
+  // 显示数据
+  show() {
+    for (let index = 0; index &lt; this.table.length; index++) {
+      const item = this.table[index]
+      if (item) {
+        console.log(`${index}: ${item}`)
+      }
+    }
+  }
+}</code></pre><p>测试下</p><pre><code class="ts">const hashTable = new HashTable()
+
+hashTable.put(&#39;David&#39;, &#39;David&#39;)
+hashTable.put(&#39;Jennifer&#39;, &#39;Jennifer&#39;)
+hashTable.put(&#39;Donnie&#39;, &#39;Donnie&#39;)
+hashTable.put(&#39;Raymond&#39;, &#39;Raymond&#39;)
+hashTable.put(&#39;Cynthia&#39;, &#39;Cynthia&#39;)
+hashTable.put(&#39;Mike&#39;, &#39;Mike&#39;)
+hashTable.put(&#39;Clayton&#39;, &#39;Clayton&#39;)
+hashTable.put(&#39;Danny&#39;, &#39;Danny&#39;)
+hashTable.put(&#39;Jonathan&#39;, &#39;Jonathan&#39;)
+
+hashTable.show()
+
+console.log(&#39;Jonathan: &#39;, hashTable.get(&#39;Jonathan&#39;))</code></pre><p>输出</p><pre><code class="ts">12: Jennifer
+22: Raymond
+55: Donnie
+58: Clayton
+80: Jonathan
+82: Mike
+103: Cynthia
+110: Danny
+Jonathan:  Jonathan</code></pre><h2 id="碰撞处理"><a href="#碰撞处理" class="headerlink" title="碰撞处理"></a>碰撞处理</h2><p>当哈希方法对于多个输入产生了相同的输出是就会出现碰撞，两种可以解决键的碰撞问题开链法以及线性探测法</p><p>开链法</p><p>开链法指的是在实现 hash 表的底层数组中，每个数组又是一个新的数据结构，比如另一个数组，这样即使有两个键 hash 后的值相同，依然被保存在同样的位置，但是他们在第二个数组中的位置是不同的。</p><p>要实现开链法，在创建存储键值的数组时，通过一个函数创建一个新的数组，然后将该数组赋值给 hash 表里的每一个元素，创建一个二维数组。</p><p>线性探测法</p><p>线性探测法指的是当发生碰撞时检查 hash 表里的下一个位置是否为空，如果为空就将数据存入该位置，如果不为空，则继续查找下一个位置，直到找到空位子为止。通常来说如果数组的大小是待存储数据个数的 1.5 倍时，那么用开链法；如果数组的大小是待存储的数据两倍以上时，那么使用线性探测法。</p></section></article><section class="prev-next card slide-in-right"><a href="/post/2019/09/11/flutter-provider-todos-01/" class="link prev" title="使用 Provider 管理 Flutter 应用状态 (上)"><span class="hover-underline-animation">&larr; 使用 Provider 管理 Flutter 应用状态 (上)</span> </a><a href="/post/2019/08/31/egg-redis-cache/" class="link next" title="在 Egg.js 中使用 Redis 缓存提升性能"><span class="hover-underline-animation">在 Egg.js 中使用 Redis 缓存提升性能 &rarr;</span></a></section><section class="article-toc"><div class="card uk-margin-remove-bottom"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现"><span class="toc-text">实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#碰撞处理"><span class="toc-text">碰撞处理</span></a></li></ol></div></section><section class="article slide-in-right"><div class="loader" id="loader"><svg viewBox="0 0 50 50"><circle class="ring" cx="25" cy="25" r="20"></circle><circle class="ball" cx="25" cy="5" r="3.5"></circle></svg></div><div class="comment" id="utteranc"></div><noscript>Please activate JavaScript for normal use of comments</noscript></section><a class="card back-to-top" id="backTop">&UpArrow;</a></main><script>window.COLD_STONE={root:"/",author:"Cold Stone",gaid:"UA-119658292-2",repo:"xrr2016/blog"}</script><script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script><script>hljs.initHighlightingOnLoad()</script><script src="/scripts/busuanzi.js" referrerpolicy="origin"></script><script src="/scripts/cold-stone.js"></script><script src="//www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config",window.COLD_STONE.gaid)</script></body></html>

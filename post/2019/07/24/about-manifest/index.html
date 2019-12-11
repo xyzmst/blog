@@ -1,0 +1,111 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="chrome=1"><meta name="renderer" content="webkit|ie-comp|ie-stand"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#333333"><meta name="mobile-web-app-capable" content="yes"><meta name="google" content="notranslate"><meta name="format-detection" content="telephone=no"><meta name="keyword" content="Web, Js, CSS, Node.js, Frontend, Flutter, Docker"><meta name="description" content="想写什么就写什么"><title>对于 PWA 应用的 manifest.json 文件的解释 - 冷石的博客</title><base href="/"><link rel="preconnect" href="//cdn.bootcss.com"><link rel="manifest" href="/manifest.json"><link rel="shortcut icon" href="/icons/icon-72x72.png"><link rel="apple-touch-icon" href="/icons/icon-192x192.png"><link href="https://cdn.bootcss.com/highlight.js/9.15.10/styles/atom-one-light.min.css" rel="stylesheet"><link href="https://cdn.bootcss.com/highlight.js/9.15.10/styles/atom-one-dark.min.css" rel="stylesheet" media="screen and (prefers-color-scheme:dark)"><link href="https://cdn.bootcss.com/uikit/3.2.0/css/uikit.min.css" rel="stylesheet"><script src="https://cdn.bootcss.com/uikit/3.2.0/js/uikit.min.js" async></script><script src="https://cdn.bootcss.com/uikit/3.2.0/js/uikit-icons.min.js" async></script><link rel="stylesheet" href="/styles/cold-stone.css"><noscript><p class="text-center">你的浏览器还没开启 Javascript 功能！</p></noscript><meta name="generator" content="Hexo 4.0.0"></head><body><header class="header" uk-sticky="top: 100; animation: uk-animation-slide-top; bottom: #sticky-on-scroll-up"><nav class="wrapper header-content"><div class="nav-overlay uk-navbar-left"><h1 class="title nav-list-item uk-logo" data-link="/"><a href="/" data-link="/">冷石的博客</a></h1><ul class="nav-list"><li class="nav-list-item" data-link="/categories/"><a class="nav-list-link" href="/categories">分类</a></li><li class="nav-list-item" data-link="/friends/"><a class="nav-list-link" href="/friends">友链</a></li><li class="nav-list-item" data-link="/about/"><a class="nav-list-link" href="/about/">关于</a></li><li class="nav-list-item" data-link="/rss/"><a class="nav-list-link" href="/atom.xml">RSS</a></li></ul></div><div class="uk-navbar-right translate-x"><a class="uk-navbar-toggle" href="#modal-full" uk-search-icon uk-toggle></a></div></nav></header><div id="modal-full" class="uk-modal-full uk-modal" uk-modal><div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle" uk-height-viewport><button class="uk-modal-close-full" type="button" uk-close></button><form class="uk-search uk-search-large search-form" action="//google.com/search" method="get" accept-charset="UTF-8" target="_blank"><input class="uk-search-input search-form-input" type="search" name="q" placeholder="搜索" autofocus autocomplete="false"> <input type="hidden" name="sitesearch" value="https://coldstone.fun"></form></div></div><main class="main wrapper"><article class="article slide-in-right uk-article"><section class="article-header"><h1 class="article-title uk-article-title">对于 PWA 应用的 manifest.json 文件的解释</h1><p class="article-meta uk-article-meta"><span class="meta-info"><span>最后更新&#58;<time class="post-time" datetime="2019-12-11">2019-12-11</time> </span><span>阅读时间&#58; 5 min</span> <span class="hide" id="busuanzi_container_page_pv">阅读量&#58; <span id="busuanzi_value_page_pv"></span></span></span></p></section><section class="article-content"><p>网站要支持 PWA，需要一个 <code>manifest.json</code> 文件，W3C Web App Manifest 的草案上定义了以下的字段，解释一下每个字段是什么意思。</p><pre><code class="js">dictionary WebAppManifest {
+   TextDirectionType dir = &quot;auto&quot;;
+   DOMString lang;
+   USVString name;
+   USVString short_name;
+   USVString description;
+   sequence&lt;ImageResource&gt; icons;
+   sequence&lt;ImageResource&gt; screenshots;
+   sequence&lt;USVString&gt; categories;
+   DOMString iarc_rating_id;
+   USVString start_url;
+   DisplayModeType display = &quot;browser&quot;;
+   OrientationLockType orientation;
+   USVString theme_color;
+   USVString background_color;
+   USVString scope;
+   ServiceWorkerRegistrationObject serviceworker;
+   sequence&lt;ExternalApplicationResource&gt; related_applications;
+   boolean prefer_related_applications = &quot;false&quot;;
+};
+
+dictionary ImageResource {
+  required USVString src;
+  DOMString sizes;
+  USVString type;
+  USVString purpose;
+  USVString platform;
+};
+
+dictionary ServiceWorkerRegistrationObject {
+  required USVString src;
+  USVString scope;
+  WorkerType type = &quot;classic&quot;;
+  ServiceWorkerUpdateViaCache update_via_cache = &quot;imports&quot;;
+};
+
+dictionary ExternalApplicationResource {
+  required USVString platform;
+  USVString url;
+  DOMString id;
+  USVString min_version;
+  sequence&lt;Fingerprint&gt; fingerprints;
+};</code></pre><p><strong>dir</strong> 指定了 manifest 中具有方向性的成员的基本方向，可以设置 <code>ltr</code> 左至右, <code>rtl</code> 右至左, <code>auto</code> 没有明确方向。</p><p><strong>lang</strong> 指定 manifest 中具有方向性成员的值的主要语言（因为知道语言也可以帮助方向性）。</p><p><strong>name</strong> 表示应用的名称。</p><p><strong>short_name</strong> 表示 Web 应用程序名称的简短版本，用于没有足够空间来显示 Web 应用程序的全名的地方。</p><p><strong>description</strong> 描述 Web 应用程序的目的。</p><p><strong>scope</strong> 表示 Web 应用程序导航范围。</p><p><strong>icons</strong> icons 是 ImageResources 的数组，可以在各种情况下充当 Web 应用程序的图标表示。例如，它们可用于在其他应用程序列表中表示 Web 应用程序，或者将 Web 应用程序与 OS 的任务切换器和/或系统首选项集成。</p><pre><code class="json">{
+  &quot;icons&quot;: [
+    {
+      &quot;src&quot;: &quot;icon/lowres.webp&quot;,
+      &quot;sizes&quot;: &quot;48x48&quot;,
+      &quot;type&quot;: &quot;image/webp&quot;
+    },
+    {
+      &quot;src&quot;: &quot;icon/lowres&quot;,
+      &quot;sizes&quot;: &quot;48x48&quot;
+    },
+    {
+      &quot;src&quot;: &quot;icon/hd_hi.ico&quot;,
+      &quot;sizes&quot;: &quot;72x72 96x96 128x128 256x256&quot;
+    },
+    {
+      &quot;src&quot;: &quot;icon/hd_hi.svg&quot;,
+      &quot;sizes&quot;: &quot;257x257&quot;
+    }
+  ]
+}</code></pre><p><strong>display</strong> 其值是 DisplayModeType 值之一，表示开发人员对 Web 应用程序的首选显示模式。可以设置</p><ul><li>“fullscreen” 占用整个可用的显示区域；</li><li>“standalone” 使其外观和感觉就像一个独立的本机应用程序；</li><li>“minimal-ui” 类似于 standalone 模式，但为最终用户提供了一些方法来访问用于控制导航的最小 UI 元素集（即，后退，前进，重新加载以及可能以某种方式查看文档的地址）；</li><li>“browser” 使用特定于平台的约定打开 Web 应用程序，以在用户代理中打开超链接（例如，在浏览器选项卡或新窗口中）；</li></ul><p><strong>orientation</strong> Web 应用程序的所有顶级浏览上下文的默认方向。</p><p><strong>start_url</strong> 表示起始 URL 的字符串，该 URL 是用户启动 Web 应用程序时开发人员更喜欢用户代理加载的 URL（例如，当用户从设备的应用程序菜单中单击 Web 应用程序的图标时或主屏幕）。</p><p><strong>serviceworker</strong> 表示应用中 serviceWorker 的信息。</p><pre><code class="json">&quot;serviceworker&quot;: {
+  &quot;src&quot;: &quot;sw.js&quot;,
+  &quot;scope&quot;: &quot;/foo&quot;,
+  &quot;update_via_cache&quot;: &quot;none&quot;
+}</code></pre><p><strong>theme_color</strong> 应用程序上下文的默认主题颜色。</p><p><strong>related_applications</strong> 是底层应用程序平台可访问的应用程序。</p><p><strong>prefer_related_applications</strong> 表示相关应用程序是否应优先于当前的 Web 应用程序。</p><p><strong>background_color</strong> Web 应用程序的预期背景颜色。</p><p><strong>categories</strong> Web 应用程序所属的预期应用程序类别。</p><p><strong>screenshots</strong> 一个 ImageResources 数组，表示常见使用场景中的 Web 应用程序的截图。</p><p><strong>iarc_rating_id</strong> 用于确定 Web 应用程序适合的年龄。</p><p>一个完整的示例</p><pre><code class="json">{
+  &quot;lang&quot;: &quot;en&quot;,
+  &quot;dir&quot;: &quot;ltr&quot;,
+  &quot;name&quot;: &quot;Super Racer 3000&quot;,
+  &quot;description&quot;: &quot;The ultimate futuristic racing game from the future!&quot;,
+  &quot;short_name&quot;: &quot;Racer3K&quot;,
+  &quot;icons&quot;: [
+    {
+      &quot;src&quot;: &quot;icon/lowres.webp&quot;,
+      &quot;sizes&quot;: &quot;64x64&quot;,
+      &quot;type&quot;: &quot;image/webp&quot;
+    },
+    {
+      &quot;src&quot;: &quot;icon/lowres.png&quot;,
+      &quot;sizes&quot;: &quot;64x64&quot;
+    },
+    {
+      &quot;src&quot;: &quot;icon/hd_hi&quot;,
+      &quot;sizes&quot;: &quot;128x128&quot;
+    }
+  ],
+  &quot;scope&quot;: &quot;/racer/&quot;,
+  &quot;start_url&quot;: &quot;/racer/start.html&quot;,
+  &quot;display&quot;: &quot;fullscreen&quot;,
+  &quot;orientation&quot;: &quot;landscape&quot;,
+  &quot;theme_color&quot;: &quot;aliceblue&quot;,
+  &quot;background_color&quot;: &quot;red&quot;,
+  &quot;serviceworker&quot;: {
+    &quot;src&quot;: &quot;sw.js&quot;,
+    &quot;scope&quot;: &quot;/racer/&quot;,
+    &quot;update_via_cache&quot;: &quot;none&quot;
+  },
+  &quot;screenshots&quot;: [
+    {
+      &quot;src&quot;: &quot;screenshots/in-game-1x.jpg&quot;,
+      &quot;sizes&quot;: &quot;640x480&quot;,
+      &quot;type&quot;: &quot;image/jpeg&quot;
+    },
+    {
+      &quot;src&quot;: &quot;screenshots/in-game-2x.jpg&quot;,
+      &quot;sizes&quot;: &quot;1280x920&quot;,
+      &quot;type&quot;: &quot;image/jpeg&quot;
+    }
+  ]
+}</code></pre><p>要在页面是使用的话直接用<link>标签引用即可。</p><pre><code class="html">&lt;link rel=&quot;manifest&quot; href=&quot;/manifest.json&quot; /&gt;</code></pre><p>这样浏览器就可以安装你的 Web 应用了。</p></section></article><section class="prev-next card slide-in-right"><a href="/post/2019/07/26/hugo-travis-github-page/" class="link prev" title="使用 Travis CI 部署 Hugo 博客到 Github Pages"><span class="hover-underline-animation">&larr; 使用 Travis CI 部署 Hugo 博客到 Github Pages</span> </a><a href="/post/2019/07/23/add-pwa-support-to-hugo/" class="link next" title="让 Hugo 博客支持 PWA"><span class="hover-underline-animation">让 Hugo 博客支持 PWA &rarr;</span></a></section><section class="article-toc"><div class="card uk-margin-remove-bottom"></div></section><section class="article slide-in-right"><div class="loader" id="loader"><svg viewBox="0 0 50 50"><circle class="ring" cx="25" cy="25" r="20"></circle><circle class="ball" cx="25" cy="5" r="3.5"></circle></svg></div><div class="comment" id="utteranc"></div><noscript>Please activate JavaScript for normal use of comments</noscript></section><a class="card back-to-top" id="backTop">&UpArrow;</a></main><script>window.COLD_STONE={root:"/",author:"Cold Stone",gaid:"UA-119658292-2",repo:"xrr2016/blog"}</script><script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script><script>hljs.initHighlightingOnLoad()</script><script src="/scripts/busuanzi.js" referrerpolicy="origin"></script><script src="/scripts/cold-stone.js"></script><script src="//www.googletagmanager.com/gtag/js?id=UA-119658292-2"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config",window.COLD_STONE.gaid)</script></body></html>
