@@ -207,3 +207,13 @@ if (article) {
     articleToc.classList.remove('fade')
   })
 }
+
+// wave
+const wave = document.getElementById('wave')
+
+if (wave) {
+  const colors = ['#ffffff', '#0099FF', '#00CBA9']
+  const random = colors[Math.floor(Math.random() * colors.length)]
+  const path = wave.getElementsByTagName('path')[0]
+  path.setAttribute('fill', random)
+}
