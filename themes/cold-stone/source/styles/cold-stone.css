@@ -669,6 +669,9 @@ img::selection {
   flex: 1;
   margin-right: 1rem;
 }
+.index-post-link {
+  display: block;
+}
 
 .index-aside {
   width: 200px;
@@ -913,4 +916,16 @@ body.dark .hover-underline-animation::after {
   .hover-underline-animation::after {
     background-color: #fff;
   }
+}
+
+.friend-link {
+  display: flex;
+  align-items: center;
+}
+
+.friend-avatar {
+  display: inline-block;
+  width: 36px;
+  border-radius: 50%;
+  margin-right: 12px;
 }
