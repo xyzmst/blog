@@ -7,7 +7,9 @@ tags:
   - Flutter
 ---
 
-Flutter 应用进行路由跳转的时候有默认的过渡动画，但是自定义的跳转动画会让你的应用更具特色
+![flutter-routes](./images/transition.jpg)
+
+Flutter 应用进行路由跳转的时候有默认的过渡动画，但是自定义的跳转动画会让应用更具特色
 
 <!--more-->
 
