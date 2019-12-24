@@ -783,7 +783,6 @@ code {
 /* shadow */
 .card,
 .header,
-.footer,
 .article,
 .avatar-img {
   box-shadow: var(--shadow);
