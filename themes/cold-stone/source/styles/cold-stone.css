@@ -8,6 +8,8 @@
   --wrapper-width: 920px;
   --menu-fore-color: #53586a;
   --shadow: 0 0.4rem 0.8rem -0.1rem rgba(0, 32, 128, 0.1), 0 0 0 1px #f0f2f7;
+  --light-shadow: 0 14px 25px rgba(0, 0, 0, 0.16);
+  --dark-shadow: 0 14px 25px rgba(255, 255, 255, 0.16);
 }
 
 ::-moz-selection {
@@ -173,6 +175,10 @@ tr td {
   margin-bottom: 1rem;
   padding: 1rem;
   background-color: #ffffff;
+}
+
+.card-hover:hover {
+  box-shadow: var(--light-shadow);
 }
 
 .post-anchor {
@@ -837,6 +843,15 @@ body.dark .aside-tags .tag-item,
 body.dark .uk-modal-dialog,
 body.dark .uk-modal-close-full {
   background-color: var(--bg-darken);
+}
+
+body.dark .card,
+body.dark .article {
+  box-shadow: none;
+}
+
+body.dark .card-hover:hover {
+  box-shadow: var(--dark-shadow);
 }
 
 body.dark .footer {
