@@ -16,16 +16,16 @@ Flutter 应用进行路由跳转的时候有默认的过渡动画，但是自定
 ## TL;DR
 
 1. 使用 `PageRouteBuilder` 创建自定义路由
-2. 在 `pageBuilder` 方法返回跳转页面
-3. 在 `transitionsBuilder` 方法里创建过渡动画
+2. 在 `transitionsBuilder` 方法里创建过渡动画
+3. 过渡动画示例
 4. 定义全局路由过渡动画
 5. 封装自定义路由
 
+## 前言
+
+在 `Flutter` 中使用 `Navigator.of(context).push(Route route);` 方法进行路由跳转时就需要传一个 `Route` 对象，通常使用 `MaterialPageRoute(builder: () {});` 创建，使用时会在路由跳转过程中添加默认的过渡动画。当需要自定义路由过渡动画时，就要使用 `PageRouteBuilder`，它是 `Flutter` 提供的用来创建自定义的路由的一个类，实例化这个类会得到一个路由对象 `Route`，要做的就是创建一个自定义的 `Route`。
+
 ## PageRouteBuilder
-
-当使用 `Navigator.of(context).push(Route route);` 方法进行路由跳转时就需要传一个 `Route` 对象，通常我们使用 `MaterialPageRoute(builder: () {});` 创建，使用时会在路由跳转过程中添加它的方法 `buildTransitions` 创建的默认的过渡动画。
-
-要自定义路由过渡动画，需要使用 `PageRouteBuilder`，它是 `Flutter` 提供的用来创建自定义的路由的一个类，实例化这个类会得到一个路由对象 `Route`。
 
 使用 `PageRouteBuilder` 创建自定义路由过渡动画时需要传入两个回调函数作为参数，一个必要参数 `pageBuilder`，这个函数用来创建跳转的页面，另一个函数 `transitionsBuilder`，这个函数就是实现过渡动画的地方。
 
@@ -461,7 +461,7 @@ Navigator.pushNamed(context, '/second', arguments: {});
 
 ## 设置全局的路由过渡动画
 
-上文提到 `Flutter` 的默认路由过渡动画是由 `buildTransitions` 方法创建的，它使用的是 `Theme.of(context).pageTransitionsTheme`方法，因此可以定义全局的路由跳转过渡动画。
+`Flutter` 的默认路由过渡动画是由 `buildTransitions` 方法创建的，它使用的是 `Theme.of(context).pageTransitionsTheme`方法，因此可以定义全局的路由跳转过渡动画。
 
 ```dart
 @override
