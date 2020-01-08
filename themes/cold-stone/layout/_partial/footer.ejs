@@ -31,10 +31,11 @@
         </svg>
       </button>
     </div>
-
-    <p>Copyright &copy; 2019 &nbsp;</p>
-    <a class="theme-link" rel="noopener" href="https://github.com/xrr2016/hexo-theme-cold-stone" target="_blank">
-      Theme Cold Stone
-    </a>
+    <p class="footer-text">Copyright &copy; 2019</p>
+    <a class="theme-link" rel="noopener" href="https://github.com/xrr2016/hexo-theme-cold-stone" target="_blank">Theme Cold Stone</a>
+    <p class="footer-text"><%= __('blog.wordcount') %>&#58; <%= totalcount(site) %></p>
+    <p class="footer-text hide" id="busuanzi_container_site_uv">
+      <%= __('blog.visitcount') %>&#58; <span id="busuanzi_value_site_uv"></span>
+    </p>
   </div>
 </footer>
