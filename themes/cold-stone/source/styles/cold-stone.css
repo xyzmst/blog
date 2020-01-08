@@ -633,6 +633,13 @@ img::selection {
   margin-left: 1rem;
 }
 
+@media screen and (max-width: 768px) {
+  .footer .footer-text {
+    font-size: 0.8rem;
+    margin-left: 4px;
+  }
+}
+
 .post-info {
   flex: 1;
 }
