@@ -954,3 +954,24 @@ body.dark .hover-underline-animation::after {
   border-radius: 50%;
   margin-right: 12px;
 }
+
+.auto-typing {
+  width: 39ch;
+  overflow: hidden;
+  border-right: 1px solid transparent;
+  font-family: Consolas, Monaco, Monospace;
+  white-space: nowrap;
+  animation: typing 6s steps(39) 0s backwards, caret 600ms steps(1) 0s 10 forwards;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes caret {
+  50% {
+    border-right-color: currentColor;
+  }
+}
