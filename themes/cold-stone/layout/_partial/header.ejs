@@ -1,4 +1,5 @@
 <header class="header" uk-sticky="top: 100; animation: uk-animation-slide-top; bottom: #sticky-on-scroll-up">
+  <div class="header-bar"></div>
   <nav class="wrapper header-content">
     <div class="nav-overlay uk-navbar-left">
       <h1 class="title nav-list-item uk-logo" data-link="<%= url_for(config.root) %>">
@@ -32,13 +33,13 @@
     </div>
 
     <% if (is_post()) { %>
-      <div class="uk-navbar-right translate-x">
-        <a class="uk-navbar-toggle" href="#modal-full" uk-search-icon uk-toggle></a>
-      </div>
+    <div class="uk-navbar-right translate-x">
+      <a class="uk-navbar-toggle" href="#modal-full" uk-search-icon uk-toggle></a>
+    </div>
     <% } else { %>
-      <div class="uk-navbar-right">
-        <a class="uk-navbar-toggle" href="#modal-full" uk-search-icon uk-toggle></a>
-      </div>
+    <div class="uk-navbar-right">
+      <a class="uk-navbar-toggle" href="#modal-full" uk-search-icon uk-toggle></a>
+    </div>
     <% } %>
   </nav>
 </header>
