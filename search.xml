@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>使用 Codemagic 持续部署 Flutter 应用 (上)</title>
+      <link href="/post/2020/02/03/flutter-cicd/"/>
+      <url>/post/2020/02/03/flutter-cicd/</url>
+      
+        <content type="html"><![CDATA[<img src="https://blog.codemagic.io/uploads/2019/01/FB-build-test-publish-100.fdfb1baaca70728207ad87f5a7e36350d8c8e0693eff9616cc6758134c5542e0.jpg" alt="Codemagic" width="672"><a id="more"></a><h2 id="什么是-Codemagic"><a href="#什么是-Codemagic" class="headerlink" title="什么是 Codemagic"></a>什么是 <code>Codemagic</code></h2><p><a href="https://codemagic.io" target="_blank" rel="noopener">Codemagic</a> 是一个为 <code>Flutter</code> 项目以及其它移动端项目提供 CI/CD 服务的平台。</p><p>可以使用 Github 账号注册登录，登录后它会要求获得你仓库的读/写权限，然后在 <a href="https://codemagic.io/apps" target="_blank" rel="noopener">apps</a> 页面显示你需要进行构建的项目。</p><p><img src="./images/code-apps.jpg" alt="code-apps"></p><h2 id="为什么使用-Codemagic"><a href="#为什么使用-Codemagic" class="headerlink" title="为什么使用 Codemagic"></a>为什么使用 <code>Codemagic</code></h2><p>好的 <code>CI/CD</code> 有助于更快地构建，测试以及部署发布应用。在 <code>Flutter</code> 的官方文档 <a href="https://flutter.cn/docs/deployment/cd" target="_blank" rel="noopener">Flutter 里的持续部署</a> 里介绍了使用 <code>fastlane</code> 工具进行本地部署以及如何将 <code>fastlane</code> 整合到 <code>Travis</code>，<code>Cirrus</code>，<code>Bitrise</code> 等持续交付的服务中，但是对于 <code>Flutter</code> 项目来说最方便的 <code>CI/CD</code> 服务应该还是 <code>Codemagic</code>，它可以直接在网页上就配置出完整的应用交付流程。</p><h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><p>选择需要构建的 <code>Fluter</code> 项目，点击 <code>Start your first build</code> 按钮，创建一个工作流程 <code>Workflow</code>。<br>一个 <code>Workflow</code> 指的是每次构建要做的任务，如执行构建，测试以及发布任务。</p><p>对于 <code>Flutter</code> 项目可以在网页上配置或使用 <code>codemagic.yaml</code> 配置文件，其它项目只能使用 <code>codemagic.yaml</code> 配置。</p><p><img src="./images/workflow.jpg" alt="workflow"></p><p>一个 <code>Workflow</code> 由以下几个部分组成</p><ol><li><code>Build triggers</code> –&gt; 指定的构建分支和触发构建的时机</li></ol><p><img src="./images/build-triggers.jpg" alt="build-triggers"></p><ol start="2"><li><code>Environment variables</code> –&gt; 设置构建时的环境变量</li></ol><p><img src="https://docs.codemagic.io/uploads/env_vars.PNG" alt="env_vars"></p><ol start="3"><li><code>Dependency caching</code> –&gt; 设置构建时的依赖缓存文件目录，加快构建速度</li></ol><p><img src="https://docs.codemagic.io/uploads/2019/04/caching_enabled.PNG" alt="caching"></p><ol start="4"><li><code>Test</code> –&gt; 执行应用的单元，集成和部件测试，以及静态代码分析</li></ol><p><img src="./images/code-test.jpg" alt="code-test"></p><ol start="5"><li><code>Build</code> –&gt; 配置应用构建时的 Flutter 版本，构建目标，构建参数</li></ol><p><img src="./images/code-build.jpg" alt="code-build"></p><ol start="6"><li><code>Publish</code> –&gt; 选择需要发布应用的目标，这里我选择了 <code>Google play</code></li></ol><p><img src="./images/code-publish.jpg" alt="code-publish"></p><h2 id="代码签名"><a href="#代码签名" class="headerlink" title="代码签名"></a>代码签名</h2><p>要将应用发布到 <code>Apple store</code> 或者 <code>Goople play</code> 上就必须对你的应用进行代码签名，代码签名目的是为了识别谁开发了该应用程序，并确保该应用程序的所有更新均来自这个人。</p><p>对于 Android 来说有两种签名：发布签名和上传签名。最终用户下载的 <code>.aab/.apk</code> 文件使用发布签名。上传签名提供给开发者上传到 <code>Google Play</code> 商店的认证。上传后，<code>Google Play</code> 会重新使用发布签名对 <code>.aab/.apk</code> 文件签名。</p><p>在配置 <code>Workflow</code> 时，我选择发布到 <code>Goople play</code> 所以需要对 Android 应用进行代码签名，有以下两种方式进行签名，选择其一即可。</p><ol><li>使用 <code>Android Studio</code> <a href="https://developer.android.google.cn/studio/publish/app-signing#sign-apk" target="_blank" rel="noopener">为您的应用签名</a></li><li>使用命令行工具进行签名 <a href="https://flutter.cn/docs/deployment/android#signing-the-app" target="_blank" rel="noopener">为 app 签名</a></li></ol><p>签名后需要做的是把签名信息存到工作流程 <code>Workflow</code> 内，<a href="https://docs.codemagic.io/code-signing/android-code-signing/" target="_blank" rel="noopener">Android code signing</a>。</p><h2 id="创建-Service-Account"><a href="#创建-Service-Account" class="headerlink" title="创建 Service Account"></a>创建 <code>Service Account</code></h2><p><code>Service Account</code> 是给 <code>CI/CD</code> 平台发布构建后应用用的，根据指引创建 <a href="https://docs.codemagic.io/publishing/publishing-to-google-play/#setting-up-a-service-account-in-google-play-console" target="_blank" rel="noopener">Setting up a service account in Google Play Console</a>，创建后需做的上传你的凭证 JSON 文件</p><p><img src="./images/code-google-play.jpg" alt="code-google-play"></p><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol><li>在使用 <code>CI/CD</code> 服务前首先要人工的上传应用到 <code>Google Play</code> 一次。</li><li>每次上传到 <code>Google Play</code> 的应用构建版本不能重复，否则会遇到这样一个问题</li></ol><pre><code class="sh">Google Play responded with: APK specifies a version code that has already been used.</code></pre><p>搜索一番后发现问题是应用构建的版本号重复，需要更新 <code>pubspec.yaml</code> 文件的 <code>version</code> 字段的值，详细说明可以查阅这篇文章 <a href="https://flutter.cn/docs/deployment/android#updating-the-apps-version-number" target="_blank" rel="noopener">更新应用版本号</a></p><ol start="3"><li>上传 <code>Google Play</code> 需要添加一个环境变量 <code>FCI_KEYSTORE_FILE</code>，这个变量需要用 base64 encode 一下，需要用到的命令是<pre><code class="sh">base64 input-file-path -o output.txt</code></pre></li></ol><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>使用 <code>Codemagic</code> 发布 Flutter 应用的流程大致如下</p><ol><li>选择构建项目</li><li>配置构建流程</li><li>进行代码签名</li><li>创建 Service Account</li><li>触发构建</li></ol><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://flutter.cn/docs/deployment/cd" target="_blank" rel="noopener">Flutter 里的持续部署</a></p><p><a href="https://docs.codemagic.io/" target="_blank" rel="noopener">Codemagic Documentation</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Flutter </tag>
+            
+            <tag> Codemagic </tag>
+            
+            <tag> Google Play </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>为 Flutter 应用添加搜索功能</title>
       <link href="/post/2020/01/26/flutter-show-search/"/>
       <url>/post/2020/01/26/flutter-show-search/</url>
