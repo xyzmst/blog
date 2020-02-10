@@ -126,7 +126,7 @@ tr td {
 }
 
 header .header-bar {
-  padding: 1px 0;
+  padding: 0.5px 0;
   background: linear-gradient(90deg, #c2e9fb 0%, #a1c4fd 50%, #00a672 100%);
 }
 
