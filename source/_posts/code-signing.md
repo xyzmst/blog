@@ -23,8 +23,7 @@ Flutter 项目代码签名
 
 ## iOS
 
+1. 在 [Apple Developer Account console](https://developer.apple.com/account/ios/certificate/) 创建并下载一个分发证书。
+2. 打开 `ios/Runner.xcworkspace` 在你的项目设置里选择一个分发证书。
+
 [官方文档](https://developer.apple.com/support/code-signing/)
-
-- 在 [Apple Developer Account console](https://developer.apple.com/account/ios/certificate/) 创建并下载一个分发证书。
-
-- 打开 [project]/ios/Runner.xcworkspace/ 在你的项目设置里选择一个分发证书。

@@ -24,8 +24,7 @@ body {
   scroll-behavior: smooth;
   transition: all ease 0.3s;
   background-color: var(--bg-white);
-  background-image: linear-gradient(
-      0deg,
+  background-image: linear-gradient(0deg,
       transparent 24%,
       rgba(201, 195, 195, 0.329) 25%,
       rgba(209, 201, 201, 0.05) 26%,
@@ -34,10 +33,8 @@ body {
       rgba(209, 204, 204, 0.185) 75%,
       rgba(180, 176, 176, 0.05) 76%,
       transparent 77%,
-      transparent
-    ),
-    linear-gradient(
-      90deg,
+      transparent),
+    linear-gradient(90deg,
       transparent 24%,
       rgba(204, 196, 196, 0.226) 25%,
       rgba(172, 165, 165, 0.05) 26%,
@@ -46,8 +43,7 @@ body {
       rgba(209, 204, 204, 0.185) 75%,
       rgba(180, 176, 176, 0.05) 76%,
       transparent 77%,
-      transparent
-    );
+      transparent);
   background-size: 50px 50px;
 }
 
@@ -757,6 +753,7 @@ img::selection {
 
 .avatar-img {
   border-radius: 50%;
+  height: 180px;
 }
 
 .author {
@@ -870,111 +867,7 @@ code {
   }
 }
 
-/* dark */
-body.dark,
-body.dark .search-form-input {
-  color: #ffffff;
-  background-color: var(--bg-dark);
-}
 
-body.dark .card,
-body.dark .header,
-body.dark .navbar,
-body.dark .article,
-body.dark .tag-item,
-body.dark .aside-tags .tag-item,
-body.dark .uk-modal-dialog,
-body.dark .uk-modal-close-full {
-  background-color: var(--bg-darken);
-}
-
-body.dark .card,
-body.dark .article {
-  box-shadow: none;
-}
-
-body.dark .card-hover:hover {
-  box-shadow: var(--dark-shadow);
-}
-
-body.dark .footer {
-  box-shadow: none;
-}
-
-body.dark .footer .wave path {
-  fill: var(--bg-dark);
-}
-
-body.dark .search-form {
-  border-color: #fff;
-}
-
-body.dark h2,
-body.dark h3,
-body.dark h4,
-body.dark h5,
-body.dark h6,
-body.dark .title,
-body.dark .animate-list__title,
-body.dark .article-title,
-body.dark .article-meta,
-body.dark .navbar a,
-body.dark blockquote {
-  color: #fff;
-}
-
-body.dark tr:nth-child(2n) {
-  background-color: #4e4a4a;
-}
-
-body.dark .hover-underline-animation::after {
-  background-color: #fff;
-}
-
-@media (prefers-color-scheme: dark) {
-  html,
-  body,
-  .search-form-input {
-    color: #ffffff;
-    background-color: var(--bg-dark);
-  }
-
-  .card,
-  .header,
-  .footer,
-  .navbar,
-  .article,
-  .tag-item,
-  .aside-tags .tag-item {
-    background-color: var(--bg-darken);
-  }
-
-  .search-form {
-    border-color: #fff;
-  }
-
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  .title,
-  .animate-list__title,
-  .article-title,
-  .article-meta,
-  .navbar a,
-  blockquote {
-    color: #fff;
-  }
-
-  tr:nth-child(2n) {
-    background-color: #4e4a4a;
-  }
-
-  .hover-underline-animation::after {
-    background-color: #fff;
-  }
-}
 
 .friend-link {
   display: flex;
@@ -1031,14 +924,12 @@ body.dark .hover-underline-animation::after {
 }
 
 .bubble-bgwall li {
-  display: flex;
   position: absolute;
-  bottom: -200px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  width: 70px;
-  height: 70px;
+  bottom: -100px;
+  list-style: none;
+  font-size: 12px;
+  padding: 10px 20px;
+  border-radius: 10px;
   color: var(--text-gray);
   background-color: #fff;
   animation: bubble 15s infinite;
@@ -1050,8 +941,6 @@ body.dark .hover-underline-animation::after {
 
 .bubble-bgwall li:nth-child(2) {
   left: 20%;
-  width: 90px;
-  height: 90px;
   animation-duration: 7s;
   animation-delay: 2s;
 }
@@ -1063,8 +952,6 @@ body.dark .hover-underline-animation::after {
 
 .bubble-bgwall li:nth-child(4) {
   left: 40%;
-  width: 60px;
-  height: 60px;
   animation-duration: 8s;
 }
 
@@ -1074,41 +961,40 @@ body.dark .hover-underline-animation::after {
 
 .bubble-bgwall li:nth-child(6) {
   left: 80%;
-  width: 120px;
-  height: 120px;
   animation-delay: 3s;
 }
 
 .bubble-bgwall li:nth-child(7) {
   left: 32%;
-  width: 160px;
-  height: 160px;
   animation-delay: 2s;
 }
 
 .bubble-bgwall li:nth-child(8) {
   left: 55%;
-  width: 40px;
-  height: 40px;
-  font-size: 12px;
   animation-duration: 15s;
   animation-delay: 4s;
 }
 
 .bubble-bgwall li:nth-child(9) {
   left: 25%;
-  width: 40px;
-  height: 40px;
-  font-size: 12px;
   animation-duration: 12s;
   animation-delay: 2s;
 }
 
 .bubble-bgwall li:nth-child(10) {
   left: 85%;
-  width: 160px;
-  height: 160px;
   animation-delay: 5s;
+}
+
+.bubble-bgwall li:nth-child(11) {
+  left: 35%;
+  animation-duration: 10s;
+  animation-delay: 7s;
+}
+
+.bubble-bgwall li:nth-child(11) {
+  left: 90%;
+  animation-duration: 8s;
 }
 
 @keyframes bubble {
@@ -1131,4 +1017,113 @@ body.dark .hover-underline-animation::after {
     opacity: 0;
     transform: translateY(-1000px) rotate(180deg);
   }
+}
+
+@media (prefers-color-scheme: dark) {
+
+  html,
+  body,
+  .search-form-input,
+  .bubble-bgwall li {
+    color: #ffffff;
+    background-color: var(--bg-dark);
+  }
+
+  .card,
+  .header,
+  .footer,
+  .navbar,
+  .article,
+  .tag-item,
+  .aside-tags .tag-item {
+    background-color: var(--bg-darken);
+  }
+
+  .search-form {
+    border-color: #fff;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .title,
+  .animate-list__title,
+  .article-title,
+  .article-meta,
+  .navbar a,
+  blockquote {
+    color: #fff;
+  }
+
+  tr:nth-child(2n) {
+    background-color: #4e4a4a;
+  }
+
+  .hover-underline-animation::after {
+    background-color: #fff;
+  }
+}
+
+/* dark */
+body.dark,
+body.dark .search-form-input,
+body.dark .bubble-bgwall li {
+  color: #ffffff;
+  background-color: var(--bg-dark);
+}
+
+body.dark .card,
+body.dark .header,
+body.dark .navbar,
+body.dark .article,
+body.dark .tag-item,
+body.dark .aside-tags .tag-item,
+body.dark .uk-modal-dialog,
+body.dark .uk-modal-close-full {
+  background-color: var(--bg-darken);
+}
+
+body.dark .card,
+body.dark .article {
+  box-shadow: none;
+}
+
+body.dark .card-hover:hover {
+  box-shadow: var(--dark-shadow);
+}
+
+body.dark .footer {
+  box-shadow: none;
+}
+
+body.dark .footer .wave path {
+  fill: var(--bg-dark);
+}
+
+body.dark .search-form {
+  border-color: #fff;
+}
+
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6,
+body.dark .title,
+body.dark .animate-list__title,
+body.dark .article-title,
+body.dark .article-meta,
+body.dark .navbar a,
+body.dark blockquote {
+  color: #fff;
+}
+
+body.dark tr:nth-child(2n) {
+  background-color: #4e4a4a;
+}
+
+body.dark .hover-underline-animation::after {
+  background-color: #fff;
 }
