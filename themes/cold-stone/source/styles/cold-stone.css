@@ -334,8 +334,8 @@ img::selection {
 }
 
 .article-license .license-img {
-  width: 50px;
-  margin-right: 4px;
+  width: 60px;
+  margin-left: 4px;
 }
 
 /* tags */
