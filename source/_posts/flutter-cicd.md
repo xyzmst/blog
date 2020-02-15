@@ -1,5 +1,5 @@
 ---
-title: 使用 Codemagic 持续部署 Flutter 应用 (上)
+title: Flutter 持续集成/持续部署 01
 categories:
   - 技术
 tags:
@@ -12,6 +12,10 @@ date: 2020-02-03 22:36:16
 <img src="https://blog.codemagic.io/uploads/2019/01/FB-build-test-publish-100.fdfb1baaca70728207ad87f5a7e36350d8c8e0693eff9616cc6758134c5542e0.jpg" alt="Codemagic" width="672" >
 
 <!--more-->
+
+## 前言
+
+持续集成和持续部署能够自动化应用开发的测试，构建和部署过程，如果在应用开发初期解决了这个问题无疑提升应用的开发，交付效率。
 
 ## 什么是 `Codemagic`
 
