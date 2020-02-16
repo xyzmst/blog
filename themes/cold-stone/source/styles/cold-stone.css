@@ -229,7 +229,7 @@ img::selection {
 /* article */
 .article {
   margin-bottom: 1rem;
-  padding: 2rem 2% 1rem 2%;
+  padding: 2rem 3% 1rem 3%;
   border-radius: 0.25rem;
   background-color: #ffffff;
 }
@@ -328,14 +328,10 @@ img::selection {
   }
 }
 
-.article-license {
-  display: flex;
-  align-items: center;
-}
-
 .article-license .license-img {
-  width: 60px;
+  width: 120px;
   margin-left: 4px;
+  margin-top: -4px;
 }
 
 /* tags */
@@ -866,8 +862,6 @@ code {
     text-overflow: unset;
   }
 }
-
-
 
 .friend-link {
   display: flex;

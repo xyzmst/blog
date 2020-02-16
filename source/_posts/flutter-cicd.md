@@ -1,5 +1,5 @@
 ---
-title: Flutter 持续集成/持续部署 01
+title: 使用 Codemagic 持续部署 Flutter 应用
 categories:
   - 技术
 tags:

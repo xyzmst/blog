@@ -9,7 +9,7 @@ date: 2020-01-26 17:34:54
 
 <img src="images/flutter_show_search.png" height="320" style="height: 340px; object-fit: cover;">
 
-自定义 `SearchDelegate` 给 Flutter 应用添加搜索功能
+使用 `SearchDelegate` 给 Flutter 应用添加搜索功能
 
 <!--more-->
 
