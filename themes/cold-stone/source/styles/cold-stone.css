@@ -506,6 +506,10 @@ img::selection {
   animation: slideInRight 0.3s linear both;
 }
 
+.animate-list__item img {
+  max-height: 420px;
+}
+
 .animate-list__title {
   margin-top: 0;
   max-width: 100%;
