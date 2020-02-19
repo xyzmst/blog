@@ -83,6 +83,7 @@
 <script>
 	const articleTheDay = document.getElementById('article-the-day')
 	const articleTitle = articleTheDay.querySelector('.title')
+	const articleDigest = articleTheDay.querySelector('.digest')
 	const articleContent = articleTheDay.querySelector('.content')
 	const articleTime = articleTheDay.querySelector('.time')
 	const articleAuthor = articleTheDay.querySelector('.author')
@@ -98,6 +99,7 @@
 				wc,
 				title,
 				content,
+				digest,
 				author,
 				date: {
 					curr
@@ -105,6 +107,7 @@
 			} = data
 
 			articleTitle.innerText = title
+			articleDigest.innerText = digest
 			articleContent.innerHTML = content
 			articleTime.innerText = curr
 			articleTime.datetime = curr
@@ -117,6 +120,14 @@
 	}
 
 	getDayArticle()
+
+	articleTitle.addEventListener('click', function () {
+		if (articleContent.getAttribute('hidden') === '') {
+			articleDigest.classList.add('hide')
+		} else {
+			articleDigest.classList.remove('hide')
+		}
+	})
 
 </script>
 <% } %>
