@@ -29,5 +29,6 @@ blog:
   totalpost: 共计
   wordcount: 总字数
   visitcount: 访客数
+  viewcount: 访问量
 
 back: 返回
