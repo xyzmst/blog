@@ -117,7 +117,11 @@
 		})
 	}
 
-	getDayArticle()
+	if (Math.random() >= 0.5) {
+		getDayArticle()
+	} else {
+		articleTheDay.classList.add('hide')
+	}
 
 	articleTitle.addEventListener('click', function () {
 		if (articleContent.getAttribute('hidden') === '') {

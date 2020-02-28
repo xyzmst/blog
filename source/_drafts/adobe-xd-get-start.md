@@ -1,8 +1,8 @@
 ---
-title: adobe-xd-get-start
+title: 上手 Adobe XD
 categories:
-  - 技术
+  - 教学
 tags:
-  - xxx
+  - Adobe
 date: 2020-02-15 13:59:47
 ---
