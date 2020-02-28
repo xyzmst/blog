@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>使用 Github Actions 持续发布 Flutter 应用</title>
+      <link href="/post/2020/02/26/flutter-github-actions/"/>
+      <url>/post/2020/02/26/flutter-github-actions/</url>
+      
+        <content type="html"><![CDATA[<p><img src="./images/flutter-action-sm.jpg" alt="action"></p><p>本文讲解如何使用 Github Actions 构建并发布 Flutter 应用</p><a id="more"></a><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><a href="https://help.github.com/en/actions" target="_blank" rel="noopener">Github Actions</a> 是 Github 提供的一种 CI/CD 服务，如果你的 Flutter 应用代码放在 Github 上，那就可以使用这个服务自动化进行应用测试，构建，发布工作了。</p><p>先说下 Github Actions 几个核心概念，感觉还是挺易懂的，不得不说 Github Actions 的设计很厉害 😄</p><p><strong><code>Workflow file</code></strong></p><p>配置工作流程的文件，YAML 格式，放在项目根目录的 <code>.github/workflows</code> 目录内</p><p><strong><code>Workflow</code></strong></p><p>由配置文件定义的一个工作流程，由一系列的的任务组成</p><p><strong><code>Job</code></strong></p><p>工作流程中的一个任务，由一系列的步骤 Step 组成</p><p><strong><code>Step</code></strong></p><p>一个任务其中的一个执行步骤，执行一些命令或者 Action</p><p><strong><code>Action</code></strong></p><p>一个步骤中的具体要进行操作，如拉取代码，发送请求等，可以使用自己或社区共享的 Action</p><p><strong><code>Event</code></strong></p><p>触发工作流程运行的事件，比如推送代码到仓库 push，创建一个版本标签 tag 等</p><p><strong><code>Artifact</code></strong></p><p>工程流程执行时产生的东西</p><p><strong><code>Runner</code></strong></p><p>就是工作流程运行的地方，Github 提供的服务器</p><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>下面用一个示例项目来说明如何使用 Github Actions 发布 Flutter 应用，先放成果 <a href="https://github.com/xrr2016/flutter-github-gitlab/releases" target="_blank" rel="noopener">地址</a></p><p><img src="./images/flutter-release.jpg" alt="main.yml"></p><ol><li>首先创建一个 Flutter 项目</li></ol><pre><code class="sh">flutter create flutter_github_actions</code></pre><ol start="2"><li>添加一个配置文件 <code>.github/workflows/main.yml</code></li></ol><p><img src="./images/main-yml.jpg" alt="main.yml"></p><ol start="3"><li>配置工作流程，将代码推送到 Github</li></ol><pre><code class="yml"># main.yml# 工作流程的名字name: Test, Build and Release apk# 工作流程触发的时机，这里是当一个版本标签推送到仓库时触发on:  push:    tags:      - v*# 这个工作流程需要执行的任务jobs:  process:    name: all process    runs-on: ubuntu-latest    # 这个任务的步骤    steps:      # 拉取项目代码      - uses: actions/checkout@v2      # 建立 java 环境      - name: Setup Java JDK        uses: actions/setup-java@v1.3.0        with:          java-version: &quot;12.x&quot;      # 建立 Flutter 环境      - name: Flutter action        uses: subosito/flutter-action@v1.1.1        with:          channel: &quot;stable&quot;          flutter-version: &quot;1.12.x&quot;      # 下载项目依赖      - run: flutter pub get      # 执行测试      - run: flutter test      # 打包 APK      - run: flutter build apk --release      # 发布到 Release      - name: Release apk        uses: ncipollo/release-action@v1.5.0        with:          artifacts: &quot;build/app/outputs/apk/release/*.apk&quot;          token: ${{ secrets.GITHUB_RElEASE_TOKEN }}</code></pre><ol start="4"><li>创建 Token</li></ol><p>要把构建出来的 apk 发布到仓库的 Release，还需要创建一个 <a href="https://github.com/settings/tokens" target="_blank" rel="noopener">Personal access token</a> 提供发布 action 访问和操作代码仓库的权限，注意不要关闭浏览器标签，因为这个 token 只有在第一次创建的时候可见。</p><p><img src="./images/flutter-gtihub-token.jpg" alt="token"></p><ol start="5"><li>添加环境变量</li></ol><p>最后为了能在工作流程中创建的 token，需要在仓库的 secrets 里添加一个环境变量 <code>GITHUB_RElEASE_TOKEN</code> 来储存 token 值</p><p><img src="./images/github-secrets.jpg" alt="secrets"></p><ol start="6"><li>触发构建</li></ol><p>最后创建一个版本标签，推送到仓库触发工作流程</p><pre><code class="sh">git tag v1.0.0git push --tag</code></pre><p>然后就可以在仓库的 Actions 里面看到正在运行的工作流程了</p><p><img src="./images/github-workflow.jpg" alt="workflow"></p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总结一下就是以下 4 个步骤</p><ol><li>创建一个工作流程的配置文件 <code>.github/workflows/main.yml</code></li><li>创建一个 Personnal access token</li><li>在项目的 serect 里面添加一个环境变量 <code>GITHUB_RElEASE_TOKEN</code></li><li>推送一个版本标签🏷️，触发工作流程</li></ol><p>之后就可以在每次发布标签后自动发布了</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Flutter </tag>
+            
+            <tag> Github Actions </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MySQL 入门笔记 📒</title>
       <link href="/post/2020/02/12/mysql-getting-start/"/>
       <url>/post/2020/02/12/mysql-getting-start/</url>
