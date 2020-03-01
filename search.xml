@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>如何使用 Gitlib 持续发布 Flutter 应用</title>
+      <link href="/post/2020/02/27/flutter-gitlab-pineline/"/>
+      <url>/post/2020/02/27/flutter-gitlab-pineline/</url>
+      
+        <content type="html"><![CDATA[<p>本文介绍如何使用 Gitlib CI/CD 构建发布 Flutter 应用</p><a id="more"></a><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><a href="https://coldstone.fun/post/2020/02/26/flutter-github-actions/">前一篇文章</a>介绍了使用 Github Actions 持续发布 Flutter 应用，本文分享下如何使用 Gitlib 的 CI/CD 功能同样实现发布 Flutter 应用，因为有很多公司是用自己搭建的 Gitlab 来管理代码的。</p><p>要使用 Gitlib 的 CI/CD 功能首先需要在项目根目录创建一个 yml 格式的配置文件 <code>.gitlab-ci.yml</code>，这个配置文件会定义一个流水线 Pipeline。一个 Pipeline 由多个任务 Job 组成，任务就是具体要做的事情，如代码编译或测试； Pipeline 里的 stages 决定了任务何时以及如何运行。以下就是一个 Pipeline 有 3 个 stage，依次执行 build，test 和 deploy 任务。</p><pre><code class="yml">stages:  - build  - test  - deployjob01:  stage: build  script: echo &#39;build job&#39;job02:  stage: build  script: echo &#39;test job&#39;job03:  stage: deploy  script: echo &#39;deploy job&#39;</code></pre><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>要在 Pipeline 里构建打包 Flutter 应用的 apk，首先需要在流水线里配置 Android 以及 Flutter 环境，搜索一番后发现了一个 Github 上的 Flutter 镜像 <a href="https://github.com/cirruslabs/docker-images-flutter" target="_blank" rel="noopener">docker-images-flutter</a> 很适合，看这个镜像的 <a href="https://github.com/cirruslabs/docker-images-flutter/blob/master/sdk/Dockerfile" target="_blank" rel="noopener">Dockerfile</a> 可以发现它是从 <code>cirrusci/android-sdk:29</code> 这个 Android sdk 镜像开始，然后下载 Flutter SDK，这样就有了了 Android 和 Flutter 环境，接下来只需要运行测试和打包命令即可</p><pre><code class="yaml">stages:  - build  - release// build 阶段使用拥有 Android 以及 Flutter 环境的镜像，进行测试打包build:  stage: build  image: cirrusci/flutter:stable  only:    - tags  script:    // 下载依赖包    - flutter packages get    // 执行测试    - flutter test    // 打包 apk    - flutter build apk --release  // 这里定义任务生成的文件  artifacts:    expire_in: 1 hour    paths:      - build/app/outputs/apk/release/*.apk  interruptible: true</code></pre><h2 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h2><p>要发布 apk 文件到仓库的 release 还需要使用 <a href="https://github.com/inetprocess/gitlab-release" target="_blank" rel="noopener">gitlab-release</a> 这个镜像进行发布操作</p><pre><code class="yml">stages:  - build  - release// build 阶段使用拥有 Android 以及 Flutter 环境的镜像，进行测试打包build:  stage: build  image: cirrusci/flutter:stable  only:    - tags  script:    - flutter packages get    - flutter test    - flutter build apk --release  artifacts:    expire_in: 1 hour    paths:      - build/app/outputs/apk/release/*.apk  interruptible: true// 发布到仓库的 releaserelease:  image: inetprocess/gitlab-release  stage: release  only:    - tags  dependencies:    - build  script:    // 使用打包好的 apk 文件路径    - gitlab-release --message &#39;自动发布&#39; build/app/outputs/apk/release/*.apk</code></pre><p>发布还需要一个 <code>Personal Access Token</code> 给 release 任务提供 api 权限，有了 api 权限就可以请求 Gitlab 的 release 接口上传 apk 了</p><p><img src="./images/gitlib-token.jpg" alt="token"></p><p>使用刚才创建的 token 在项目仓库里配置流水线的环境变量 <code>GITLAB_ACCESS_TOKEN</code></p><p><img src="./images/gitlab-variable.jpg" alt="var"></p><p>最后创建一个版本标签推送到 Gitlab 仓库，就可以看到运行中的流水线了</p><pre><code class="sh">git tag v1.0.0git push --tag</code></pre><p><img src="./images/gitlib-pineline.jpg" alt="var"></p><p>流水线运行完毕，一个版本发布成功。</p><p><img src="./images/gitlib-release.jpg" alt="var"></p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol><li>添加流水线配置 <code>.gitlab-ci.yml</code></li><li>创建 <code>Personal Access Token</code></li><li>设置环境变量 <code>GITLAB_ACCESS_TOKEN</code></li><li>推送版本标签</li></ol><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://github.com/inetprocess/gitlab-release" target="_blank" rel="noopener">Gitlab Release</a></p><p><a href="https://docs.gitlab.com/ee/ci/quick_start/README.html" target="_blank" rel="noopener">Getting started with GitLab CI/CD</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Flutter </tag>
+            
+            <tag> Gitlib </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>使用 Github Actions 持续发布 Flutter 应用</title>
       <link href="/post/2020/02/26/flutter-github-actions/"/>
       <url>/post/2020/02/26/flutter-github-actions/</url>
