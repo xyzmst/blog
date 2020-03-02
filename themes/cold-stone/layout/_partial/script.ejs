@@ -140,6 +140,35 @@
 	hljs.initHighlightingOnLoad()
 
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"
+	integrity="sha256-6Y7CJDaltoeNgk+ZftgCD9jLgmGv4xKUo8nQ0HgAwVo=" crossorigin="anonymous"></script>
+
+<script>
+	const ap = new APlayer({
+		container: document.getElementById('player'),
+		fixed: true,
+		audio: [{
+				name: 'DNF·风一样的勇士编钟国乐版',
+				artist: '湖北省博物馆编钟乐团',
+				url: './audios/dnf.mp3',
+				cover: './images/cover.jpg',
+			},
+			{
+				name: 'さくら～あなたに出会えてよかった～',
+				artist: 'Real Street Performance',
+				url: './audios/dnf.mp3',
+				cover: './images/cover2.jpg',
+			},
+			// {
+			// name: '我不配',
+			// artist: '周杰伦',
+			// url: './audios/dnf.mp3',
+			// cover: './images/cover3.jpg',
+			// }
+		]
+	});
+
+</script>
 <% } %>
 
 <script src="/scripts/busuanzi.js" referrerpolicy="origin"></script>
