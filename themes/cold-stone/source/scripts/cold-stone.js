@@ -30,12 +30,12 @@ function removeThemeDarkLink() {
 }
 
 // service worker
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    const path = window.COLD_STONE.root + 'sw.js'
-    navigator.serviceWorker.register(path)
-  })
-}
+// if ('serviceWorker' in navigator) {
+//   window.addEventListener('load', () => {
+//     const path = window.COLD_STONE.root + 'sw.js'
+//     navigator.serviceWorker.register(path)
+//   })
+// }
 
 // nav item
 const path = location.pathname
